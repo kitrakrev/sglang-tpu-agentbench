@@ -29,8 +29,19 @@ scripts/idle_delete.sh             # deletes the VM after 2h idle
 ```
 Plan: develop with an 8B model on v6e-1, final numbers with a 70B model on v6e-8.
 
+## First real run (Colab T4, SGLang 0.5.23, Qwen2.5-0.5B, 6-turn sessions, 64 max tokens)
+| concurrency | output tok/s | TTFT p50 |
+|---|---|---|
+| 1 | 98 | 86 ms |
+| 4 | 214 | 126 ms |
+| 8 | 88 | 478 ms |
+| 16 | 150 | 314 ms |
+
+Smoke test only: the c=8 run was the first after server start (no warmup, 21 s p99 TTFT outlier from kernel compile), and cache reporting was off. Both fixed since. Not TPU numbers.
+
 ## Status
 - [x] Harness, mock server, tests
+- [x] Real SGLang server end-to-end (Colab T4)
 - [ ] Confirm SGLang TPU launch command (`SERVER_CMD`)
 - [ ] v6e-1 8B baseline, prefix cache on vs off
 - [ ] v6e-8 70B results + write-up
