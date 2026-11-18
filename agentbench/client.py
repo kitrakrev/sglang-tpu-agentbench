@@ -19,6 +19,7 @@ class TurnResult:
     cached_tokens: int | None
     ok: bool
     error: str = ""
+    prompt_tokens: int | None = None
 
     def to_dict(self):
         return asdict(self)
@@ -36,6 +37,7 @@ async def chat_stream(client: httpx.AsyncClient, url: str, model: str,
     stamps: list[float] = []
     text = []
     cached = None
+    ptok = None
     try:
         async with client.stream("POST", f"{url}/v1/chat/completions", json=body) as r:
             r.raise_for_status()
@@ -49,7 +51,8 @@ async def chat_stream(client: httpx.AsyncClient, url: str, model: str,
                 usage = chunk.get("usage")
                 if usage:
                     details = usage.get("prompt_tokens_details") or {}
-                    cached = details.get("cached_tokens", cached)
+                    cached = details.get("cached_tokens", usage.get("cached_tokens", cached))
+                    ptok = usage.get("prompt_tokens", ptok)
                 for ch in chunk.get("choices", []):
                     piece = (ch.get("delta") or {}).get("content")
                     if piece:
@@ -66,4 +69,4 @@ async def chat_stream(client: httpx.AsyncClient, url: str, model: str,
     itl = sum(gaps) / len(gaps) if gaps else 0.0
     ttft = (first or end) - t0
     return TurnResult(sid, turn, prompt_chars, ttft, end - t0, len(stamps), itl,
-                      cached, True), "".join(text)
+                      cached, True, "", ptok), "".join(text)

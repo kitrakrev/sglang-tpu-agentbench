@@ -86,8 +86,18 @@ def test_sweep_against_mock(tmp_path):
 
 def test_launch_script_dry_run():
     import subprocess
-    for cfg in ("v6e-1-llama8b", "v6e-8-llama70b"):
+    for cfg in ("v6e-1-qwen7b", "v6e-8-qwen72b"):
         out = subprocess.run(["bash", "scripts/launch_v6e.sh", cfg],
                              env={"DRY_RUN": "1", "PATH": "/usr/bin:/bin"},
                              capture_output=True, text=True, check=True).stdout
         assert "sgl_jax.launch_server" in out and "--tp-size" in out
+
+
+def test_analyze_mock(tmp_path):
+    import shutil, json, os
+    from agentbench import analyze
+    shutil.copytree("results/mock-sweep", tmp_path / "cache")
+    analyze.main([str(tmp_path)])
+    rows = json.load(open(tmp_path / "metrics.json"))["rows"]
+    assert rows and all(r["output_tok_per_s"] > 0 and r["ttft_p99_ms"] > 0 for r in rows)
+    assert os.path.exists(tmp_path / "charts" / "ttft_by_turn.png")
