@@ -1,0 +1,1521 @@
+JAX_COMPILATION_CACHE_DIR=/tmp/jit_cache python3 -u -m sgl_jax.launch_server --model-path Qwen/Qwen2.5-7B-Instruct --trust-remote-code --dist-init-addr=0.0.0.0:10011 --tp-size=1 --device=tpu --mem-fraction-static=0.85 --page-size=128 --chunked-prefill-size=2048 --max-running-requests=128 --attention-backend=fa --dtype=bfloat16 --enable-cache-report --host 0.0.0.0 --port 30000 --chunked-prefill-size=512
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2026-11-18 19:40:15] server_args=ServerArgs(model_path='Qwen/Qwen2.5-7B-Instruct', tokenizer_path='Qwen/Qwen2.5-7B-Instruct', tokenizer_mode='auto', tokenizer_backend='huggingface', skip_tokenizer_init=False, load_format='auto', model_loader_extra_config='{}', trust_remote_code=True, context_length=None, is_embedding=False, revision=None, model_impl='auto', model_layer_nums=None, host='0.0.0.0', port=30000, skip_server_warmup=False, warmups=None, dtype='bfloat16', quantization=None, quantization_param_path=None, quantization_config_path=None, kv_cache_dtype='auto', dtype_config=None, mem_fraction_static=0.85, max_running_requests=128, max_total_tokens=None, max_prefill_tokens=16384, chunked_prefill_size=512, enable_mixed_chunk=False, schedule_policy='fcfs', schedule_conservativeness=1.0, page_size=128, swa_full_tokens_ratio=0.8, recurrent_state_memory_ratio=0.9, max_recurrent_state_size=None, recurrent_track_interval=None, disable_hybrid_swa_memory=False, device='tpu', device_indexes=None, pd_disaggregation='', pd_prefill_mem_fraction=0.85, pd_decode_mem_fraction=0.85, pd_prefill_max_tokens=20480, pd_decode_max_tokens=25600, pd_num_prefill=1, pd_num_decode=1, pd_prefill_tp_size=0, pd_prefill_ep_size=0, tp_size=1, ep_size=1, ep_num_redundant_experts=0, ep_dispatch_algorithm=None, enable_sequence_parallel=False, stream_interval=1, stream_output=False, random_seed=42, constrained_json_whitespace_pattern=None, constrained_json_disable_any_whitespace=False, watchdog_timeout=300, dist_timeout=None, download_dir=None, sleep_on_idle=False, dp_size=1, enable_dp_lm_head=False, moe_dp_size=1, dp_schedule_policy='cache_aware', log_level='info', log_level_http=None, log_requests=False, log_requests_level=0, crash_dump_folder=None, show_time_cost=False, enable_metrics=False, bucket_time_to_first_token=None, bucket_inter_token_latency=None, bucket_e2e_request_latency=None, decode_log_interval=40, enable_request_time_stats_logging=False, kv_events_config=None, api_key=None, served_model_name='Qwen/Qwen2.5-7B-Instruct', file_storage_path='sglang_storage', enable_cache_report=True, reasoning_parser=None, tool_call_parser=None, dist_init_addr='0.0.0.0:10011', nnodes=1, node_rank=0, json_model_override_args='{}', preferred_sampling_params=None, disable_radix_cache=False, enable_unified_radix_tree=False, hicache_storage='disable', hicache_ratio=2.0, hicache_write_through_threshold=1, hicache_write_policy='write_through', enable_recurrent_extra_buffer=False, allow_auto_truncate=False, enable_tokenizer_batch_encode=False, disable_overlap_schedule=False, enable_precision_tracer=False, attention_backend='fa', gdn_prefill_impl='fused_chunk_parallel', dsa_use_pallas=True, moe_backend='epmoe', disable_jax_allreduce_metadata=False, enable_topk_kernel=True, grammar_backend='llguidance', max_seq_len=4096, precompile_token_paddings=None, precompile_bs_paddings=None, precompile_vision_patch_paddings=None, vision_encoder_parallel='dp', disable_precompile=False, precompile_num_threads=2, aot_model_dir=None, save_aot=None, aot_topology=None, aot_topology_name=None, aot_host_bounds=None, speculative_algorithm=None, speculative_draft_model_path=None, speculative_draft_model_revision=None, speculative_num_steps=4, speculative_eagle_topk=5, speculative_num_draft_tokens=4, speculative_sample_from_anchor=False, speculative_accept_threshold_single=1.0, speculative_accept_threshold_acc=1.0, enable_deterministic_sampling=False, enable_single_process=False, enable_nan_detection=False, enable_lora=False, max_lora_rank=None, lora_target_modules=None, lora_paths=None, max_loaded_loras=None, max_loras_per_batch=8, lora_eviction_policy='lru', enable_static_lora=False, lora_scaling=None, enable_engine_loop_run_forever_daemon=False, multimodal=False, limit_mm_data_per_request=None, mm_processor_worker_num=0, enable_return_routed_experts=False, enable_expert_balance_debug=False, expert_balance_segment_counter=100, expert_balance_output_file=None, init_expert_location='trivial', enable_expert_distribution_recorder=False, expert_distribution_recorder_buffer_size=100, expert_distribution_recorder_output_file=None, disaggregation_mode='null', disaggregation_bootstrap_url=None, disaggregation_bootstrap_port=8998, disaggregation_transfer_port=30001, disaggregation_enable_d2h=False, disaggregation_use_raiden=False, disaggregation_enable_overlap_schedule=False, disaggregation_enable_chunk_prefill_transfer=False, disaggregation_side_channel_port=9600, disaggregation_d2h_pool_size=64, disaggregation_d2h_max_tokens=None, disaggregation_channel_number=4, disaggregation_host_ip=None, disaggregation_bootstrap_timeout_seconds=5.0, disaggregation_pull_timeout_seconds=30.0, disaggregation_ack_timeout_seconds=60.0, disaggregation_orphan_reaper_interval_seconds=5.0, disaggregation_shared_secret=None, disaggregation_decode_watchdog_seconds=0.0, disaggregation_num_reserved_decode_tokens=512, disaggregation_max_inflight_transfers=8)
+[2026-11-18 19:40:16] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-18 19:40:16] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-18 19:40:16] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json?%2FQwen%2FQwen2.5-7B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%220178295f88afc3c7f279ed284f961f8c1be00654%22 "HTTP/1.1 200 OK"
+[2026-11-18 19:40:16] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-18 19:40:16] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/generation_config.json?%2FQwen%2FQwen2.5-7B-Instruct%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%220eb3c536657dcd12626e09eca4b6198c0cbcde1e%22 "HTTP/1.1 200 OK"
+[2026-11-18 19:40:16] No quantization config found in HF config or user config
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2026-11-18 19:40:16] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 1941.06it/s]
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2026-11-18 19:40:18] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 2125.13it/s]
+[2026-11-18 19:40:18] XLA persistent compilation cache: enabled, dir=/tmp/jit_cache, min_compile_time=0s
+[2026-11-18 19:40:18] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-18 19:40:18] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-18 19:40:18] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/config.json?%2FQwen%2FQwen2.5-7B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%220178295f88afc3c7f279ed284f961f8c1be00654%22 "HTTP/1.1 200 OK"
+[2026-11-18 19:40:18] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-7B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-18 19:40:18] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28/generation_config.json?%2FQwen%2FQwen2.5-7B-Instruct%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%220eb3c536657dcd12626e09eca4b6198c0cbcde1e%22 "HTTP/1.1 200 OK"
+[2026-11-18 19:40:18] No quantization config found in HF config or user config
+[2026-11-18 19:40:19] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 2174.53it/s]
+[2026-11-18 19:40:20] Initialized GuidanceBackend with whitespace_pattern=None
+[2026-11-18 19:40:22] No quantization config found in HF config or user config
+[2026-11-18 19:40:22] Precision tracer globally disabled
+[2026-11-18 19:40:22] KV heads distribution for GQA model: original_kv_heads=4, tp_size=1, each device gets 4 head(s), no replication needed, padding_strategy=replicate
+[2026-11-18 19:40:22] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files: 100%|██████████| 14/14 [00:00<00:00, 2567.01it/s]
+[2026-11-18 19:40:22] Qwen2ForCausalLM config dtype: <class 'jax.numpy.bfloat16'>
+[2026-11-18 19:40:23] model_path on ext4 mount, skipping GCSFuse warm-up
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:00<02:03,  2.74it/s]Loading weights:   1%|          | 4/339 [00:00<00:32, 10.30it/s]Loading weights:   4%|▍         | 15/339 [00:00<00:09, 35.25it/s]Loading weights:   6%|▌         | 20/339 [00:00<00:08, 38.94it/s]Loading weights:   8%|▊         | 28/339 [00:00<00:06, 46.19it/s]Loading weights:  12%|█▏        | 39/339 [00:00<00:05, 58.13it/s]Loading weights:  14%|█▎        | 46/339 [00:01<00:04, 58.62it/s]Loading weights:  16%|█▌        | 53/339 [00:01<00:05, 52.09it/s]Loading weights:  19%|█▉        | 64/339 [00:01<00:04, 61.49it/s]Loading weights:  23%|██▎       | 78/339 [00:01<00:03, 79.72it/s]Loading weights:  26%|██▌       | 87/339 [00:01<00:04, 55.91it/s]Loading weights:  29%|██▊       | 97/339 [00:01<00:04, 60.39it/s]Loading weights:  32%|███▏      | 108/339 [00:02<00:03, 66.12it/s]Loading weights:  34%|███▍      | 116/339 [00:02<00:03, 65.26it/s]Loading weights:  37%|███▋      | 124/339 [00:02<00:03, 61.03it/s]Loading weights:  41%|████      | 138/339 [00:02<00:02, 76.46it/s]Loading weights:  43%|████▎     | 147/339 [00:02<00:03, 53.10it/s]Loading weights:  47%|████▋     | 158/339 [00:02<00:02, 60.53it/s]Loading weights:  50%|████▉     | 169/339 [00:03<00:02, 66.48it/s]Loading weights:  52%|█████▏    | 177/339 [00:03<00:02, 64.48it/s]Loading weights:  55%|█████▍    | 185/339 [00:03<00:03, 43.30it/s]Loading weights:  58%|█████▊    | 196/339 [00:03<00:02, 51.23it/s]Loading weights:  61%|██████    | 207/339 [00:03<00:02, 58.77it/s]Loading weights:  63%|██████▎   | 214/339 [00:03<00:02, 59.38it/s]Loading weights:  65%|██████▌   | 221/339 [00:04<00:02, 53.44it/s]Loading weights:  68%|██████▊   | 232/339 [00:04<00:01, 61.11it/s]Loading weights:  72%|███████▏  | 243/339 [00:04<00:01, 66.70it/s]Loading weights:  74%|███████▍  | 251/339 [00:04<00:01, 64.95it/s]Loading weights:  76%|███████▌  | 258/339 [00:04<00:01, 58.67it/s]Loading weights:  79%|███████▉  | 268/339 [00:04<00:01, 63.48it/s]Loading weights:  81%|████████▏ | 276/339 [00:04<00:01, 60.67it/s]Loading weights:  83%|████████▎ | 283/339 [00:05<00:01, 32.83it/s]Loading weights:  86%|████████▋ | 293/339 [00:05<00:01, 40.76it/s]Loading weights:  90%|████████▉ | 304/339 [00:05<00:00, 49.60it/s]Loading weights:  92%|█████████▏| 311/339 [00:05<00:00, 51.98it/s]Loading weights:  94%|█████████▍| 318/339 [00:05<00:00, 49.21it/s]Loading weights:  97%|█████████▋| 329/339 [00:06<00:00, 57.43it/s]Loading weights: 100%|██████████| 339/339 [00:06<00:00, 55.97it/s]Loading weights: 100%|██████████| 339/339 [00:06<00:00, 54.20it/s]
+[2026-11-18 19:40:29] Loaded 339 parameters in 6.29s
+[2026-11-18 19:40:29] Qwen2 weights loaded successfully!
+[2026-11-18 19:40:29] ModelRunner kv_cache_dtype: <class 'jax.numpy.bfloat16'>
+[2026-11-18 19:40:29] TPU Memory profiling: available_kv_cache=12.4GB, max_tokens=231626, cell_size=57344 bytes
+[2026-11-18 19:40:29] ModelRunner per dp max_total_num_tokens after dp_size 1: 231552
+[2026-11-18 19:40:29] ModelRunner final max_total_num_tokens: 231552
+[2026-11-18 19:40:29] Creating fused KV buffers for 28 layers
+[2026-11-18 19:40:29] Total fused KV cache memory per layer: 0.00 GB, dtype: <class 'jax.numpy.bfloat16'>
+[2026-11-18 19:40:29] Total time to create 28 buffers: 0.00 seconds
+[2026-11-18 19:40:29] JAX Fused KV Cache allocated. #tokens: 231552, Fused KV size: 12.37 GB
+[2026-11-18 19:40:29] Max running requests constraints:
+[2026-11-18 19:40:29]   - Server limit: 128 (configured)
+[2026-11-18 19:40:29]   - Token pool size: 128
+[2026-11-18 19:40:29]   - Attention backend: 512 (context_len=32768, page_size=128)
+[2026-11-18 19:40:29]   → Final max_running_requests: 128
+[2026-11-18 19:40:29] Tree cache initialized: impl=RadixCache hybrid_swa=False hybrid_recurrent=False
+[2026-11-18 19:40:29] [Scheduler] Begins to run worker precompile.
+[2026-11-18 19:40:29] [EXTEND] Compiling buckets with 2 XLA workers
+[2026-11-18 19:40:30] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 256) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:30] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=2048, max_q=256, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:31] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 256) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:31] get_default_block_sizes: case=m, tpu_v=6, bq=32, bkv=1024, max_q=256, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:33] [EXTEND] Begin to precompile bs_paddings=[128] token_paddings=[128, 256, 512]
+[EXTEND] PRECOMPILE:   0%|          | 0/3 [00:00<?, ?it/s][EXTEND] PRECOMPILE:   0%|          | 0/3 [00:00<?, ?it/s, bs=128, tokens=128][EXTEND] PRECOMPILE:  33%|███▎      | 1/3 [00:00<00:00,  5.75it/s, bs=128, tokens=128][EXTEND] PRECOMPILE:  33%|███▎      | 1/3 [00:00<00:00,  5.75it/s, bs=128, tokens=256][EXTEND] PRECOMPILE:  67%|██████▋   | 2/3 [00:00<00:00,  5.93it/s, bs=128, tokens=256][EXTEND] PRECOMPILE:  67%|██████▋   | 2/3 [00:00<00:00,  5.93it/s, bs=128, tokens=512][EXTEND] PRECOMPILE: 100%|██████████| 3/3 [00:00<00:00,  5.99it/s, bs=128, tokens=512]                                                                                      [2026-11-18 19:40:33] [EXTEND] Precompile finished in 4 secs
+[2026-11-18 19:40:33] [DECODE] Compiling buckets with 2 XLA workers
+[2026-11-18 19:40:34] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 1) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:34] get_default_block_sizes: case=m, tpu_v=6, bq=1, bkv=1024, max_q=1, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:35] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 2) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:35] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=2048, max_q=2, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:35] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 2) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:35] get_default_block_sizes: case=m, tpu_v=6, bq=1, bkv=1024, max_q=2, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:36] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 4) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:36] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=2048, max_q=4, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:36] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 4) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:36] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=1024, max_q=4, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:37] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 8) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:37] get_default_block_sizes: case=m, tpu_v=6, bq=4, bkv=1024, max_q=8, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:38] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 16) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:38] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=2048, max_q=16, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:38] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 16) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:38] get_default_block_sizes: case=m, tpu_v=6, bq=8, bkv=1024, max_q=16, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:40] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 64) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:40] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=2048, max_q=64, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:41] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 4, 128, 128, 64) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-18 19:40:41] get_default_block_sizes: case=m, tpu_v=6, bq=32, bkv=1024, max_q=64, max_kv=32768, heads=4, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-18 19:40:43] [DECODE] Begin to precompile bs_paddings=[1, 2, 4, 8, 16, 32, 64, 128] decode_page_buckets=None
+[DECODE] PRECOMPILE:   0%|          | 0/8 [00:00<?, ?it/s][DECODE] PRECOMPILE:   0%|          | 0/8 [00:00<?, ?it/s, bs=1, pages=None][DECODE] PRECOMPILE:   0%|          | 0/8 [00:00<?, ?it/s, bs=2, pages=None][DECODE] PRECOMPILE:   0%|          | 0/8 [00:00<?, ?it/s, bs=4, pages=None][DECODE] PRECOMPILE:  38%|███▊      | 3/8 [00:00<00:00, 26.17it/s, bs=4, pages=None][DECODE] PRECOMPILE:  38%|███▊      | 3/8 [00:00<00:00, 26.17it/s, bs=8, pages=None][DECODE] PRECOMPILE:  38%|███▊      | 3/8 [00:00<00:00, 26.17it/s, bs=16, pages=None][DECODE] PRECOMPILE:  38%|███▊      | 3/8 [00:00<00:00, 26.17it/s, bs=32, pages=None][DECODE] PRECOMPILE:  75%|███████▌  | 6/8 [00:00<00:00,  7.82it/s, bs=32, pages=None][DECODE] PRECOMPILE:  75%|███████▌  | 6/8 [00:00<00:00,  7.82it/s, bs=64, pages=None][DECODE] PRECOMPILE:  75%|███████▌  | 6/8 [00:00<00:00,  7.82it/s, bs=128, pages=None][DECODE] PRECOMPILE: 100%|██████████| 8/8 [00:00<00:00,  7.62it/s, bs=128, pages=None]                                                                                      [2026-11-18 19:40:44] [DECODE] Precompile finished in 11 secs
+[2026-11-18 19:40:44] [Scheduler] Completes worker precompile.
+[2026-11-18 19:40:44] INFO:     Started server process [9380]
+[2026-11-18 19:40:44] INFO:     Waiting for application startup.
+[2026-11-18 19:40:44] INFO:     Application startup complete.
+[2026-11-18 19:40:44] INFO:     Uvicorn running on http://0.0.0.0:30000 (Press CTRL+C to quit)
+[2026-11-18 19:40:45] INFO:     127.0.0.1:33050 - "GET /get_model_info HTTP/1.1" 200 OK
+[2026-11-18 19:40:45] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-18 19:40:45] INFO:     127.0.0.1:33056 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-18 19:40:45] The server is fired up and ready to roll!
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55600 - "GET /health HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55622 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55634 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] Prefill batch. #new-seq: 1, #new-token: 512, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55612 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55642 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55644 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] INFO:     127.0.0.1:55646 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:52] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 512, token usage: 0.00, #running-req: 0, #queue-req: 4, 
+[2026-11-18 19:40:52] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1024, token usage: 0.00, #running-req: 2, #queue-req: 4, 
+[2026-11-18 19:40:52] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 4, #queue-req: 0, 
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55658 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55662 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55678 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55682 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55688 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55696 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55698 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.00, #running-req: 1, #queue-req: 5, 
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.01, #running-req: 3, #queue-req: 3, 
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.01, #running-req: 5, #queue-req: 1, 
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.01, #running-req: 7, #queue-req: 0, 
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55724 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 768, token usage: 0.00, #running-req: 7, #queue-req: 0, 
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55734 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 768, token usage: 0.01, #running-req: 8, #queue-req: 0, 
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55746 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55754 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55770 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55772 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55786 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] INFO:     127.0.0.1:55788 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1536, token usage: 0.01, #running-req: 9, #queue-req: 4, 
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 768, token usage: 0.01, #running-req: 10, #queue-req: 3, 
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 768, token usage: 0.01, #running-req: 11, #queue-req: 2, 
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1536, token usage: 0.02, #running-req: 13, #queue-req: 0, 
+[2026-11-18 19:40:53] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.02, #running-req: 14, #queue-req: 0, 
+[2026-11-18 19:40:53] Decode batch. #running-req: 8, #token: 4736, token usage: 0.02, gen throughput (token/s): 12.42, #queue-req: 0, 
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55846 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55852 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55872 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 640, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55880 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55886 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55898 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55912 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55936 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55940 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55952 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55968 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55976 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55992 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56014 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56030 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55790 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55804 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55808 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55818 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55824 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55838 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:55842 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56036 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56040 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56046 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.00, #running-req: 1, #queue-req: 24, 
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56054 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 5, #queue-req: 23, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 9, #queue-req: 19, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 13, #queue-req: 15, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 17, #queue-req: 11, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 21, #queue-req: 7, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.02, #running-req: 25, #queue-req: 3, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 3, #new-token: 384, #cached-token: 1920, token usage: 0.02, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56066 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56068 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 2, #new-token: 256, #cached-token: 1280, token usage: 0.00, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:54] Decode batch. #running-req: 30, #token: 1024, token usage: 0.00, gen throughput (token/s): 1062.01, #queue-req: 0, 
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56070 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56072 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56120 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56126 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56146 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56156 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.00, #running-req: 3, #queue-req: 3, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 3, #new-token: 384, #cached-token: 1920, token usage: 0.01, #running-req: 7, #queue-req: 0, 
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56088 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56094 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56108 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56112 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56114 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56164 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56168 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56176 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56184 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56190 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56196 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56204 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56210 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56220 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56230 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56244 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56260 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56272 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56284 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56300 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56308 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] INFO:     127.0.0.1:56318 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 10, #queue-req: 18, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 14, #queue-req: 14, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 18, #queue-req: 10, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 22, #queue-req: 6, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.02, #running-req: 26, #queue-req: 2, 
+[2026-11-18 19:40:54] Prefill batch. #new-seq: 2, #new-token: 256, #cached-token: 1280, token usage: 0.02, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56326 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56336 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 2, #new-token: 256, #cached-token: 1280, token usage: 0.02, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56358 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56372 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56388 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56352 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56402 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56404 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56410 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 25, #queue-req: 3, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 3, #new-token: 384, #cached-token: 1920, token usage: 0.01, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56422 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 640, token usage: 0.01, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56434 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56440 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56456 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56458 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56466 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56480 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56508 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56524 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 33, #queue-req: 5, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 37, #queue-req: 1, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56534 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56536 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56542 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56546 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56550 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56558 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56574 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56584 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56590 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56598 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56600 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 41, #queue-req: 8, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.02, #running-req: 45, #queue-req: 4, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.02, #running-req: 49, #queue-req: 0, 
+[2026-11-18 19:40:55] Decode batch. #running-req: 32, #token: 4736, token usage: 0.02, gen throughput (token/s): 1469.25, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56608 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56616 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 2, #new-token: 256, #cached-token: 1280, token usage: 0.02, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56642 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56658 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 3, #new-token: 384, #cached-token: 1920, token usage: 0.01, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56674 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 640, token usage: 0.01, #running-req: 8, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56684 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56796 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56802 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 3, #new-token: 384, #cached-token: 1920, token usage: 0.01, #running-req: 9, #queue-req: 0, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56698 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56702 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56718 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56728 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56736 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56748 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56754 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56764 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56766 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56780 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56806 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56816 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56822 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56838 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56854 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56878 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56894 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56900 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 10, #queue-req: 16, 
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56904 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] INFO:     127.0.0.1:56916 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 14, #queue-req: 14, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 18, #queue-req: 10, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.01, #running-req: 22, #queue-req: 6, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 4, #new-token: 512, #cached-token: 2560, token usage: 0.02, #running-req: 26, #queue-req: 2, 
+[2026-11-18 19:40:55] Prefill batch. #new-seq: 2, #new-token: 256, #cached-token: 1280, token usage: 0.02, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:56] Decode batch. #running-req: 32, #token: 4864, token usage: 0.02, gen throughput (token/s): 1760.83, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56918 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 640, token usage: 0.02, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56932 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 640, token usage: 0.02, #running-req: 28, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56940 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56942 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56958 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 3, #new-token: 512, #cached-token: 1920, token usage: 0.02, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56964 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.02, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56978 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56982 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.02, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:56998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.01, #running-req: 10, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57010 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57024 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57044 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57056 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57066 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57072 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57082 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57090 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57100 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57122 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57124 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57126 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57140 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57152 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57162 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57166 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57176 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57180 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57190 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.01, #running-req: 11, #queue-req: 19, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.01, #running-req: 13, #queue-req: 17, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.02, #running-req: 15, #queue-req: 15, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.02, #running-req: 17, #queue-req: 13, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.02, #running-req: 19, #queue-req: 11, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.02, #running-req: 21, #queue-req: 9, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.02, #running-req: 23, #queue-req: 7, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.03, #running-req: 25, #queue-req: 5, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.03, #running-req: 27, #queue-req: 3, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.03, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.03, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57200 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57216 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57230 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57244 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 32, #queue-req: 1, 
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:40:56] Decode batch. #running-req: 32, #token: 11904, token usage: 0.05, gen throughput (token/s): 1393.65, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57260 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:56] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:56] INFO:     127.0.0.1:57264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.04, #running-req: 24, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57270 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57278 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57294 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57302 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57308 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57314 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57330 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.04, #running-req: 25, #queue-req: 5, 
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.04, #running-req: 27, #queue-req: 3, 
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.04, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57338 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57352 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57364 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57366 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57376 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57388 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57400 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57412 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57424 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57440 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57452 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:57] Decode batch. #running-req: 32, #token: 11520, token usage: 0.05, gen throughput (token/s): 1567.26, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57454 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57470 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:57474 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:57] INFO:     127.0.0.1:36996 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:57] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37028 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37044 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37060 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37062 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37066 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37068 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37074 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37076 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37090 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37096 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] Decode batch. #running-req: 32, #token: 12160, token usage: 0.05, gen throughput (token/s): 1672.14, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37110 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37114 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37118 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 768, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37134 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37144 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37158 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37164 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37172 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37184 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37190 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37202 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37206 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37212 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37220 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37226 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37228 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.04, #running-req: 32, #queue-req: 1, 
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37232 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] INFO:     127.0.0.1:37234 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 34, #queue-req: 1, 
+[2026-11-18 19:40:58] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 36, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37236 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37238 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37252 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37274 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:40:59] Decode batch. #running-req: 32, #token: 11520, token usage: 0.05, gen throughput (token/s): 1506.76, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37286 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37288 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37302 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37304 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37310 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1408, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37314 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37328 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37332 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37334 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37340 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37352 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37354 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37370 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37384 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37396 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37410 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:40:59] INFO:     127.0.0.1:37426 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:40:59] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37428 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37448 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37452 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] Decode batch. #running-req: 32, #token: 11904, token usage: 0.05, gen throughput (token/s): 1553.32, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37456 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37464 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37480 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37508 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37514 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37528 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37538 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37544 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37554 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37562 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37570 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37572 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37576 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37578 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37580 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 640, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37594 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.05, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37598 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37600 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.05, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37614 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.05, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] INFO:     127.0.0.1:37630 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:00] Decode batch. #running-req: 29, #token: 12416, token usage: 0.05, gen throughput (token/s): 1558.16, #queue-req: 0, 
+[2026-11-18 19:41:00] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37648 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.05, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37658 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37660 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37676 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37688 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37696 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37708 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37718 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 768, token usage: 0.06, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37734 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37746 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37748 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37768 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1664, token usage: 0.06, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37772 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37780 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37794 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37798 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37808 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37818 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37832 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37844 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37846 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37854 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37880 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37892 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37898 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 26, #queue-req: 3, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37902 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 28, #queue-req: 2, 
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.07, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37912 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37918 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37930 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 896, token usage: 0.07, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:01] Decode batch. #running-req: 32, #token: 16256, token usage: 0.07, gen throughput (token/s): 1332.90, #queue-req: 0, 
+[2026-11-18 19:41:01] INFO:     127.0.0.1:37932 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:01] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:37934 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:37948 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:37964 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:37970 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.07, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:37984 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.06, #running-req: 28, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:37998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38008 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38020 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38026 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.06, #running-req: 29, #queue-req: 2, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38036 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.07, #running-req: 31, #queue-req: 1, 
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.07, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38044 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.07, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38060 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38074 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.07, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.07, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38076 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.07, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38082 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38096 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.07, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38106 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 384, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38120 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38128 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38130 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38144 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38146 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38154 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.07, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38156 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38168 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 3, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.08, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38180 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Decode batch. #running-req: 32, #token: 17792, token usage: 0.08, gen throughput (token/s): 1403.05, #queue-req: 0, 
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38196 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38200 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:02] INFO:     127.0.0.1:38202 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:02] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38214 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38218 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38226 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38228 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38238 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38252 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38266 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38276 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38288 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:03] Decode batch. #running-req: 32, #token: 19584, token usage: 0.08, gen throughput (token/s): 1665.74, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38304 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38310 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38316 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38330 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38332 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38342 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38356 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.08, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38360 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38362 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38370 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38372 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38376 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38390 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38402 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] INFO:     127.0.0.1:38408 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:03] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38420 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38428 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38448 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38462 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38476 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38478 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38488 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38504 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38514 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] Decode batch. #running-req: 31, #token: 19840, token usage: 0.09, gen throughput (token/s): 1481.13, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38520 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38534 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38540 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38554 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38570 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38574 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38584 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38600 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38606 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38616 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38620 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38636 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38638 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38642 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.08, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38646 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.08, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:04] INFO:     127.0.0.1:38652 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:04] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.08, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38656 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.09, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38658 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38664 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38666 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38668 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38680 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Decode batch. #running-req: 32, #token: 19584, token usage: 0.08, gen throughput (token/s): 1466.43, #queue-req: 0, 
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38690 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38698 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.09, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38700 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1024, token usage: 0.09, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 896, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38714 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38724 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38728 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.09, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38734 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38742 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.09, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.10, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38756 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38760 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.09, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38766 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38776 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38778 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38794 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1920, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38796 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38798 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] INFO:     127.0.0.1:38810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:05] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38824 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38840 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Decode batch. #running-req: 31, #token: 22656, token usage: 0.10, gen throughput (token/s): 1455.14, #queue-req: 0, 
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38842 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38860 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38876 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38884 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38886 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38898 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1920, token usage: 0.09, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38902 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38914 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 1, 
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 896, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38930 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38934 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38942 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 896, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38954 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38970 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.10, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38980 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] INFO:     127.0.0.1:38994 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:39004 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1152, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:06] INFO:     127.0.0.1:39006 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] INFO:     127.0.0.1:39016 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:06] Decode batch. #running-req: 32, #token: 22400, token usage: 0.10, gen throughput (token/s): 1509.25, #queue-req: 0, 
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:06] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39040 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39064 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39074 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39078 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39088 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39100 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39102 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2176, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39118 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39124 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39130 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39132 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2304, token usage: 0.10, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39144 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] INFO:     127.0.0.1:39146 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2176, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.10, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:07] Decode batch. #running-req: 32, #token: 24576, token usage: 0.11, gen throughput (token/s): 1528.65, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:35832 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:35846 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:35858 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1152, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:35862 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:07] INFO:     127.0.0.1:35864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:07] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35868 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.11, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35872 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1152, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35880 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35882 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35890 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.10, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35906 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35914 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35918 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2176, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.11, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35924 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35936 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.10, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35942 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35950 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35956 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2176, token usage: 0.10, #running-req: 33, #queue-req: 1, 
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 2, #new-token: 384, #cached-token: 1024, token usage: 0.11, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35968 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1152, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35974 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] Decode batch. #running-req: 32, #token: 25344, token usage: 0.11, gen throughput (token/s): 1447.49, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35982 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] INFO:     127.0.0.1:35988 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.11, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:08] INFO:     127.0.0.1:36004 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:08] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36014 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36020 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36024 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36028 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36034 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.10, #running-req: 27, #queue-req: 3, 
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2304, token usage: 0.11, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36038 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36048 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2304, token usage: 0.11, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36066 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36074 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1152, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36078 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36084 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1024, token usage: 0.11, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:09] Decode batch. #running-req: 32, #token: 27008, token usage: 0.12, gen throughput (token/s): 1626.04, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36088 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36094 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36106 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1152, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36120 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36134 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36146 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36158 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2048, token usage: 0.11, #running-req: 28, #queue-req: 2, 
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2304, token usage: 0.11, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36164 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36170 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1024, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36178 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36180 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.11, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:09] INFO:     127.0.0.1:36192 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:09] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36206 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36212 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36218 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36226 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36232 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36238 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36252 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] Decode batch. #running-req: 32, #token: 27392, token usage: 0.12, gen throughput (token/s): 1465.87, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36262 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36276 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.11, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36288 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36290 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36302 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36304 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2176, token usage: 0.11, #running-req: 30, #queue-req: 1, 
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 3, #new-token: 512, #cached-token: 2304, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.12, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36306 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36312 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36328 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36342 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2432, token usage: 0.12, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36344 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36360 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36370 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36388 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36392 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1152, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36404 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36416 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36428 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] INFO:     127.0.0.1:36442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2432, token usage: 0.12, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:10] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.12, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36458 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36460 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36476 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36484 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2432, token usage: 0.12, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36496 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Decode batch. #running-req: 32, #token: 28288, token usage: 0.12, gen throughput (token/s): 1393.47, #queue-req: 0, 
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36512 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36522 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36538 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36552 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36562 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36564 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.12, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36576 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36580 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.13, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36584 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.12, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36586 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36592 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2560, token usage: 0.13, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36604 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:11] INFO:     127.0.0.1:36610 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:11] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36622 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Decode batch. #running-req: 32, #token: 29184, token usage: 0.13, gen throughput (token/s): 1564.39, #queue-req: 0, 
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36636 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36650 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36662 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36670 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36678 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2560, token usage: 0.12, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36688 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36690 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 3, #new-token: 512, #cached-token: 2688, token usage: 0.13, #running-req: 30, #queue-req: 1, 
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 2, #new-token: 384, #cached-token: 1280, token usage: 0.13, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36696 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36698 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2816, token usage: 0.13, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36702 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36722 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36730 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36744 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36756 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36766 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2560, token usage: 0.13, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36780 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36792 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36794 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:12] Decode batch. #running-req: 32, #token: 31616, token usage: 0.14, gen throughput (token/s): 1490.98, #queue-req: 0, 
+[2026-11-18 19:41:12] INFO:     127.0.0.1:36800 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:12] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36820 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2560, token usage: 0.13, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36828 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36844 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36848 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36860 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36868 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36876 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36888 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36890 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36904 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36906 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36920 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36936 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:13] Decode batch. #running-req: 32, #token: 32000, token usage: 0.14, gen throughput (token/s): 1555.89, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36938 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36940 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36950 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36954 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2560, token usage: 0.14, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36968 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36976 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:13] INFO:     127.0.0.1:36984 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:13] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:36994 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37006 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37014 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37016 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37020 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37030 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37046 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2688, token usage: 0.14, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37052 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37054 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37070 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Decode batch. #running-req: 32, #token: 29440, token usage: 0.13, gen throughput (token/s): 1531.91, #queue-req: 0, 
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2816, token usage: 0.13, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37072 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.13, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37074 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37088 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37094 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.13, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37096 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37106 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2560, token usage: 0.14, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37120 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37126 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37142 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37152 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:14] INFO:     127.0.0.1:37166 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:14] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37170 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.13, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37174 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37178 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37190 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37198 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37212 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2816, token usage: 0.14, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37214 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37218 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37222 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37230 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2816, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37236 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1280, token usage: 0.15, #running-req: 34, #queue-req: 0, 
+[2026-11-18 19:41:15] Decode batch. #running-req: 32, #token: 34560, token usage: 0.15, gen throughput (token/s): 1355.58, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37242 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.14, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37244 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.14, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.15, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37274 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37282 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37286 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37302 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2816, token usage: 0.15, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37306 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:15] INFO:     127.0.0.1:37308 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:15] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37322 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37326 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.15, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37342 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37354 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37362 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.15, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:16] Decode batch. #running-req: 32, #token: 36224, token usage: 0.16, gen throughput (token/s): 1568.91, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37386 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37394 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.15, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37408 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37422 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.15, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37428 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37434 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37444 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37460 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37464 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1280, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37478 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37486 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.16, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37490 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37492 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37506 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:16] INFO:     127.0.0.1:37512 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:16] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] Decode batch. #running-req: 32, #token: 34560, token usage: 0.15, gen throughput (token/s): 1528.79, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37524 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37528 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.16, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37542 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37554 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37560 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37572 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37588 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37600 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37604 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.16, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37612 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37624 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37634 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37644 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:37646 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:60304 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:60306 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:60318 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] INFO:     127.0.0.1:60322 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.16, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:17] INFO:     127.0.0.1:60326 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:17] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:17] Decode batch. #running-req: 32, #token: 37760, token usage: 0.16, gen throughput (token/s): 1475.69, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60340 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.15, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60348 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60354 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.16, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.17, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60356 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60364 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60372 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1536, token usage: 0.16, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60376 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60380 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60386 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60398 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60408 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60420 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] Decode batch. #running-req: 31, #token: 39552, token usage: 0.17, gen throughput (token/s): 1613.00, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60422 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60424 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60428 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.16, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:18] INFO:     127.0.0.1:60458 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:18] Prefill batch. #new-seq: 2, #new-token: 384, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60462 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60474 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.17, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60488 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60500 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60514 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60522 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.17, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60538 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60554 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60558 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.17, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60564 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60568 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60586 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 2944, token usage: 0.16, #running-req: 29, #queue-req: 1, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60600 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Decode batch. #running-req: 29, #token: 37120, token usage: 0.16, gen throughput (token/s): 1541.62, #queue-req: 1, 
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60606 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60610 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.17, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60644 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] INFO:     127.0.0.1:60658 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:19] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.17, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60668 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60684 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60688 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60690 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60694 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60698 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Decode batch. #running-req: 32, #token: 37248, token usage: 0.16, gen throughput (token/s): 1602.46, #queue-req: 0, 
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3200, token usage: 0.17, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60726 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60740 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60748 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.16, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60760 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1408, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60766 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60778 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.17, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60788 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60800 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60814 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60824 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3072, token usage: 0.16, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:20] INFO:     127.0.0.1:60826 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:20] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.17, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60828 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.14, #running-req: 24, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60840 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.14, #running-req: 25, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60844 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60860 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60884 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60900 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3200, token usage: 0.15, #running-req: 26, #queue-req: 4, 
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3328, token usage: 0.17, #running-req: 28, #queue-req: 2, 
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 3, #new-token: 512, #cached-token: 3200, token usage: 0.18, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] Decode batch. #running-req: 32, #token: 40064, token usage: 0.17, gen throughput (token/s): 1400.12, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60904 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60918 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1536, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60930 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60936 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3200, token usage: 0.18, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60940 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1536, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60956 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60966 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60970 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60984 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3200, token usage: 0.18, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:21] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:21] INFO:     127.0.0.1:60986 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:21] Decode batch. #running-req: 32, #token: 39808, token usage: 0.17, gen throughput (token/s): 1663.09, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32768 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.18, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32774 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1664, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32780 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1664, token usage: 0.17, #running-req: 29, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32782 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32798 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3200, token usage: 0.18, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32808 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32818 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3456, token usage: 0.19, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32840 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32844 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32856 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1792, token usage: 0.19, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32860 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] Decode batch. #running-req: 32, #token: 44160, token usage: 0.19, gen throughput (token/s): 1556.74, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32878 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3584, token usage: 0.19, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.18, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32880 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] INFO:     127.0.0.1:32894 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:22] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3456, token usage: 0.19, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32902 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1664, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32912 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32918 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1792, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32934 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1792, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32942 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.19, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32952 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.20, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32960 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32964 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3712, token usage: 0.20, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:23] Decode batch. #running-req: 32, #token: 46592, token usage: 0.20, gen throughput (token/s): 1602.47, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32970 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32974 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3584, token usage: 0.20, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 0, token usage: 0.20, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:32986 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 256, #cached-token: 1792, token usage: 0.19, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:33000 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] INFO:     127.0.0.1:33004 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3584, token usage: 0.20, #running-req: 32, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:33010 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 1792, token usage: 0.20, #running-req: 33, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:33014 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1792, token usage: 0.20, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:23] INFO:     127.0.0.1:33016 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] INFO:     127.0.0.1:33028 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:23] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3584, token usage: 0.20, #running-req: 30, #queue-req: 0, 
+[2026-11-18 19:41:24] INFO:     127.0.0.1:33030 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:24] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1792, token usage: 0.21, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:24] INFO:     127.0.0.1:33032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:24] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 1792, token usage: 0.21, #running-req: 31, #queue-req: 0, 
+[2026-11-18 19:41:24] Decode batch. #running-req: 31, #token: 47104, token usage: 0.20, gen throughput (token/s): 1606.42, #queue-req: 0, 
+[2026-11-18 19:41:24] INFO:     127.0.0.1:33038 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:24] INFO:     127.0.0.1:33050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+[2026-11-18 19:41:24] Prefill batch. #new-seq: 2, #new-token: 512, #cached-token: 3840, token usage: 0.20, #running-req: 28, #queue-req: 0, 
+[2026-11-18 19:41:25] Decode batch. #running-req: 26, #token: 40448, token usage: 0.17, gen throughput (token/s): 1755.89, #queue-req: 0, 
+[2026-11-18 19:41:25] Decode batch. #running-req: 15, #token: 24192, token usage: 0.10, gen throughput (token/s): 1384.18, #queue-req: 0, 
+[2026-11-18 19:41:26] Decode batch. #running-req: 3, #token: 5632, token usage: 0.02, gen throughput (token/s): 551.13, #queue-req: 0, 
+[2026-11-18 19:41:26] SIGTERM received. signum=None frame=None. Draining requests and shutting down...
+[2026-11-18 19:41:30] Gracefully exiting... remaining number of requests 0
+[2026-11-18 19:41:30] Dumping requests before crash. crash_dump_folder=None

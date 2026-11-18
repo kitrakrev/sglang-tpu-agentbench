@@ -1,0 +1,21 @@
+{
+ "requests": 576,
+ "errors": 0,
+ "wall_s": 24.602,
+ "output_tok_per_s": 1481.48,
+ "requests_per_s": 23.412,
+ "ttft_p50_ms": 42.3,
+ "ttft_p90_ms": 112.0,
+ "ttft_p99_ms": 167.8,
+ "itl_p50_ms": 19.8,
+ "itl_p99_ms": 23.07,
+ "ttft_median_ms_by_turn": {
+  "0": 110.7,
+  "1": 40.1,
+  "2": 40.5,
+  "3": 40.8,
+  "4": 41.5,
+  "5": 42.4
+ },
+ "mean_cached_prompt_tokens": 1036.4
+}

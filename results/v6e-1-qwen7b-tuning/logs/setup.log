@@ -1,0 +1,63 @@
++ cd /home/karthikraja
++ cp /home/karthikraja/agentbench/scripts/idle_delete.sh /home/karthikraja/idle_del.sh
++ chmod +x /home/karthikraja/idle_del.sh
++ command -v uv
++ MAX_MIN=180
++ IDLE_MIN=40
++ nohup /home/karthikraja/idle_del.sh agentbench-v6e-1 europe-west4-a
++ curl -LsSf https://astral.sh/uv/install.sh
++ sh
+downloading uv 0.13.9 x86_64-unknown-linux-gnu
+installing to /home/karthikraja/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
++ export PATH=/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ PATH=/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ '[' -d /home/karthikraja/sglang-jax ']'
++ git clone -q https://github.com/sgl-project/sglang-jax /home/karthikraja/sglang-jax
++ cd /home/karthikraja/sglang-jax
++ uv venv -q --python 3.12
++ . .venv/bin/activate
+++ '[' -n x ']'
+++ '[' .venv/bin/activate = ./vm_setup.sh ']'
+++ '[' false = true ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/karthikraja/sglang-jax/.venv
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV
+++ '[' false = true ']'
+++ _OLD_VIRTUAL_PATH=/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/karthikraja/sglang-jax/.venv/bin:/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' xsglang-jax '!=' x ']'
+++ VIRTUAL_ENV_PROMPT=sglang-jax
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(sglang-jax) '
+++ export PS1
+++ alias pydoc
+++ true
+++ hash -r
++ uv pip install -q -e 'python[all]'
++ uv pip install -q -e /home/karthikraja/agentbench
++ python -c 'import sgl_jax, jax; print(jax.devices())'
+[TpuDevice(id=0, process_index=0, coords=(0,0,0), core_on_chip=0)]
++ echo SETUP_DONE
+SETUP_DONE

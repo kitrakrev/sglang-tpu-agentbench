@@ -9,3 +9,4 @@ results/**/*.xplane.pb
 *.egg-info/
 .pytest_cache/
 .DS_Store
+results/**/trace.tgz
