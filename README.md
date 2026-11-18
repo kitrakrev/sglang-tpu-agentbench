@@ -27,7 +27,7 @@ python -m agentbench.sweep --url http://localhost:30000 --concurrency 1,4,16 --o
 ```
 
 ## On TPU
-See **RUNBOOK.md** (exact gcloud commands, cost per run). Short version:
+**Full step-by-step reproduction: REPRODUCE.md.** See **RUNBOOK.md** (exact gcloud commands, cost per run). Short version:
 ```bash
 scripts/tpu_up.sh v6e-1                        # laptop: create spot VM
 scripts/launch_v6e.sh v6e-1-qwen7b            # VM: pinned launch cmd (sgl_jax); DRY_RUN=1 to print
