@@ -7,7 +7,7 @@ ACCEL=${1:-v6e-1}
 ZONE=${2:-us-east5-b}          # check v6e availability: gcloud compute tpus accelerator-types list --zone=$ZONE
 NAME=${NAME:-agentbench-${ACCEL}}
 RUNTIME=${RUNTIME:-v2-alpha-tpuv6e}
-SPOT=${SPOT:---spot}          # set SPOT= for on-demand
+SPOT=${SPOT---spot}           # set SPOT= (empty) for on-demand
 
 gcloud compute tpus tpu-vm create "$NAME" --project "$PROJECT" --zone "$ZONE" \
   --accelerator-type "$ACCEL" --version "$RUNTIME" $SPOT

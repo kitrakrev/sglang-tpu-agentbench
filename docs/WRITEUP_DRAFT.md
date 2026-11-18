@@ -65,6 +65,30 @@ Google's [TPU Model Design Considerations and Optimization Guide](https://ai-hyp
 - **Shape alignment:** Qwen2.5-7B hidden/FFN dims are 256-aligned, but head_dim 128 underfills v6e's 256x256 MXU in attention.
 - **Next steps** from the guide: c=64-128, KV page 256, chunked prefill sweep, int8 weights/KV ([NEXT_EXPERIMENTS.md](NEXT_EXPERIMENTS.md)).
 
+## Run A (2026-11-18): v6e-1 Qwen2.5-7B tuning (spot, europe-west4-a, ~25 min VM time)
+All cache on, 0 errors on 7,680 requests. Full table: `results/v6e-1-qwen7b-tuning/metrics.md`; roofline: `roofline.md`.
+
+| variant | c | out tok/s | TTFT p50/p99 ms | ITL p50/p99 ms | cached % | SLO % (TTFT<200, TPOT<25) | goodput tok/s | $/1M out OD / spot | % roofline (ITL) |
+|---|---|---|---|---|---|---|---|---|---|
+| max-running 128 | 64 | 2,084 | 64.6 / 421.7 | 26.6 / 32.9 | 83.7 | 26.4 | 616 | 0.36 / 0.13 | 47% |
+| max-running 128 | **96** | **2,755** | 70.1 / 520.1 | 30.1 / 35.7 | 87.9 | 7.4 | 301 | **0.27 / 0.10** | 46% |
+| max-running 128 | 128 | 2,463 | 683.9 / 1,807 | 32.1 / 60.3 | 74.8 | 1.4 | 67 | 0.31 / 0.11 | 48% |
+| page 128 | 32 | **1,523** | 42.0 / 138.4 | 19.7 / 22.7 | 87.2 | 100 | **1,523** | 0.49 / 0.18 | 55% |
+| page 256 | 32 | 1,471 | 43.6 / 228.0 | 20.2 / 23.1 | 81.4 | 96.9 | 1,449 | 0.51 / 0.19 | - |
+| chunk 512 | 32 | 1,479 | 41.4 / 189.1 | 20.4 / 23.2 | 83.8 | 99.5 | 1,467 | 0.51 / 0.19 | - |
+| chunk 1024 | 32 | 1,504 | 42.3 / 145.8 | 20.0 / 22.6 | 83.8 | 99.6 | 1,499 | 0.50 / 0.19 | - |
+| chunk 2048 | 32 | 1,493 | 42.1 / 135.1 | 20.2 / 22.9 | 83.7 | 100 | 1,494 | 0.50 / 0.19 | - |
+| chunk 4096 | 32 | 1,496 | 41.9 / 181.2 | 20.2 / 22.7 | 83.7 | 99.9 | 1,492 | 0.50 / 0.19 | - |
+
+Findings:
+1. Raw throughput peaks at c=96 (2,755 tok/s, 1.8x c=32) and falls at c=128: TTFT p50 jumps 10x (684 ms) and the
+   cache hit rate drops to 75%, consistent with the KV pool (~170 seqs) evicting prefixes. ITL stays 46-48% of the HBM floor.
+2. Under the per-request goodput SLO (TTFT<200 ms and mean ITL<25 ms) c=32 is still the best operating point: c>=64 breaks TPOT 25 ms.
+   Pick c=96 for batch/offline agents (cheapest $/token), c=32 for interactive.
+3. Page size 256 is not better: slightly lower hit rate (81 vs 87%) from coarser prefix granularity and worse TTFT p99. Keep 128.
+4. Chunked prefill 512-4096 is flat on throughput (+-1.5%); 1024-2048 give the best TTFT p99. Default 2048 is fine.
+5. XProf trace of 20 decode steps at c=32 captured (`profile_c32/trace.tgz`, 454 MB, kept out of git, local only).
+
 ## v6e-8, Qwen2.5-72B
 Not run yet. On 2026-11-18 ~09:50-10:05 PST, v6e-8 spot had no capacity in us-east5-b, europe-west4-a, us-east1-d,
 us-central1-b, asia-northeast1-b or us-south1-a. Config is ready: `configs/v6e-8-qwen72b.env` (Qwen2.5-72B-Instruct, TP=8).
