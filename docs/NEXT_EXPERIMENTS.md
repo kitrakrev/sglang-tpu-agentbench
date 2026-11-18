@@ -14,3 +14,11 @@ Derived from [the TPU optimization guide](https://ai-hypercomputer.github.io/tpu
 | 8 | v6e-8: 8x DP replicas of 7B vs TP=8 (and 72B TP=8 when spot capacity returns) | Compare wider TP against more replicas at a fixed chip count ([appendix B](https://ai-hypercomputer.github.io/tpu-codesign/appendix-b/)) | DP should win by about 8x on throughput for 7B. TP lowers latency only. | ~$5-10 per hour on spot |
 
 Experiments 1-3 plus 6 fit in one VM session (about 40 min, about $2).
+
+## Candidate: agent-tuned 27B model (added 2026-11-18)
+
+- Model: [`harness-hub/Qwen3.8-27B-pi-adapted`](https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted) — Qwen3.8-27B + RL/LoRA adapter for the pi coding agent (SWE-bench Pro Hard 51: 29.4% → 62.7%; Terminal-Bench 2.1: 39.5% → 55.8%, per model card/announcement).
+- Why: real multi-turn coding-agent model = exactly this benchmark's workload; stronger story than generic chat model.
+- Memory: ~54 GB bf16 weights → does not fit v6e-1 (32 GB HBM). Options: v6e-4 TP=4 (~13.5 GB/chip, room for KV) or int8 weights on v6e-2.
+- Checks first: sgl_jax support for Qwen3 arch (+ LoRA merge — merge adapter offline into base weights before serving); licence/ungated download.
+- Cost est.: v6e-4 on-demand ~$10.80/h → ~1 h sweep (cache on/off, c=1..64) ≈ $11; spot ≈ $4 if capacity.
