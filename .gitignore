@@ -1,6 +1,11 @@
 .venv/
 __pycache__/
-results/
+# results/ tracked (runs, logs, metrics); never weights/caches/secrets
+results/**/jit_cache/
+results/**/*.safetensors
+results/**/*.bin
+results/**/*.xplane.pb
+*.env.local
 *.egg-info/
 .pytest_cache/
 .DS_Store

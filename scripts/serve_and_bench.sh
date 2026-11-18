@@ -26,8 +26,9 @@ for MODE in $MODES; do
   echo "{\"startup_s\": $((T1-T0)), \"warmup_s\": $((T2-T1))}" > "results/$TAG/$SUB/timing.json"
   (command -v tpu-info >/dev/null && tpu-info || true) > "results/$TAG/$SUB/hbm_idle.txt" 2>&1
   python -m agentbench.sweep --url "http://localhost:$PORT" --model "$MODEL" \
-    --concurrency "$CONC" --turns 6 --sessions-per-conc "$SESS" --out-dir "results/$TAG/$SUB"
+    --concurrency "$CONC" --turns 6 --sessions-per-conc "$SESS" --out-dir "results/$TAG/$SUB" 2>&1 | tee "results/$TAG/$SUB/client.log"
   (command -v tpu-info >/dev/null && tpu-info || true) > "results/$TAG/$SUB/hbm_after.txt" 2>&1
   kill $PID; wait $PID 2>/dev/null || true; sleep 5
+  mkdir -p "results/$TAG/logs"; cp "server-$SUB.log" "results/$TAG/logs/"
 done
 echo "done: results/$TAG"
