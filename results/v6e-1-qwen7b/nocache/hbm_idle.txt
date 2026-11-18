@@ -1,0 +1,41 @@
+Libtpu version: 0.0.46.3                                                        
+Accelerator type: v6e                                                           
+                                                                                
+TPU Chips                                       
+                                                
+| Chip        | Type         | Devices | PID   |
+|-------------|--------------|---------|-------|
+| /dev/vfio/0 | TPU v6e chip | 1       | 10423 |
+                                                
+TPU Runtime Utilization                      
+                                             
+| Chip | HBM Usage (GiB)       | Duty cycle |
+|------|-----------------------|------------|
+| 0    | 27.08 GiB / 31.24 GiB | 0.74%      |
+                                             
+TensorCore Utilization              
+                                    
+| Core ID | TensorCore Utilization |
+|---------|------------------------|
+| 0       | 12.87%                 |
+                                    
+╭─────────────────────── Buffer Transfer Latency Status ───────────────────────╮
+│ WARNING: Buffer Transfer Latency metrics unavailable. Did you start a        │
+│ MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`?   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────── Inbound Buffer Transfer Latency Status ───────────────────╮
+│ WARNING: Inbound Buffer Transfer Latency metrics unavailable. Did you start  │
+│ a MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`? │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────── Host Compute Latency Status ─────────────────────────╮
+│ WARNING: Host Compute Latency metrics unavailable. Did you start a           │
+│ MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`?   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────── gRPC TCP Minimum RTT Status ─────────────────────────╮
+│ WARNING: gRPC TCP Minimum RTT metrics unavailable. Did you start a           │
+│ MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`?   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─────────────────────── gRPC TCP Delivery Rate Status ────────────────────────╮
+│ WARNING: gRPC TCP Delivery Rate metrics unavailable. Did you start a         │
+│ MULTI_SLICE workload with `TPU_RUNTIME_METRICS_PORTS=8431,8432,8433,8434`?   │
+╰──────────────────────────────────────────────────────────────────────────────╯
