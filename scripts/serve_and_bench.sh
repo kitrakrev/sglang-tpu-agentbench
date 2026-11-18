@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Run ON the TPU VM: start SGLang (cache on, then off), sweep concurrency, write reports.
-# Usage: scripts/serve_and_bench.sh v6e-1-llama8b
+# Usage: scripts/serve_and_bench.sh v6e-1-qwen7b
 set -euo pipefail
-CFG=${1:-v6e-1-llama8b}
+CFG=${1:-v6e-1-qwen7b}
 HERE=$(cd "$(dirname "$0")/.." && pwd); cd "$HERE"
 source "configs/$CFG.env"
 PORT=${PORT:-30000}

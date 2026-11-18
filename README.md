@@ -30,10 +30,10 @@ python -m agentbench.sweep --url http://localhost:30000 --concurrency 1,4,16 --o
 See **RUNBOOK.md** (exact gcloud commands, cost per run). Short version:
 ```bash
 scripts/tpu_up.sh v6e-1                        # laptop: create spot VM
-scripts/launch_v6e.sh v6e-1-llama8b            # VM: pinned launch cmd (sgl_jax); DRY_RUN=1 to print
-scripts/serve_and_bench.sh v6e-1-llama8b       # VM: cache on/off x concurrency sweep
+scripts/launch_v6e.sh v6e-1-qwen7b            # VM: pinned launch cmd (sgl_jax); DRY_RUN=1 to print
+scripts/serve_and_bench.sh v6e-1-qwen7b       # VM: cache on/off x concurrency sweep
 ```
-Configs: `configs/v6e-1-llama8b.env`, `configs/v6e-8-llama70b.env`. The v6e backend is sgl_jax.
+Configs: `configs/v6e-1-qwen7b.env`, `configs/v6e-8-qwen72b.env`. The v6e backend is sgl_jax.
 SGLang-TorchTPU (`BACKEND=torchtpu`) is tested upstream on TPU7x only, so it is experimental on v6e.
 Plan: develop with an 8B model on v6e-1, final numbers with a 70B model on v6e-8.
 

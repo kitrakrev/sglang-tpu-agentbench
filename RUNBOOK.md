@@ -48,9 +48,9 @@ The VM's service account needs `tpu.nodes.delete` for idle-delete to work. If it
 
 ## 3. Run
 ```bash
-DRY_RUN=1 scripts/launch_v6e.sh v6e-1-llama8b     # check the command
-scripts/serve_and_bench.sh v6e-1-llama8b          # cache on, then off; sweep c=1,4,8,16,32
-# 70B on v6e-8: scripts/serve_and_bench.sh v6e-8-llama70b
+DRY_RUN=1 scripts/launch_v6e.sh v6e-1-qwen7b     # check the command
+scripts/serve_and_bench.sh v6e-1-qwen7b          # cache on, then off; sweep c=1,4,8,16,32
+# 70B on v6e-8: scripts/serve_and_bench.sh v6e-8-qwen72b
 ```
 If `--enable-cache-report` or `--disable-radix-cache` is rejected by sgl_jax, check `python -m sgl_jax.launch_server --help`
 and change those flags in `scripts/launch_v6e.sh`. Without cache report, the TTFT-by-turn curve still shows the cache effect.

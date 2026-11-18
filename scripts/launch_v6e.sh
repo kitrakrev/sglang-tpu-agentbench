@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Start SGLang on a TPU v6e VM. Run ON the VM.
-# Usage: scripts/launch_v6e.sh <config> [extra flags]   config = v6e-1-llama8b | v6e-8-llama70b
+# Usage: scripts/launch_v6e.sh <config> [extra flags]   config = v6e-1-qwen7b | v6e-8-qwen72b
 #   BACKEND=jax (default)  -> sgl_jax (sgl-project/sglang-jax), the documented v6e path.
 #   BACKEND=torchtpu       -> SGLang-TorchTPU container (lmsysorg/sglang:v0.1.0-tpu, SGLANG_PLATFORM=tpu_oot).
 #                             Upstream tests on TPU7x; v6e and Llama are NOT in its support list: experimental.
