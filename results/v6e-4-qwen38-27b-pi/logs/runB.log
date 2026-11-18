@@ -1,0 +1,133 @@
++ cd /home/karthikraja
++ cp /home/karthikraja/agentbench/scripts/idle_delete.sh /home/karthikraja/idle_del.sh
++ chmod +x /home/karthikraja/idle_del.sh
++ command -v uv
++ MAX_MIN=150
++ IDLE_MIN=40
++ nohup /home/karthikraja/idle_del.sh agentbench-v6e-4 europe-west4-a
++ curl -LsSf https://astral.sh/uv/install.sh
++ sh
+downloading uv 0.13.9 x86_64-unknown-linux-gnu
+installing to /home/karthikraja/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
++ export PATH=/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ PATH=/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ '[' -d /home/karthikraja/sglang-jax ']'
++ git clone -q https://github.com/sgl-project/sglang-jax /home/karthikraja/sglang-jax
++ cd /home/karthikraja/sglang-jax
++ uv venv -q --python 3.12
++ . .venv/bin/activate
+++ '[' -n x ']'
+++ '[' .venv/bin/activate = ./vm_setup.sh ']'
+++ '[' false = true ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/karthikraja/sglang-jax/.venv
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV
+++ '[' false = true ']'
+++ _OLD_VIRTUAL_PATH=/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/karthikraja/sglang-jax/.venv/bin:/home/karthikraja/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' xsglang-jax '!=' x ']'
+++ VIRTUAL_ENV_PROMPT=sglang-jax
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(sglang-jax) '
+++ export PS1
+++ alias pydoc
+++ true
+++ hash -r
++ uv pip install -q -e 'python[all]'
++ uv pip install -q -e /home/karthikraja/agentbench
++ python -c 'import sgl_jax, jax; print(jax.devices())'
+[TpuDevice(id=0, process_index=0, coords=(0,0,0), core_on_chip=0), TpuDevice(id=1, process_index=0, coords=(1,0,0), core_on_chip=0), TpuDevice(id=2, process_index=0, coords=(0,1,0), core_on_chip=0), TpuDevice(id=3, process_index=0, coords=(1,1,0), core_on_chip=0)]
++ echo SETUP_DONE
+SETUP_DONE
++ . /home/karthikraja/sglang-jax/.venv/bin/activate
+++ '[' -n x ']'
+++ '[' /home/karthikraja/sglang-jax/.venv/bin/activate = ./runB.sh ']'
+++ '[' false = true ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/karthikraja/sglang-jax/.venv
+++ '[' linux-gnu = cygwin ']'
+++ '[' linux-gnu = msys ']'
+++ export VIRTUAL_ENV
+++ '[' false = true ']'
+++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/home/karthikraja/sglang-jax/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
+++ '[' xsglang-jax '!=' x ']'
+++ VIRTUAL_ENV_PROMPT=sglang-jax
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(sglang-jax) '
+++ export PS1
+++ alias pydoc
+++ true
+++ hash -r
++ cd /home/karthikraja/agentbench
++ df -h /home/karthikraja /dev/shm
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        97G   11G   87G  11% /
+tmpfs           355G     0  355G   0% /dev/shm
++ free -g
+               total        used        free      shared  buff/cache   available
+Mem:             708           2         701           0           4         700
+Swap:              0           0           0
++ uv pip install -q torch --index-url https://download.pytorch.org/whl/cpu
++ pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+  WARNING: The script isympy is installed in '/home/karthikraja/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts torchfrtrace and torchrun are installed in '/home/karthikraja/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
++ python -c 'import torch, safetensors; print(torch.__version__)'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'torch'
++ DL=/dev/shm/base
+++ df --output=avail -BG /dev/shm
+++ tail -1
+++ tr -dc 0-9
++ '[' 355 -gt 120 ']'
++ export HF_HUB_ENABLE_HF_TRANSFER=0
++ HF_HUB_ENABLE_HF_TRANSFER=0
++ python -
+Fetching 32 files:   0%|          | 0/32 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 32 files:   3%|▎         | 1/32 [00:00<00:04,  7.31it/s]Fetching 32 files:  22%|██▏       | 7/32 [00:00<00:00, 32.13it/s]Fetching 32 files:  34%|███▍      | 11/32 [00:08<00:20,  1.05it/s]Fetching 32 files:  41%|████      | 13/32 [00:08<00:14,  1.33it/s]Fetching 32 files:  47%|████▋     | 15/32 [00:09<00:10,  1.56it/s]Fetching 32 files:  53%|█████▎    | 17/32 [00:09<00:07,  1.97it/s]Fetching 32 files:  56%|█████▋    | 18/32 [00:10<00:07,  1.94it/s]Fetching 32 files:  59%|█████▉    | 19/32 [00:10<00:07,  1.79it/s]Fetching 32 files:  62%|██████▎   | 20/32 [00:11<00:07,  1.55it/s]Fetching 32 files:  66%|██████▌   | 21/32 [00:12<00:07,  1.41it/s]Fetching 32 files:  69%|██████▉   | 22/32 [00:13<00:05,  1.69it/s]Fetching 32 files:  72%|███████▏  | 23/32 [00:14<00:07,  1.28it/s]Fetching 32 files:  75%|███████▌  | 24/32 [00:15<00:07,  1.07it/s]Fetching 32 files:  78%|███████▊  | 25/32 [00:15<00:04,  1.41it/s]Fetching 32 files:  81%|████████▏ | 26/32 [00:16<00:04,  1.34it/s]Fetching 32 files:  84%|████████▍ | 27/32 [00:17<00:03,  1.56it/s]Fetching 32 files:  88%|████████▊ | 28/32 [00:17<00:01,  2.07it/s]Fetching 32 files:  91%|█████████ | 29/32 [00:17<00:01,  1.84it/s]Fetching 32 files:  94%|█████████▍| 30/32 [00:18<00:00,  2.11it/s]Fetching 32 files: 100%|██████████| 32/32 [00:18<00:00,  2.27it/s]Fetching 32 files: 100%|██████████| 32/32 [00:18<00:00,  1.69it/s]
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  20%|██        | 1/5 [00:00<00:00,  6.55it/s]Fetching 5 files:  60%|██████    | 3/5 [00:00<00:00, 11.31it/s]Fetching 5 files: 100%|██████████| 5/5 [00:03<00:00,  1.00it/s]Fetching 5 files: 100%|██████████| 5/5 [00:03<00:00,  1.25it/s]
++ python scripts/merge_lora.py /dev/shm/base /home/karthikraja/adapter /home/karthikraja/models/qwen38-27b-pi-merged
+Traceback (most recent call last):
+  File "/home/karthikraja/agentbench/scripts/merge_lora.py", line 7, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
++ echo MERGE_FAILED
+MERGE_FAILED
++ exit 1

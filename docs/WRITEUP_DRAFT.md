@@ -89,12 +89,49 @@ Findings:
 4. Chunked prefill 512-4096 is flat on throughput (+-1.5%); 1024-2048 give the best TTFT p99. Default 2048 is fine.
 5. XProf trace of 20 decode steps at c=32 captured (`profile_c32/trace.tgz`, 454 MB, kept out of git, local only).
 
+## Run B (2026-11-18): v6e-4 Qwen3.8-27B-pi-adapted, TP=4 (on-demand, europe-west4-a, ~50 min VM time)
+Model: `Qwen/Qwen3.8-27B` + `harness-hub/Qwen3.8-27B-pi-adapted` LoRA (r=32, alpha=64, 256 pairs) merged on the VM host
+with `scripts/merge_lora.py` (0 unmatched keys). Hybrid arch: 48 Gated-DeltaNet (linear-attention) + 16 full-attention layers.
+0 errors on 3,456 requests. Full table: `results/v6e-4-qwen38-27b-pi/metrics.md`; roofline: `roofline.md`.
+
+| cache | c | out tok/s | tok/s/chip | TTFT p50/p99 ms | ITL p50/p99 ms | cached % | SLO % | goodput tok/s | $/1M out OD / spot | % roofline |
+|---|---|---|---|---|---|---|---|---|---|---|
+| off | 1 | 78 | 19.6 | 102 / 138 | 12.0 / 12.0 | 0 | 100 | 78 | 38.3 / 14.2 | 71% |
+| off | 8 | 430 | 107.6 | 173 / 506 | 15.9 / 27.2 | 0 | 52.6 | 222 | 6.97 / 2.58 | 54% |
+| off | 16 | 655 | 163.6 | 210 / 872 | 21.1 / 47.1 | 0 | 19.5 | 127 | 4.58 / 1.70 | 41% |
+| off | 32 | 893 | 223.2 | 255 / 1,450 | 32.3 / 62.7 | 0 | 3.0 | 24 | 3.36 / 1.24 | 28% |
+| off | **64** | **968** | 242.0 | 534 / 3,060 | 55.8 / 169.6 | 0 | 0.1 | 1 | **3.10 / 1.15** | 17% |
+| on | 1 | 36 | 9.0 | 117 / 244 | 26.7 / 26.8 | 38.0 | 0 | 0 | 83.5 / 30.9 | 32% |
+| on | 4 | 237 | 59.3 | 183 / 521 | 14.5 / 19.5 | 31.9 | 55.2 | 133 | 12.6 / 4.68 | 59% |
+| on | 16 | 536 | 133.9 | 265 / 1,915 | 23.7 / 54.6 | 31.5 | 14.8 | 77 | 5.60 / 2.07 | 37% |
+| on | 32 | 520 | 129.9 | 1,588 / 6,167 | 46.6 / 98.5 | ~0 | 0 | 0 | 5.77 / 2.14 | 19% |
+| on | 64 | 517 | 129.3 | 8,659 / 11,443 | 46.7 / 135.3 | ~0 | 0 | 0 | 5.80 / 2.15 | 20% |
+
+Roofline assumes 27.8e9 params (55.6 GB incl. the unused vision tower, so slightly pessimistic) and full-attention KV only
+(2x16x4x256x2 = 64 KiB/token); Gated-DeltaNet recurrent state (~38 MB/request) is not modelled, so % roofline at high c is understated.
+
+Radix cache on a hybrid linear-attention model (the main finding):
+1. sgl_jax refuses the plain radix cache for this arch: `Hybrid recurrent state models require --disable-radix-cache (legacy) or
+   --enable-unified-radix-tree`. The unified tree then requires `--page-size 1` unless `--enable-recurrent-extra-buffer`.
+   With mem-fraction 0.85 the extra buffer OOMs at compile (HLO temporaries 33.1 G > 31.2 G HBM/chip); 0.7 + chunked prefill 1024 works.
+   Failed server logs are kept in `results/v6e-4-qwen38-27b-pi/logs/*FAILED.log` / `*OOM.log`.
+2. Prefix caching helps far less than on a pure-attention model: hit rate 32-38% (vs 84-88% for Qwen2.5-7B) because a
+   prefix is reusable only where a recurrent-state snapshot exists, so hits round down to 1,024-token boundaries (the shared
+   system prompt) and per-session history is mostly recomputed. At c>=32 hits drop to ~0 as snapshot slots are evicted.
+3. The cost of caching is concurrency: recurrent snapshots cut the scheduler to max_num_reqs=27 (vs 96 with cache off), so
+   throughput plateaus at ~520 tok/s from c=16 and TTFT p99 explodes (6-11 s) from queueing. Cache off reaches 968 tok/s at c=64.
+4. Net: on this model **cache off wins at every concurrency** (1.1x at c=4, 1.9x at c=64). c=1 cache-on ITL (26.7 ms vs 12.0)
+   points to extra snapshot/copy work per decode step. For agent serving of hybrid models the radix cache needs a cheaper
+   recurrent-state checkpoint scheme before it pays off.
+5. Startup 340-391 s (XLA compile of TP=4 + Pallas kernels; tuned block sizes missing for head_dim 256 / page 128, heuristic used).
+   Spot v6e-4 had no capacity in 10+ zones; this ran on-demand ($2.70/chip-h).
+
 ## v6e-8, Qwen2.5-72B
 Not run yet. On 2026-11-18 ~09:50-10:05 PST, v6e-8 spot had no capacity in us-east5-b, europe-west4-a, us-east1-d,
 us-central1-b, asia-northeast1-b or us-south1-a. Config is ready: `configs/v6e-8-qwen72b.env` (Qwen2.5-72B-Instruct, TP=8).
 
 ## Cost
-About $1 of TPU time so far (covered by credits): ~0.3 chip-h on-demand v6e-1 ($0.81) plus ~0.1 chip-h of a preempted spot VM (~$0.10).
+2026-11-18 Runs A+B: v6e-1 spot ~0.45 h (~$0.5-1.2) + v6e-4 on-demand ~0.85 h x 4 chips x $2.70 = ~$9.2. Earlier: ~$1 of TPU time so far (covered by credits): ~0.3 chip-h on-demand v6e-1 ($0.81) plus ~0.1 chip-h of a preempted spot VM (~$0.10).
 The full v6e-1 cache on + off sweep took ~7 minutes of benchmark time.
 
 ## Next
