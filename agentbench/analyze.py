@@ -25,6 +25,9 @@ def ms(x, nd=1):
     return None if x is None else round(x * 1e3, nd)
 
 
+SLO_TTFT, SLO_TPOT = 0.200, 0.025
+
+
 def metrics_for(path, chips, p_od, p_spot):
     d = json.load(open(path))
     s, turns = d["summary"], d["turns"]
@@ -47,6 +50,9 @@ def metrics_for(path, chips, p_od, p_spot):
     if cached and ptok and len(ptok) == len(ok):
         cached_pct = round(100 * sum(t.get("cached_tokens") or 0 for t in ok) / sum(ptok), 1)
     tps = s.get("output_tok_per_s")
+    # goodput: requests meeting SLO TTFT<200 ms and TPOT(ITL)<25 ms (docs/NEXT_EXPERIMENTS.md #3)
+    good = [t for t in ok if t["ttft_s"] < SLO_TTFT and (t["out_tokens"] <= 1 or t["itl_s"] < SLO_TPOT)]
+    good_tok = sum(t["out_tokens"] for t in good)
     usd_1m = lambda price: round(price * chips / 3600 / tps * 1e6, 3) if tps else None
     return {
         "concurrency": s["config"]["concurrency"],
@@ -63,6 +69,8 @@ def metrics_for(path, chips, p_od, p_spot):
         "cached_tokens_pct": cached_pct,
         "ttft_turn1_ms": ms(t0), "ttft_turnN_ms": ms(tn),
         "ttft_turn1_over_turnN": round(t0 / tn, 2) if t0 and tn else None,
+        "slo_attain_pct": round(100 * len(good) / n, 1) if n else None,
+        "goodput_tok_per_s": round(tps * good_tok / out_tok, 1) if tps and out_tok else None,
         "usd_per_1M_out_ondemand": usd_1m(p_od),
         "usd_per_1M_out_spot_est": usd_1m(p_spot),
         "ttft_by_turn_ms": {str(k): ms(pct(v, 50)) for k, v in sorted(by_turn.items())},
@@ -80,7 +88,7 @@ COLS = ["concurrency", "requests", "error_rate_pct", "output_tok_per_s", "output
         "requests_per_s", "ttft_p50_ms", "ttft_p90_ms", "ttft_p99_ms", "itl_p50_ms", "itl_p90_ms",
         "itl_p99_ms", "e2e_p50_ms", "e2e_p99_ms", "mean_prompt_tokens", "mean_cached_tokens",
         "cached_tokens_pct", "ttft_turn1_ms", "ttft_turnN_ms", "ttft_turn1_over_turnN",
-        "usd_per_1M_out_ondemand", "usd_per_1M_out_spot_est"]
+        "slo_attain_pct", "goodput_tok_per_s", "usd_per_1M_out_ondemand", "usd_per_1M_out_spot_est"]
 
 
 def table(rows):
@@ -103,7 +111,7 @@ def charts(rows, out):
         fig, ax = plt.subplots(figsize=(6, 4))
         for m in modes:
             rr = sorted([r for r in rows if r["mode"] == m], key=lambda r: r["concurrency"])
-            ax.plot([r["concurrency"] for r in rr], [r[key] for r in rr], marker="o", label=f"radix cache {m}")
+            ax.plot([r["concurrency"] for r in rr], [r[key] for r in rr], marker="o", label=m)
         ax.set_xscale("log", base=2); ax.set_xlabel("concurrent sessions"); ax.set_ylabel(label)
         ax.grid(alpha=.3); ax.legend(); fig.tight_layout()
         fig.savefig(os.path.join(out, f"{key}.png"), dpi=120); plt.close(fig)
@@ -129,11 +137,13 @@ def main(argv=None):
     p.add_argument("--price-spot", type=float, default=1.00, help="$/chip-hour (estimate)")
     a = p.parse_args(argv)
     rows, extra = [], {}
-    for mode in ("cache", "nocache"):
+    subdirs = sorted(x for x in os.listdir(a.tagdir)
+                     if glob.glob(os.path.join(a.tagdir, x, "c*.json")))
+    for mode in subdirs:
         d = os.path.join(a.tagdir, mode)
         for f in glob.glob(os.path.join(d, "c*.json")):
             r = metrics_for(f, a.chips, a.price_ondemand, a.price_spot)
-            r["mode"] = "on" if mode == "cache" else "off"
+            r["mode"] = {"cache": "on", "nocache": "off"}.get(mode, mode)
             rows.append(r)
         info = {}
         tf = os.path.join(d, "timing.json")

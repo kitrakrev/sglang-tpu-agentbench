@@ -21,6 +21,8 @@
    "ttft_turn1_ms": 42.5,
    "ttft_turnN_ms": 66.6,
    "ttft_turn1_over_turnN": 0.64,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 72.4,
    "usd_per_1M_out_ondemand": 10.361,
    "usd_per_1M_out_spot_est": 3.837,
    "ttft_by_turn_ms": {
@@ -55,6 +57,8 @@
    "ttft_turn1_ms": 82.3,
    "ttft_turnN_ms": 74.6,
    "ttft_turn1_over_turnN": 1.1,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 253.6,
    "usd_per_1M_out_ondemand": 2.958,
    "usd_per_1M_out_spot_est": 1.095,
    "ttft_by_turn_ms": {
@@ -89,6 +93,8 @@
    "ttft_turn1_ms": 128.1,
    "ttft_turnN_ms": 75.3,
    "ttft_turn1_over_turnN": 1.7,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 433.5,
    "usd_per_1M_out_ondemand": 1.73,
    "usd_per_1M_out_spot_est": 0.641,
    "ttft_by_turn_ms": {
@@ -123,6 +129,8 @@
    "ttft_turn1_ms": 195.3,
    "ttft_turnN_ms": 76.9,
    "ttft_turn1_over_turnN": 2.54,
+   "slo_attain_pct": 78.6,
+   "goodput_tok_per_s": 570.9,
    "usd_per_1M_out_ondemand": 1.123,
    "usd_per_1M_out_spot_est": 0.416,
    "ttft_by_turn_ms": {
@@ -157,6 +165,8 @@
    "ttft_turn1_ms": 326.5,
    "ttft_turnN_ms": 108.3,
    "ttft_turn1_over_turnN": 3.01,
+   "slo_attain_pct": 5.9,
+   "goodput_tok_per_s": 68.5,
    "usd_per_1M_out_ondemand": 0.806,
    "usd_per_1M_out_spot_est": 0.299,
    "ttft_by_turn_ms": {
@@ -191,6 +201,8 @@
    "ttft_turn1_ms": 28.5,
    "ttft_turnN_ms": 30.5,
    "ttft_turn1_over_turnN": 0.93,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 75.0,
    "usd_per_1M_out_ondemand": 10.005,
    "usd_per_1M_out_spot_est": 3.706,
    "ttft_by_turn_ms": {
@@ -225,6 +237,8 @@
    "ttft_turn1_ms": 29.8,
    "ttft_turnN_ms": 40.2,
    "ttft_turn1_over_turnN": 0.74,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 275.9,
    "usd_per_1M_out_ondemand": 2.718,
    "usd_per_1M_out_spot_est": 1.007,
    "ttft_by_turn_ms": {
@@ -259,6 +273,8 @@
    "ttft_turn1_ms": 45.1,
    "ttft_turnN_ms": 40.2,
    "ttft_turn1_over_turnN": 1.12,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 514.7,
    "usd_per_1M_out_ondemand": 1.457,
    "usd_per_1M_out_spot_est": 0.54,
    "ttft_by_turn_ms": {
@@ -293,6 +309,8 @@
    "ttft_turn1_ms": 76.4,
    "ttft_turnN_ms": 41.2,
    "ttft_turn1_over_turnN": 1.86,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 913.4,
    "usd_per_1M_out_ondemand": 0.821,
    "usd_per_1M_out_spot_est": 0.304,
    "ttft_by_turn_ms": {
@@ -327,6 +345,8 @@
    "ttft_turn1_ms": 83.2,
    "ttft_turnN_ms": 42.2,
    "ttft_turn1_over_turnN": 1.97,
+   "slo_attain_pct": 100.0,
+   "goodput_tok_per_s": 1515.2,
    "usd_per_1M_out_ondemand": 0.495,
    "usd_per_1M_out_spot_est": 0.183,
    "ttft_by_turn_ms": {

@@ -1,13 +1,21 @@
 """Decode roofline for Qwen2.5-7B bf16 on TPU v6e-1 vs measured ITL. Writes charts/roofline.png and prints a table."""
-import csv, pathlib
+import argparse, csv, pathlib
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-HBM_BW = 1640e9      # v6e HBM bandwidth, B/s (Google Cloud v6e docs)
-PEAK = 918e12        # v6e bf16 peak FLOP/s
-PARAMS = 7.62e9      # Qwen2.5-7B incl. embeddings
+ap = argparse.ArgumentParser()
+ap.add_argument("tagdir", nargs="?", default="results/v6e-1-qwen7b")
+ap.add_argument("--mode", default="on", help="metrics.csv mode column to compare")
+ap.add_argument("--chips", type=int, default=1)
+ap.add_argument("--params", type=float, default=7.62e9)
+ap.add_argument("--kv-per-tok", type=float, default=2 * 28 * 4 * 128 * 2, help="bytes/token, whole model")
+ap.add_argument("--title", default="Qwen2.5-7B bf16 on v6e-1")
+A = ap.parse_args()
+HBM_BW = 1640e9 * A.chips      # v6e HBM bandwidth, B/s (Google Cloud v6e docs)
+PEAK = 918e12 * A.chips       # v6e bf16 peak FLOP/s
+PARAMS = A.params     # Qwen2.5-7B incl. embeddings
 W_BYTES = PARAMS * 2 # bf16
-KV_PER_TOK = 2 * 28 * 4 * 128 * 2  # K+V * layers * kv_heads * head_dim * bf16 = 57,344 B
+KV_PER_TOK = A.kv_per_tok # K+V * layers * kv_heads * head_dim * bf16 = 57,344 B
 CTX = 1400           # ~mean prompt (1236) + half of output
 
 def floor_ms(b):
@@ -15,8 +23,9 @@ def floor_ms(b):
     comp = 2 * PARAMS * b / PEAK
     return max(mem, comp) * 1e3
 
-root = pathlib.Path(__file__).resolve().parents[1] / "results/v6e-1-qwen7b"
-rows = [r for r in csv.DictReader(open(root / "metrics.csv")) if r["mode"] == "on"]
+root = pathlib.Path(A.tagdir)
+rows = sorted([r for r in csv.DictReader(open(root / "metrics.csv")) if r["mode"] == A.mode],
+              key=lambda r: int(r["concurrency"]))
 print("| c | floor ITL ms | measured ITL p50 ms | % of roofline | roofline decode tok/s | measured out tok/s |")
 print("|---|---|---|---|---|---|")
 for r in rows:
@@ -32,5 +41,5 @@ ax.plot([int(r["concurrency"]) for r in rows], [float(r["output_tok_per_s"]) for
         "s--", label="measured end-to-end output tok/s", color="#ff7f0e")
 ax.set_xscale("log", base=2); ax.set_yscale("log")
 ax.set_xlabel("concurrent sequences"); ax.set_ylabel("decode tokens/s")
-ax.set_title("Qwen2.5-7B bf16 on v6e-1: decode roofline vs measured"); ax.grid(alpha=.3); ax.legend(fontsize=8)
-(root / "charts").mkdir(exist_ok=True); fig.tight_layout(); fig.savefig(root / "charts/roofline.png", dpi=130)
+ax.set_title(f"{A.title}: decode roofline vs measured ({A.mode})"); ax.grid(alpha=.3); ax.legend(fontsize=8)
+(root / "charts").mkdir(exist_ok=True); fig.tight_layout(); fig.savefig(root / f"charts/roofline_{A.mode}.png", dpi=130)
