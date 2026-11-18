@@ -10,9 +10,11 @@ ap.add_argument("--chips", type=int, default=1)
 ap.add_argument("--params", type=float, default=7.62e9)
 ap.add_argument("--kv-per-tok", type=float, default=2 * 28 * 4 * 128 * 2, help="bytes/token, whole model")
 ap.add_argument("--title", default="Qwen2.5-7B bf16 on v6e-1")
+ap.add_argument("--hbm-bw", type=float, default=1640e9, help="B/s per chip (v6e 1.64e12; A100-80GB SXM 2.039e12; H100 SXM 3.35e12)")
+ap.add_argument("--peak", type=float, default=918e12, help="dense bf16 FLOP/s per chip (v6e 918e12; A100 312e12; H100 SXM 989e12)")
 A = ap.parse_args()
-HBM_BW = 1640e9 * A.chips      # v6e HBM bandwidth, B/s (Google Cloud v6e docs)
-PEAK = 918e12 * A.chips       # v6e bf16 peak FLOP/s
+HBM_BW = A.hbm_bw * A.chips    # default: v6e HBM bandwidth, B/s (Google Cloud v6e docs)
+PEAK = A.peak * A.chips        # default: v6e bf16 peak FLOP/s
 PARAMS = A.params     # Qwen2.5-7B incl. embeddings
 W_BYTES = PARAMS * 2 # bf16
 KV_PER_TOK = A.kv_per_tok # K+V * layers * kv_heads * head_dim * bf16 = 57,344 B

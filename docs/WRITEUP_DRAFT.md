@@ -126,11 +126,76 @@ Radix cache on a hybrid linear-attention model (the main finding):
 5. Startup 340-391 s (XLA compile of TP=4 + Pallas kernels; tuned block sizes missing for head_dim 256 / page 128, heuristic used).
    Spot v6e-4 had no capacity in 10+ zones; this ran on-demand ($2.70/chip-h).
 
+## GPU baseline (2026-11-18): Qwen2.5-7B on Modal A100-80GB and H100 SXM
+Same workload as the v6e-1 runs (agentbench, seed 42, 4 sessions/level x 6 turns, 600-word system prompt, 150-word tool
+results, 128 max out tokens), same goodput SLO and metrics. Server: upstream SGLang v0.5.2 (`lmsysorg/sglang:v0.5.2-cu126`),
+`--mem-fraction-static 0.85 --chunked-prefill-size 2048 --max-running-requests 128 --enable-cache-report`, page size 1
+(GPU default; TPU used 128), CUDA graphs on, cache off = `--disable-radix-cache`. Client runs in the same Modal container
+against localhost. GPUs: `NVIDIA A100-SXM4-80GB` and `NVIDIA H100 80GB HBM3` (pinned with `gpu="H100!"` so Modal cannot
+upgrade it to H200). 0 errors on 11,520 requests. Script: `modal/gpu_bench.py`; tables: `results/{a100,h100}-qwen7b/metrics.md`, `roofline.md`.
+
+Prices (Modal on-demand, modal.com/pricing, 2026-11-18): A100-80GB $0.000694/s = **$2.50/h**, H100 $0.001097/s = **$3.95/h**;
+v6e-1 $2.70/chip-h on-demand. Roofline bandwidth: A100 80GB SXM 2.039 TB/s, H100 SXM 3.35 TB/s (NVIDIA A100 / H100 datasheets;
+Modal docs confirm its H100s are SXM; nvidia-smi confirms A100 SXM4), v6e 1.64 TB/s. % roofline = HBM floor ITL / measured ITL p50.
+
+### TPU v6e-1 vs GPU, radix cache on
+TPU c=64/96 come from Run A (`hiconc`, same settings, separate VM). No TPU cache-off row exists above c=32.
+
+| c | device | out tok/s | TTFT p50 / p99 ms | ITL p50 / p99 ms | cached % | SLO % | goodput tok/s | $/1M out (OD) | % roofline |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | v6e-1 | 75 | 30 / 33 | 12.9 / 12.9 | 84.1 | 100 | 75 | 10.01 | 73% |
+| 1 | A100 | 90 | 41 / 51 | 10.3 / 10.3 | 88.6 | 100 | 90 | 7.69 | 73% |
+| 1 | H100 | **149** | **28 / 33** | **6.2 / 6.3** | 88.7 | 100 | 149 | **7.34** | 74% |
+| 8 | v6e-1 | 515 | 40 / 65 | 14.5 / 15.4 | 87.7 | 100 | 515 | 1.46 | 67% |
+| 8 | A100 | 594 | 52 / 107 | 12.3 / 14.3 | 92.3 | 100 | 594 | 1.17 | 63% |
+| 8 | H100 | **962** | 31 / 76 | **7.5 / 9.2** | 92.1 | 100 | 962 | **1.14** | 63% |
+| 16 | v6e-1 | 913 | 41 / 99 | 16.4 / 18.4 | 87.2 | 100 | 913 | 0.82 | 61% |
+| 16 | A100 | 985 | 67 / 153 | 14.6 / 17.0 | 92.0 | 100 | 985 | **0.71** | 55% |
+| 16 | H100 | **1,592** | 44 / 102 | **9.1 / 11.0** | 92.3 | 100 | 1,592 | **0.69** | 54% |
+| 32 | v6e-1 | 1,515 | 42 / **134** | 19.8 / 22.5 | 87.6 | **100** | 1,515 | 0.50 | **55%** |
+| 32 | A100 | 1,548 | 89 / 410 | 18.9 / 22.8 | 92.0 | 96.7 | 1,522 | 0.45 | 46% |
+| 32 | H100 | **2,502** | 68 / 529 | **11.1 / 14.9** | 92.6 | 96.4 | **2,457** | **0.44** | 48% |
+| 64 | v6e-1 | 2,084 | 65 / **422** | 26.6 / 32.9 | 83.7 | 26.4 | 616 | 0.36 | 47% |
+| 64 | A100 | 2,339 | 150 / 452 | 24.2 / 30.5 | 92.6 | 36.4 | 873 | 0.30 | 41% |
+| 64 | H100 | **4,249** | 152 / 545 | **12.3 / 16.9** | 93.0 | **81.4** | **3,679** | **0.26** | 50% |
+| 96 | v6e-1 | 2,755 | **70 / 520** | 30.1 / 35.7 | 87.9 | 7.4 | 301 | 0.27 | 46% |
+| 96 | A100 | 3,001 | 310 / 821 | 26.3 / 34.0 | 94.0 | 5.3 | 124 | 0.23 | 43% |
+| 96 | H100 | **5,197** | 238 / 618 | **13.2 / 19.7** | 94.3 | 31.5 | 1,747 | **0.21** | 52% |
+
+### Cache off (c=1..32 where TPU has data)
+| c | v6e-1 tok/s / ITL p50 / TTFT p99 | A100 | H100 |
+|---|---|---|---|
+| 1 | 72 / 12.9 / 81 | 83 / 10.3 / 160 | 144 / 6.3 / 53 |
+| 8 | 433 / 16.9 / 187 | 398 / 17.3 / 382 | 781 / 9.1 / 151 |
+| 16 | 668 / 22.3 / 341 | 532 / 26.5 / 722 | 1,134 / 12.5 / 298 |
+| 32 | 930 / 32.4 / 598 | 653 / 42.9 / 1,207 | 1,424 / 19.6 / 743 |
+| 64 | - | 732 / 76.3 / 2,380 | 1,663 / 32.4 / 1,017 |
+| 96 | - | 754 / 109.0 / 3,784 | 1,743 / 44.9 / 1,734 |
+
+Findings (honest read):
+1. **H100 wins outright** on every throughput and ITL row: 1.65-2.0x v6e-1 tok/s at every concurrency (5,197 vs 2,755 at c=96),
+   ITL ~half, and the lowest $/1M output at every c despite costing 1.46x per hour (e.g. $0.21 vs $0.27 at c=96, $0.44 vs $0.50 at c=32).
+   It is the only device that holds the goodput SLO for most requests at c=64 (81% vs 26% v6e, 36% A100).
+2. **A100-80GB vs v6e-1 is close to a tie** with cache on: A100 has 2-20% more tok/s, slightly lower ITL and 10-23% lower $/1M
+   (cheaper per hour on Modal, $2.50 vs $2.70), but v6e-1 has clearly better tail TTFT: 134 vs 410 ms p99 at c=32, and the TPU is
+   the only device at 100% SLO at c=32. With cache off, v6e-1 beats A100 from c=8 up (930 vs 653 tok/s at c=32, ITL 32 vs 43 ms).
+3. Per HBM byte, all three land in the same place: 73-74% of the decode roofline at c=1, 41-55% at c>=32. v6e is ~55% at c=32 vs
+   46-48% for the GPUs. The H100 gap is bandwidth (3.35 vs 1.64 TB/s = 2.0x) more than software efficiency.
+4. Radix cache matters on GPU as much as on TPU: cache on gives 2.4x (A100) and 1.8x (H100) tok/s at c=32, and more at c>=64.
+   GPU hit rates are a bit higher (92-94% vs 84-88%) because page size 1 matches prefixes to the token; TPU page 128 rounds down.
+5. GPU TTFT p99 at c=32 (410-529 ms) is worse than TPU's 134 ms; likely because the GPU scheduler admits the burst of new-session prefills together
+   (not profiled). Neither server was tuned per platform beyond the shared flags.
+6. Caveats: SGLang GPU (v0.5.2, mature CUDA kernels + CUDA graphs) vs sgl_jax (young); different page size; Modal per-second
+   billing vs GCE hourly; TPU c=64/96 from a different VM than c<=32. Startup: A100 171 s / H100 76 s first (cold image + weight load), ~41-46 s second.
+
+Charts: `results/{a100,h100}-qwen7b/charts/` (same set as v6e-1 plus `roofline_on.png` / `roofline_off.png`).
+
 ## v6e-8, Qwen2.5-72B
 Not run yet. On 2026-11-18 ~09:50-10:05 PST, v6e-8 spot had no capacity in us-east5-b, europe-west4-a, us-east1-d,
 us-central1-b, asia-northeast1-b or us-south1-a. Config is ready: `configs/v6e-8-qwen72b.env` (Qwen2.5-72B-Instruct, TP=8).
 
 ## Cost
+GPU baseline (Modal, 2026-11-18): A100-80GB ~32 min container time incl. smoke test (~$1.35) + H100 ~9 min (~$0.60) + CPU download/volume (<$0.05) = **~$2.0** upper bound (app wall times; GPU billed only while containers run).
 2026-11-18 Runs A+B: v6e-1 spot ~0.45 h (~$0.5-1.2) + v6e-4 on-demand ~0.85 h x 4 chips x $2.70 = ~$9.2. Earlier: ~$1 of TPU time so far (covered by credits): ~0.3 chip-h on-demand v6e-1 ($0.81) plus ~0.1 chip-h of a preempted spot VM (~$0.10).
 The full v6e-1 cache on + off sweep took ~7 minutes of benchmark time.
 

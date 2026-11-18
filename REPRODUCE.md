@@ -111,14 +111,43 @@ gcloud compute tpus queued-resources list --zone=- --project $PROJECT       # mu
 ```
 
 ## 9. GPU baseline on Modal (A100 80GB / H100)
-Same workload, concurrency and SLO as section 4, using upstream SGLang on GPU. Weights stay in Modal.
-See `modal/` for the script and exact commands (added with the GPU results). Billing is per second;
-functions have timeouts so nothing keeps running. Check `modal app list` afterwards.
+Same workload, seeds, concurrency (1,4,8,16,32,64,96), cache on/off and SLO as sections 4-5, using upstream SGLang v0.5.2
+on GPU. Server and client run in one Modal container (client -> localhost). Weights download into a Modal Volume, never
+to your laptop. Details: `modal/README.md`.
+
+```bash
+# 1. install + log in (once). Creates ~/.modal.toml with your own token.
+pip install "modal>=1.4"
+modal token new
+# If you have several Modal profiles, prefix each command with MODAL_PROFILE=<your-profile> instead of activating one.
+
+# 2. run (from the repo root). First run also downloads Qwen2.5-7B (~15 GB) into volume agentbench-hf-cache.
+modal run modal/gpu_bench.py --gpu A100-80GB --tag a100-qwen7b
+modal run modal/gpu_bench.py --gpu H100     --tag h100-qwen7b --skip-download
+#    optional smoke test first (~5 min): modal run modal/gpu_bench.py --gpu A100-80GB --tag smoke --conc 1,8
+#    Results are written straight to results/<tag>/ by the local entrypoint (no separate pull step).
+
+# 3. analyze (local; pip install matplotlib). Prices = Modal on-demand per second x 3600 (modal.com/pricing, 2026-11-18).
+python -m agentbench.analyze results/a100-qwen7b --chips 1 --price-ondemand 2.50 --price-spot 2.50
+python -m agentbench.analyze results/h100-qwen7b --chips 1 --price-ondemand 3.95 --price-spot 3.95
+python scripts/roofline.py results/a100-qwen7b --mode on  --hbm-bw 2.039e12 --peak 312e12 --title "Qwen2.5-7B bf16 on A100-80GB SXM" > results/a100-qwen7b/roofline.md
+python scripts/roofline.py results/a100-qwen7b --mode off --hbm-bw 2.039e12 --peak 312e12 --title "Qwen2.5-7B bf16 on A100-80GB SXM" >> results/a100-qwen7b/roofline.md
+python scripts/roofline.py results/h100-qwen7b --mode on  --hbm-bw 3.35e12  --peak 989e12 --title "Qwen2.5-7B bf16 on H100 SXM" > results/h100-qwen7b/roofline.md
+python scripts/roofline.py results/h100-qwen7b --mode off --hbm-bw 3.35e12  --peak 989e12 --title "Qwen2.5-7B bf16 on H100 SXM" >> results/h100-qwen7b/roofline.md
+
+# 4. verify nothing is left running
+modal app list                                  # agentbench-gpu-baseline rows must say "stopped"
+modal app stop agentbench-gpu-baseline          # only if one is still ephemeral/deployed
+modal volume delete agentbench-hf-cache         # optional, frees the stored weights
+```
+Expected (measured 2026-11-18): A100 ~18 min wall (~$0.75), H100 ~9 min (~$0.60); both can run in parallel in two
+terminals. Functions time out at 90 min. Bandwidth sources: NVIDIA A100 datasheet (80GB SXM 2,039 GB/s) and H100 datasheet
+(SXM 3.35 TB/s); `gpu="H100!"` stops Modal from silently upgrading to H200.
 
 ## Metrics definitions
 - **Goodput SLO**: TTFT < 200 ms and ITL < 25 ms per request; goodput = output tok/s from requests meeting it.
 - **$/1M output tokens** = (chips x $/chip-hour) / (output tok/s x 3600) x 1e6.
-- **% roofline** = (weights + KV bytes per decode step / HBM bandwidth) / measured ITL. v6e: ~1.64 TB/s, 32 GB per chip.
+- **% roofline** = (weights + KV bytes per decode step / HBM bandwidth) / measured ITL. v6e: ~1.64 TB/s, 32 GB per chip; A100-80GB SXM 2.039 TB/s; H100 SXM 3.35 TB/s.
 
 ## Troubleshooting
 - `--enable-cache-report` / `--disable-radix-cache` rejected: check `python -m sgl_jax.launch_server --help`, edit `scripts/launch_v6e.sh`.
