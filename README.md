@@ -21,12 +21,20 @@ python -m agentbench.run --url http://localhost:30000 --sessions 32 --turns 6 --
 ```
 The mock server fakes a prefix cache so the harness can be tested locally.
 
-## On TPU
+Concurrency sweep with a markdown/CSV report:
 ```bash
-scripts/tpu_up.sh v6e-1            # dev: 8B model
-scripts/serve_and_bench.sh         # run on the VM; concurrency sweep 1..32
-scripts/idle_delete.sh             # deletes the VM after 2h idle
+python -m agentbench.sweep --url http://localhost:30000 --concurrency 1,4,16 --out-dir results/mock-sweep
 ```
+
+## On TPU
+See **RUNBOOK.md** (exact gcloud commands, cost per run). Short version:
+```bash
+scripts/tpu_up.sh v6e-1                        # laptop: create spot VM
+scripts/launch_v6e.sh v6e-1-llama8b            # VM: pinned launch cmd (sgl_jax); DRY_RUN=1 to print
+scripts/serve_and_bench.sh v6e-1-llama8b       # VM: cache on/off x concurrency sweep
+```
+Configs: `configs/v6e-1-llama8b.env`, `configs/v6e-8-llama70b.env`. The v6e backend is sgl_jax.
+SGLang-TorchTPU (`BACKEND=torchtpu`) is tested upstream on TPU7x only, so it is experimental on v6e.
 Plan: develop with an 8B model on v6e-1, final numbers with a 70B model on v6e-8.
 
 ## First real run (Colab T4, SGLang 0.5.23, Qwen2.5-0.5B, 6-turn sessions, 64 max tokens)
@@ -42,6 +50,6 @@ Smoke test only: the c=8 run was the first after server start (no warmup, 21 s p
 ## Status
 - [x] Harness, mock server, tests
 - [x] Real SGLang server end-to-end (Colab T4)
-- [ ] Confirm SGLang TPU launch command (`SERVER_CMD`)
+- [x] Pin v6e launch command + configs (scripts/launch_v6e.sh), sweep report, runbook
 - [ ] v6e-1 8B baseline, prefix cache on vs off
 - [ ] v6e-8 70B results + write-up
