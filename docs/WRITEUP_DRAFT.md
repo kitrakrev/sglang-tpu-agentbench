@@ -57,6 +57,14 @@ Charts: `results/v6e-1-qwen7b/charts/` (output_tok_per_s, ttft_p50_ms, ttft_p99_
    within minutes. XLA precompile runs at server start (keep JAX_COMPILATION_CACHE_DIR between restarts). sgl_jax
    accepts `--enable-cache-report` and `--disable-radix-cache` unchanged.
 
+## How this maps to the TPU optimization guide
+Google's [TPU Model Design Considerations and Optimization Guide](https://ai-hypercomputer.github.io/tpu-codesign/) (successor to the JAX Scaling Book) explains these results:
+- **Decode is HBM-bound.** Per-token latency can't go below weight bytes / HBM BW: 15.2 GB / 1.64 TB/s = 9.3 ms on v6e-1. bf16 decode stays memory-bound until batch is about 500, so higher concurrency is the cheapest lever.
+- **Roofline:** at c=1, ITL 12.9 ms is 73% of the floor. At c=32, ITL 19.8 ms is 55% of the floor (2,950 tok/s decode roofline vs 1,515 measured end to end). See [ROOFLINE.md](ROOFLINE.md).
+- **Prefix caching** skips prefill FLOPs, not decode KV reads. That is why it cuts TTFT 4.5x but leaves ITL p50 at 20 ms.
+- **Shape alignment:** Qwen2.5-7B hidden/FFN dims are 256-aligned, but head_dim 128 underfills v6e's 256x256 MXU in attention.
+- **Next steps** from the guide: c=64-128, KV page 256, chunked prefill sweep, int8 weights/KV ([NEXT_EXPERIMENTS.md](NEXT_EXPERIMENTS.md)).
+
 ## v6e-8, Qwen2.5-72B
 Not run yet. On 2026-11-18 ~09:50-10:05 PST, v6e-8 spot had no capacity in us-east5-b, europe-west4-a, us-east1-d,
 us-central1-b, asia-northeast1-b or us-south1-a. Config is ready: `configs/v6e-8-qwen72b.env` (Qwen2.5-72B-Instruct, TP=8).
