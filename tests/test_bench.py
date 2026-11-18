@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import socket
 
@@ -54,3 +55,39 @@ def test_server_down_records_errors():
                        "--turns", "3", "--timeout", "2"])
     s = asyncio.run(main_async(args))
     assert s["errors"] == 2  # each session stops at its first failed turn
+
+
+def test_sweep_against_mock(tmp_path):
+    from agentbench import sweep
+
+    async def go():
+        mock_server.cache = mock_server.PrefixCache()
+        port = free_port()
+        runner = web.AppRunner(mock_server.make_app())
+        await runner.setup()
+        await web.TCPSite(runner, "127.0.0.1", port).start()
+        try:
+            a = argparse.Namespace(url=f"http://127.0.0.1:{port}", model="m",
+                                   concurrency="1,4", sessions_per_conc=2, turns=3,
+                                   max_tokens=4, tool_words=50, sys_words=200,
+                                   out_dir=str(tmp_path))
+            return await sweep.sweep(a)
+        finally:
+            await runner.cleanup()
+
+    md = asyncio.run(go())
+    rows = sweep.load_dir(str(tmp_path))
+    assert [r["concurrency"] for r in rows] == [1, 4]
+    assert all(r["errors"] == 0 and r["output_tok_per_s"] > 0 for r in rows)
+    assert rows[0]["mean_cached_prompt_tokens"] > 0
+    assert "| concurrency |" in md
+    assert (tmp_path / "report.csv").exists()
+
+
+def test_launch_script_dry_run():
+    import subprocess
+    for cfg in ("v6e-1-llama8b", "v6e-8-llama70b"):
+        out = subprocess.run(["bash", "scripts/launch_v6e.sh", cfg],
+                             env={"DRY_RUN": "1", "PATH": "/usr/bin:/bin"},
+                             capture_output=True, text=True, check=True).stdout
+        assert "sgl_jax.launch_server" in out and "--tp-size" in out
