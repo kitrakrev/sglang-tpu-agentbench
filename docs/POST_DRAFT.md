@@ -17,7 +17,14 @@ Qwen3.8-27B (hybrid linear attention), v6e-4, TP=4
   and recurrent-state buffers cut max running requests 96 -> 27.
 - Cache off: 968 tok/s at c=64; 12 ms ITL at c=1 (71% of roofline).
 
-Whole study: ~$14 of TPU time.
+TPU vs GPU, same workload and flags (SGLang GPU vs sgl_jax), Qwen2.5-7B, cache on, c=32
+- v6e-1: 1,515 tok/s, ITL 19.8 ms, TTFT p99 134 ms, $0.50/1M, 100% meet SLO
+- A100-80GB: 1,548 tok/s, ITL 18.9 ms, TTFT p99 410 ms, $0.45/1M
+- H100: 2,502 tok/s, ITL 11.1 ms, TTFT p99 529 ms, $0.44/1M
+Honest read: H100 wins on speed (1.65-2x). v6e-1 ties A100 on cost and has the best tail latency.
+All three hit ~73% of HBM roofline at c=1, so the gap is mostly memory bandwidth.
+
+Whole study: ~$14 TPU + ~$2 GPU, fully reproducible (REPRODUCE.md).
 
 Open harness (any OpenAI-compatible server): <repo link once public>
 Write-up: <link>
