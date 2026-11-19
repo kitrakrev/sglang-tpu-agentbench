@@ -190,11 +190,64 @@ Findings (honest read):
 
 Charts: `results/{a100,h100}-qwen7b/charts/` (same set as v6e-1 plus `roofline_on.png` / `roofline_off.png`).
 
+## Run C (2026-11-19): OLMo 2 / Olmo 3 ports and int8 weights, v6e-1
+On-demand v6e-1 in asia-northeast1-b (~2 h VM time, ~$5.3). A first spot attempt in europe-west4-a was preempted after
+~23 min (maintenance event -> PREEMPTED) and its partial results were lost. sglang-jax from `kitrakrev/sglang-jax`
+branch `add-olmo3-support` (upstream main + OLMo 2 + Olmo 3 ports). 0 errors on 4,800 requests.
+Tables: `results/v6e-1-olmo2-7b/metrics.md`, `results/v6e-1-olmo3-7b/metrics.md`, `results/v6e-1-qwen7b-int8/metrics.md`.
+
+### int8 weight-only quantization, Qwen2.5-7B, cache on
+Built-in `--quantization-config-path=int8.yaml` (per-channel int8 weights for every linear layer, bf16 activations and KV,
+quantized at load from the bf16 checkpoint). Baseline re-run on the same VM and build.
+
+| c | bf16 tok/s | int8 tok/s | bf16 ITL p50 ms | int8 ITL p50 ms | bf16 TTFT p99 | int8 TTFT p99 | SLO % bf16 / int8 |
+|---|---|---|---|---|---|---|---|
+| 1 | 74 | **135** | 13.0 | **7.1** | 33 | 27 | 100 / 100 |
+| 4 | 275 | **487** | 13.7 | **7.7** | 52 | 42 | 100 / 100 |
+| 8 | 506 | **875** | 14.7 | **8.5** | 64 | 43 | 100 / 100 |
+| 16 | 901 | **1,502** | 16.6 | **9.9** | 112 | 78 | 100 / 100 |
+| 32 | 1,505 | **2,342** | 20.1 | **12.9** | 203 | 249 | 98.3 / 98.6 |
+
+1. int8 weights make decode **1.84x faster at c=1** (ITL 13.0 -> 7.1 ms) and give **+56% tok/s at c=32** (2,342 vs 1,505).
+   That matches decode being HBM-bound: weight bytes halve (15.2 -> ~7.6 GB) and the floor drops from 9.3 to ~4.6 ms.
+2. KV pool grows from 12.4 to 18.4 GB (232k -> 345k tokens), so more sessions fit before prefix eviction.
+3. $/1M output at c=32 on-demand: ~$0.32 vs $0.50 bf16.
+4. **Not measured: output quality.** No accuracy eval was run on the int8 model; treat this as a speed result only.
+
+### OLMo 2 7B and Olmo 3 7B (new sgl_jax ports)
+Ports: `Olmo2ForCausalLM` (post-sublayer RMSNorm, full-width QK-norm) and `Olmo3ForCausalLM` (same block + 3:1
+sliding-window attention, window 4096, YaRN RoPE). CPU parity vs HF transformers (tiny random fp32 models):
+OLMo 2 max |prompt logprob diff| 2.9e-6, Olmo 3 1.9e-6 (window 3 so it really masks, YaRN on), identical greedy tokens.
+On TPU both served the full agent workload with 0 errors; Olmo 3 used sgl_jax's hybrid SWA KV pool
+(full layers 31,104 tokens, SWA layers 24,832).
+
+| model | cache | c=1 tok/s | c=1 TTFT p50 ms | c=1 ITL p50 ms | c=32 tok/s | c=32 TTFT p50 ms | cached % |
+|---|---|---|---|---|---|---|---|
+| OLMo-2-1124-7B-Instruct | on | 66 | 219 | 13.4 | 162 | 1,374 | 79 -> 44 |
+| OLMo-2-1124-7B-Instruct | off | 45 | 938 | 13.5 | 98 | 15,358 | 0 |
+| Olmo-3-7B-Instruct | on | 65 | 124 | 13.4 | 65 | 15,881 | 84 -> 54 |
+| Olmo-3-7B-Instruct | off | 40 | 723 | 13.4 | 38 | 28,857 | 0 |
+| Qwen2.5-7B-Instruct (ref) | on | 74 | 30 | 13.0 | 1,505 | 42 | 88 |
+
+Decode is fine (ITL 13.4 ms at c=1, same as Qwen2.5-7B, ~70% of the HBM roofline), but **prefill is 10-30x slower** and
+throughput collapses with concurrency. Root cause from the server logs: OLMo 2/3 7B use full multi-head attention
+(32 KV heads, vs 4 for Qwen2.5-7B). sgl_jax's ragged paged attention v3 kernel has no tuned block sizes for that shape on
+v6e (`RPA v3 tuned-block-size LOOKUP MISS ... 32, 32, 128`), and the VMEM heuristic picks **bq=2, bkv=512** for
+prefill/mixed batches, vs bq=32, bkv=1024 for Qwen's 4 KV heads. Each prefill chunk then takes 1-2 s, so requests queue
+(the scheduler shows 2 running, KV usage ~7%). MHA also makes KV 8x bigger per token (512 KiB vs 56 KiB), which shrinks
+the pool to ~25-30k tokens. These are kernel-tuning issues, not port correctness: next step is adding v6e block sizes for
+(32 q heads, 32 kv heads, head_dim 128) to `TUNED_BLOCK_SIZES_V3`, then re-running.
+
 ## v6e-8, Qwen2.5-72B
-Not run yet. On 2026-11-18 ~09:50-10:05 PST, v6e-8 spot had no capacity in us-east5-b, europe-west4-a, us-east1-d,
-us-central1-b, asia-northeast1-b or us-south1-a. Config is ready: `configs/v6e-8-qwen72b.env` (Qwen2.5-72B-Instruct, TP=8).
+Not run: no v6e-8 capacity. Attempts:
+- 2026-11-18 ~09:50-10:05 PST, spot: us-east5-b, europe-west4-a, us-east1-d, us-central1-b, asia-northeast1-b, us-south1-a.
+- 2026-11-19 ~03:45-03:58 UTC, spot (async create in all 6 zones; every request ended without a VM) and on-demand:
+  europe-west4-a, us-east5-b, asia-northeast1-b "no more capacity in the zone"; us-south1-a "Insufficient capacity";
+  us-central1-b and us-east1-d "User does not have permission to submit requests for accelerator type v6e-8" (no v6e-8 quota there).
+Config is ready: `configs/v6e-8-qwen72b.env` (Qwen2.5-72B-Instruct, TP=8). bf16 72B (~145 GB) does not fit a v6e-4 (128 GB HBM).
 
 ## Cost
+2026-11-19 Run C: v6e-1 spot ~0.4 h (preempted, ~$0.4) + v6e-1 on-demand ~1.97 h x $2.70 = ~$5.3. v6e-8 attempts: no VM was created, $0.
 GPU baseline (Modal, 2026-11-18): A100-80GB ~32 min container time incl. smoke test (~$1.35) + H100 ~9 min (~$0.60) + CPU download/volume (<$0.05) = **~$2.0** upper bound (app wall times; GPU billed only while containers run).
 2026-11-18 Runs A+B: v6e-1 spot ~0.45 h (~$0.5-1.2) + v6e-4 on-demand ~0.85 h x 4 chips x $2.70 = ~$9.2. Earlier: ~$1 of TPU time so far (covered by credits): ~0.3 chip-h on-demand v6e-1 ($0.81) plus ~0.1 chip-h of a preempted spot VM (~$0.10).
 The full v6e-1 cache on + off sweep took ~7 minutes of benchmark time.

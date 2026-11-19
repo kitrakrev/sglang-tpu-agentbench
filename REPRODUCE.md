@@ -98,8 +98,23 @@ python scripts/roofline.py results/v6e-4-qwen38-27b-pi --mode off --chips 4 --pa
 Server startup takes ~6 min (XLA compile). Why the special flags: see the comment in `scripts/runB_v6e4_qwen38.sh`
 and the failed-start logs in `results/v6e-4-qwen38-27b-pi/logs/*FAILED.log`, `*OOM.log`.
 
-## 7. Qwen2.5-72B on v6e-8 (planned, not run)
-`scripts/tpu_up.sh v6e-8 $ZONE`, set up, then `scripts/serve_and_bench.sh v6e-8-qwen72b` and analyze with `--chips 8`.
+## 7. Qwen2.5-72B on v6e-8 (planned, not run: no v6e-8 capacity on 2026-11-18/19)
+`scripts/tpu_up.sh v6e-8 $ZONE` (or `SPOT= scripts/tpu_up.sh v6e-8 $ZONE` for on-demand), set up as in section 3, then
+`scripts/serve_and_bench.sh v6e-8-qwen72b` and analyze with `--chips 8`. v6e-8 on-demand is ~$21.6/h; check quota per zone first
+(`gcloud compute tpus tpu-vm create` returns "User does not have permission ... v6e-8" where the project has none).
+
+## 7b. Run C: OLMo 2 / Olmo 3 ports + int8 weights on v6e-1
+Install sglang-jax from the port branch instead of upstream (section 3):
+```bash
+git clone -b add-olmo3-support https://github.com/kitrakrev/sglang-jax ~/sglang-jax   # adds Olmo2/Olmo3ForCausalLM
+(cd ~/sglang-jax && uv venv --python 3.12 && . .venv/bin/activate && uv pip install -e "python[all]")
+. ~/sglang-jax/.venv/bin/activate && pip install -e ~/agentbench
+scripts/runC_v6e1_olmo_int8.sh     # OLMo-2-7B + Olmo-3-7B cache on/off; Qwen2.5-7B bf16 vs int8 (int8.yaml), c=1..32
+for T in v6e-1-olmo2-7b v6e-1-olmo3-7b v6e-1-qwen7b-int8; do python -m agentbench.analyze results/$T --chips 1 --price-ondemand 2.70 --price-spot 1.00; done
+```
+int8 = `--quantization-config-path=int8.yaml` (built-in, weight-only, quantized at load). Port parity tests run on CPU:
+`OLMO_DISABLE_HYBRID_SWA=1 JAX_PLATFORMS=cpu python -m pytest -s test/srt/models/test_olmo3_hf_parity.py` (and `test_olmo2_hf_parity.py`).
+Spot v6e-1 can be preempted mid-run (it happened on 2026-11-19); use on-demand (`SPOT=`) for runs you need to finish.
 
 ## 8. Collect results, then ALWAYS delete the VM
 From the laptop:
