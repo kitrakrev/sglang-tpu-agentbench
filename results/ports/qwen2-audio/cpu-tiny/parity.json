@@ -1,0 +1,46 @@
+{
+ "arch": "qwen2_audio",
+ "all_match": true,
+ "requests": [
+  {
+   "request": 0,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 1.049041748046875e-05,
+   "prompt_tokens": [
+    114,
+    114
+   ]
+  },
+  {
+   "request": 1,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 7.62939453125e-06,
+   "prompt_tokens": [
+    207,
+    207
+   ]
+  },
+  {
+   "request": 2,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 1.9550323486328125e-05,
+   "prompt_tokens": [
+    299,
+    299
+   ]
+  },
+  {
+   "request": 3,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 8.106231689453125e-06,
+   "prompt_tokens": [
+    22,
+    22
+   ]
+  }
+ ]
+}

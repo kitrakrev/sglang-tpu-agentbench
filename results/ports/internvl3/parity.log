@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/781 [00:00<?, ?it/s]Loading weights:  31%|███▏      | 246/781 [00:00<00:00, 2457.35it/s]Loading weights:  87%|████████▋ | 682/781 [00:00<00:00, 3575.51it/s]Loading weights: 100%|██████████| 781/781 [00:00<00:00, 3578.79it/s]
+[transformers] The tied weights mapping and config for this model specifies to tie model.language_model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+[transformers] Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+[transformers] Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+[transformers] Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+req 0: matched 32/32 tokens, max|dlogp| on prefix=0.059329867362976074
+  HF : The image is a grid of squares, each filled with a different color. The colors transition smoothly from one to another, creating a gradient effect. The colors r
+  SGL: The image is a grid of squares, each filled with a different color. The colors transition smoothly from one to another, creating a gradient effect. The colors r
+req 1: matched 1/6 tokens, max|dlogp| on prefix=0.004447432234883308
+  HF : The square is red.
+  SGL: The color of the square is red.
+req 2: matched 32/32 tokens, max|dlogp| on prefix=0.056006789207458496
+  HF : The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with gas molecules and small parti
+  SGL: The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with gas molecules and small parti

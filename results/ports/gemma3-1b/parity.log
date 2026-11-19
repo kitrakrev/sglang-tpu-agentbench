@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/340 [00:00<?, ?it/s]Loading weights:  93%|█████████▎| 316/340 [00:00<00:00, 3112.09it/s]Loading weights: 100%|██████████| 340/340 [00:00<00:00, 3197.82it/s]
+[transformers] Both `max_new_tokens` (=32) and `max_length`(=32768) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=32) and `max_length`(=32768) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=32) and `max_length`(=32768) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=32) and `max_length`(=32768) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+req 0: matched 30/30 tokens, max|dlogp| on prefix=0.10102814435958862
+  HF : The three primary colors are **red, yellow, and blue**.   These are the colors that cannot be created by mixing other colors together.
+  SGL: The three primary colors are **red, yellow, and blue**.   These are the colors that cannot be created by mixing other colors together.
+req 1: matched 32/32 tokens, max|dlogp| on prefix=0.022538676857948303
+  HF : ```python def is_prime(number):   """   Checks if a number is prime.    Args:     number: The number
+  SGL: ```python def is_prime(number):   """   Checks if a number is prime.    Args:     number: The number
+req 2: matched 32/32 tokens, max|dlogp| on prefix=0.02840062975883484
+  HF : The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight is made up of all the colors of the rainbow, and as it enters the Earth’s
+  SGL: The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight is made up of all the colors of the rainbow, and as it enters the Earth’s
+req 3: matched 32/32 tokens, max|dlogp| on prefix=0.038798391819000244
+  HF : Okay, here are the planets of our solar system in order from the Sun:  1.  **Mercury** 2.  **Venus** 3
+  SGL: Okay, here are the planets of our solar system in order from the Sun:  1.  **Mercury** 2.  **Venus** 3

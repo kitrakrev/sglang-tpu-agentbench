@@ -1,0 +1,133 @@
+=== gemma3-1b (unsloth/gemma-3-1b-it) 04:50:46
+/home/karthikraja/parity/vm_validate.sh: line 23:  5751 Killed                  python3 -u -m sgl_jax.launch_server --model-path "$M" --trust-remote-code --tp-size=1 --device=tpu --mem-fraction-static=0.8 --page-size=128 --chunked-prefill-size=2048 --max-running-requests=64 --attention-backend=fa --dtype=bfloat16 --enable-cache-report --host 0.0.0.0 --port $PORT ${EXTRA[$K]} > "$D/server.log" 2>&1
+SERVER DIED
+    for _, _, compiled in pool.map(
+                          ^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/model_executor/compilation_manager.py", line 77, in map
+    lowered = lower(item)
+              ^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/model_executor/model_runner.py", line 957, in lower_model
+    return self._lower_model(batch.forward_batch, logits_metadata)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/model_executor/model_runner.py", line 326, in <lambda>
+    self._lower_model = lambda batch, metadata: jitted_run_model.lower(
+                                                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/model_executor/model_forward.py", line 47, in jitted_run_model
+    return model(forward_batch, memory_pools, logits_metadata)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/models/gemma3.py", line 361, in __call__
+    hidden_states, layers_kv_fused = self.model(forward_batch, kv_pool)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/models/gemma3.py", line 247, in __call__
+    hidden_states, kv_fused = layer(hidden_states, forward_batch, token_to_kv_pool)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/models/gemma3.py", line 195, in __call__
+    hidden_states, kv_fused = self.self_attn(hidden_states, forward_batch, token_to_kv_pool)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/models/gemma3.py", line 154, in __call__
+    attn_output, kv_fused = self.attn(
+                            ^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/layers/radix_attention.py", line 73, in __call__
+    return forward_batch.attn_backend(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/utils/profiling_utils.py", line 42, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/layers/attention/flashattention_backend.py", line 867, in __call__
+    attn_output, updated_kv_cache_fused = jax.shard_map(
+                                          ^^^^^^^^^^^^^^
+ValueError: in_specs passed to shard_map: P('data', 'tensor', None) does not match the specs of the input: P('data', None, 'tensor') for arg: bfloat16[64@data,1,256@tensor]. `in_specs` is an optional argument so you can omit specifying it and shard_map will infer the in_specs from the arguments. If you want to reshard your inputs, you can use `jax.reshard` on the arguments and then pass those args to shard_map.
+--------------------
+For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+[2026-11-19 04:51:53] Received sigquit from a child process. It usually means the child failed.
+=== gemma3-4b (unsloth/gemma-3-4b-it) 04:52:01
+req 0: matched 32/32 tokens, max|dlogp| on prefix=0.03609049320220947
+  HF : The three primary colors are **red, yellow, and blue**.   They're called "primary" because they can't be created by mixing other
+  SGL: The three primary colors are **red, yellow, and blue**.   They're called "primary" because they can't be created by mixing other
+req 1: matched 32/32 tokens, max|dlogp| on prefix=0.07983982563018799
+  HF : ```python def is_prime(number):   """   Checks if a number is prime.    Args:     number: The number
+  SGL: ```python def is_prime(number):   """   Checks if a number is prime.    Args:     number: The number
+req 2: matched 32/32 tokens, max|dlogp| on prefix=0.10600775480270386
+  HF : The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight, which is made up of all the colors of the rainbow, enters the Earth’s atmosphere
+  SGL: The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight, which is made up of all the colors of the rainbow, enters the Earth’s atmosphere
+req 3: matched 32/32 tokens, max|dlogp| on prefix=0.1737147569656372
+  HF : Okay, here’s a list of the planets in our solar system, in order from closest to the Sun to furthest:  1.  **Mercury**
+  SGL: Okay, here’s a list of the planets in our solar system, in order from closest to the Sun to furthest:  1.  **Mercury**
+=== glm4 (zai-org/GLM-4-9B-0414) 04:57:42
+req 0: matched 32/32 tokens, max|dlogp| on prefix=0.028823673725128174
+  HF :  The three primary colors depend on whether you are talking about **light** or **pigments/matter**:  1.  **For Light (Additive
+  SGL:  The three primary colors depend on whether you are talking about **light** or **pigments/matter**:  1.  **For Light (Additive
+req 1: matched 16/32 tokens, max|dlogp| on prefix=0.012876361608505249
+  HF :  Certainly! Below is a Python function that checks whether a given number is prime:  ```python def is_prime(n):     """Check if a number is
+  SGL:  Certainly! Below is a Python function that checks whether a given number is prime. A prime number is a natural number greater than 1 that has no positive
+req 2: matched 7/32 tokens, max|dlogp| on prefix=0.01751646399497986
+  HF :  The sky appears blue due to a phenomenon called Rayleigh scattering, where sunlight interacts with Earth's atmosphere. Sunlight is composed of various colors, 
+  SGL:  The sky appears blue due to Rayleigh scattering, a phenomenon where air molecules and tiny particles scatter shorter blue wavelengths of sunlight more effectiv
+req 3: matched 32/32 tokens, max|dlogp| on prefix=0.0647965669631958
+  HF :  Okay, here are the planets of our solar system in order from the Sun:  1.  **Mercury** 2.  **Venus** 3
+  SGL:  Okay, here are the planets of our solar system in order from the Sun:  1.  **Mercury** 2.  **Venus** 3
+=== internvl3 (OpenGVLab/InternVL3-2B-hf) 05:04:41
+/home/karthikraja/parity/vm_validate.sh: line 23: 10888 Killed                  python3 -u -m sgl_jax.launch_server --model-path "$M" --trust-remote-code --tp-size=1 --device=tpu --mem-fraction-static=0.8 --page-size=128 --chunked-prefill-size=2048 --max-running-requests=64 --attention-backend=fa --dtype=bfloat16 --enable-cache-report --host 0.0.0.0 --port $PORT ${EXTRA[$K]} > "$D/server.log" 2>&1
+SERVER DIED
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/preprocessor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%22a7b376e0a83f26eaa784db792ef61be7aac5494f%22 "HTTP/1.1 200 OK"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fconfig.json=&etag=%2217acad616e8fe67421742592e392b3bb2bad397d%22 "HTTP/1.1 200 OK"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 05:04:53] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/preprocessor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%22a7b376e0a83f26eaa784db792ef61be7aac5494f%22 "HTTP/1.1 200 OK"
+[2026-11-19 05:04:54] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/revision/main "HTTP/1.1 200 OK"
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 1854.49it/s]
+[2026-11-19 05:04:54] XLA persistent compilation cache: enabled, dir=/tmp/jit_cache, min_compile_time=0s
+[2026-11-19 05:04:54] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 05:04:54] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 05:04:54] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fconfig.json=&etag=%2217acad616e8fe67421742592e392b3bb2bad397d%22 "HTTP/1.1 200 OK"
+[2026-11-19 05:04:54] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 05:04:54] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/generation_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%22ca5b455bc4e6053fd7d790c2bc01b7f9dd312154%22 "HTTP/1.1 200 OK"
+[2026-11-19 05:04:54] No quantization config found in HF config or user config
+[2026-11-19 05:04:55] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/revision/main "HTTP/1.1 200 OK"
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 2099.04it/s]
+[2026-11-19 05:04:56] Scheduler hit an exception: Traceback (most recent call last):
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/managers/scheduler.py", line 3007, in run_scheduler_process
+    scheduler = Scheduler(server_args, port_args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/managers/scheduler.py", line 343, in __init__
+    self.grammar_backend = create_grammar_backend(
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/constrained/base_grammar_backend.py", line 166, in create_grammar_backend
+    grammar_backend = get_guidance_backend(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/python/sgl_jax/srt/constrained/llguidance_backend.py", line 112, in get_guidance_backend
+    llguidance_tokenizer = from_tokenizer(tokenizer, n_vocab=n_vocab)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karthikraja/sglang-jax/.venv/lib/python3.12/site-packages/llguidance/hf.py", line 45, in from_tokenizer
+    return LLTokenizer(s, n_vocab=n_vocab, eos_token=eos_token, slices=slices)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: vocab size too small; 151674 vs 151675
+
+[2026-11-19 05:04:56] Received sigquit from a child process. It usually means the child failed.
+=== qwen2-audio (Qwen/Qwen2-Audio-7B-Instruct) 05:05:02
+parity failed
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/home/karthikraja/parity/tpu_parity.py", line 173, in <module>
+    main()
+  File "/home/karthikraja/parity/tpu_parity.py", line 131, in main
+    r.raise_for_status()
+  File "/home/karthikraja/sglang-jax/.venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:30000/generate
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/home/karthikraja/parity/tpu_parity.py", line 173, in <module>
+    main()
+  File "/home/karthikraja/parity/tpu_parity.py", line 131, in main
+    r.raise_for_status()
+  File "/home/karthikraja/sglang-jax/.venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http://localhost:30000/generate
+ALL DONE 05:10:15

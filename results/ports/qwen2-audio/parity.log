@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1675.18it/s]
+Loading weights:   0%|          | 0/876 [00:00<?, ?it/s]Loading weights:  47%|████▋     | 414/876 [00:00<00:00, 4138.61it/s]Loading weights:  95%|█████████▍| 828/876 [00:00<00:00, 1190.67it/s]Loading weights: 100%|██████████| 876/876 [00:00<00:00, 1309.77it/s]
+req 0: matched 8/8 tokens, max|dlogp| on prefix=0.09384000301361084
+  HF : It is a telephone dial tone.
+  SGL: It is a telephone dial tone.
+req 1: matched 6/6 tokens, max|dlogp| on prefix=0.14508554339408875
+  HF : The pitch is rising.
+  SGL: The pitch is rising.
+req 2: matched 4/32 tokens, max|dlogp| on prefix=0.8936401605606079
+  HF : The three primary colors of light are red, green, and blue (RGB). These colors can be combined in various ways to create secondary colors and shades of color
+  SGL: The three primary colors are red, blue, and green. These colors are often used in art, painting, and other visual arts to create a wide range of

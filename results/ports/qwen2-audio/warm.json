@@ -1,0 +1,35 @@
+{
+ "model": "Qwen/Qwen2-Audio-7B-Instruct",
+ "kind": "audio",
+ "new_tokens": 4,
+ "note": "sgl_jax bf16 on TPU v6e-1 vs HF transformers fp32 on VM CPU",
+ "requests": [
+  {
+   "request": 0,
+   "matched_prefix": 4,
+   "of": 4,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.11727750301361084,
+   "hf_text": "It is a telephone",
+   "sgl_text": "It is a telephone"
+  },
+  {
+   "request": 1,
+   "matched_prefix": 4,
+   "of": 4,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.14508554339408875,
+   "hf_text": "The pitch is rising",
+   "sgl_text": "The pitch is rising"
+  },
+  {
+   "request": 2,
+   "matched_prefix": 4,
+   "of": 4,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.8936401605606079,
+   "hf_text": "The three primary colors",
+   "sgl_text": "The three primary colors"
+  }
+ ]
+}

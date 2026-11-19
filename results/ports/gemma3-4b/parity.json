@@ -1,0 +1,44 @@
+{
+ "model": "unsloth/gemma-3-4b-it",
+ "kind": "text",
+ "new_tokens": 32,
+ "note": "sgl_jax bf16 on TPU v6e-1 vs HF transformers fp32 on VM CPU",
+ "requests": [
+  {
+   "request": 0,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.03609049320220947,
+   "hf_text": "The three primary colors are **red, yellow, and blue**. \n\nThey're called \"primary\" because they can't be created by mixing other",
+   "sgl_text": "The three primary colors are **red, yellow, and blue**. \n\nThey're called \"primary\" because they can't be created by mixing other"
+  },
+  {
+   "request": 1,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.07983982563018799,
+   "hf_text": "```python\ndef is_prime(number):\n  \"\"\"\n  Checks if a number is prime.\n\n  Args:\n    number: The number",
+   "sgl_text": "```python\ndef is_prime(number):\n  \"\"\"\n  Checks if a number is prime.\n\n  Args:\n    number: The number"
+  },
+  {
+   "request": 2,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.10600775480270386,
+   "hf_text": "The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight, which is made up of all the colors of the rainbow, enters the Earth\u2019s atmosphere",
+   "sgl_text": "The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight, which is made up of all the colors of the rainbow, enters the Earth\u2019s atmosphere"
+  },
+  {
+   "request": 3,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.1737147569656372,
+   "hf_text": "Okay, here\u2019s a list of the planets in our solar system, in order from closest to the Sun to furthest:\n\n1.  **Mercury**",
+   "sgl_text": "Okay, here\u2019s a list of the planets in our solar system, in order from closest to the Sun to furthest:\n\n1.  **Mercury**"
+  }
+ ]
+}

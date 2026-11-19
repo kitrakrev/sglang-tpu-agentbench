@@ -1,0 +1,44 @@
+{
+ "model": "zai-org/GLM-4-9B-0414",
+ "kind": "text",
+ "new_tokens": 32,
+ "note": "sgl_jax bf16 on TPU v6e-1 vs HF transformers fp32 on VM CPU",
+ "requests": [
+  {
+   "request": 0,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.028823673725128174,
+   "hf_text": "\nThe three primary colors depend on whether you are talking about **light** or **pigments/matter**:\n\n1.  **For Light (Additive",
+   "sgl_text": "\nThe three primary colors depend on whether you are talking about **light** or **pigments/matter**:\n\n1.  **For Light (Additive"
+  },
+  {
+   "request": 1,
+   "matched_prefix": 16,
+   "of": 32,
+   "first_divergence": 16,
+   "max_logprob_diff_on_prefix": 0.012876361608505249,
+   "hf_text": "\nCertainly! Below is a Python function that checks whether a given number is prime:\n\n```python\ndef is_prime(n):\n    \"\"\"Check if a number is",
+   "sgl_text": "\nCertainly! Below is a Python function that checks whether a given number is prime. A prime number is a natural number greater than 1 that has no positive"
+  },
+  {
+   "request": 2,
+   "matched_prefix": 7,
+   "of": 32,
+   "first_divergence": 7,
+   "max_logprob_diff_on_prefix": 0.01751646399497986,
+   "hf_text": "\nThe sky appears blue due to a phenomenon called Rayleigh scattering, where sunlight interacts with Earth's atmosphere. Sunlight is composed of various colors, each with",
+   "sgl_text": "\nThe sky appears blue due to Rayleigh scattering, a phenomenon where air molecules and tiny particles scatter shorter blue wavelengths of sunlight more effectively than longer red or yellow"
+  },
+  {
+   "request": 3,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.0647965669631958,
+   "hf_text": "\nOkay, here are the planets of our solar system in order from the Sun:\n\n1.  **Mercury**\n2.  **Venus**\n3",
+   "sgl_text": "\nOkay, here are the planets of our solar system in order from the Sun:\n\n1.  **Mercury**\n2.  **Venus**\n3"
+  }
+ ]
+}

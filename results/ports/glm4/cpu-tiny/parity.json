@@ -1,0 +1,30 @@
+{
+ "arch": "glm4",
+ "all_match": true,
+ "prompts": [
+  {
+   "prompt": 0,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 2.86102294921875e-06
+  },
+  {
+   "prompt": 1,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 2.86102294921875e-06
+  },
+  {
+   "prompt": 2,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 1.9073486328125e-06
+  },
+  {
+   "prompt": 3,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 2.86102294921875e-06
+  }
+ ]
+}

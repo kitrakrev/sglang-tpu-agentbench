@@ -1,0 +1,5 @@
+prompt 0: match=False first_div=None max|dlogp|=1.88e-02
+prompt 1: match=False first_div=12 max|dlogp|=2.94e-02
+prompt 2: match=False first_div=4 max|dlogp|=6.60e-03
+prompt 3: match=False first_div=14 max|dlogp|=2.71e-02
+MISMATCH

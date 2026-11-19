@@ -1,0 +1,44 @@
+{
+ "model": "unsloth/gemma-3-4b-it",
+ "kind": "text",
+ "new_tokens": 4,
+ "note": "sgl_jax bf16 on TPU v6e-1 vs HF transformers fp32 on VM CPU",
+ "requests": [
+  {
+   "request": 0,
+   "matched_prefix": 4,
+   "of": 4,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.0,
+   "hf_text": "The three primary colors",
+   "sgl_text": "The three primary colors"
+  },
+  {
+   "request": 1,
+   "matched_prefix": 4,
+   "of": 4,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 1.0728830375228426e-06,
+   "hf_text": "```python\ndef",
+   "sgl_text": "```python\ndef"
+  },
+  {
+   "request": 2,
+   "matched_prefix": 4,
+   "of": 4,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.000609927112236619,
+   "hf_text": "The sky appears blue",
+   "sgl_text": "The sky appears blue"
+  },
+  {
+   "request": 3,
+   "matched_prefix": 4,
+   "of": 4,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.0009797215461730957,
+   "hf_text": "Okay, here\u2019",
+   "sgl_text": "Okay, here\u2019"
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "arch": "internvl",
+ "all_match": true,
+ "requests": [
+  {
+   "request": 0,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 2.86102294921875e-06,
+   "prompt_tokens": [
+    1807,
+    1807
+   ]
+  },
+  {
+   "request": 1,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 2.86102294921875e-06,
+   "prompt_tokens": [
+    273,
+    273
+   ]
+  },
+  {
+   "request": 2,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 2.86102294921875e-06,
+   "prompt_tokens": [
+    2067,
+    2067
+   ]
+  },
+  {
+   "request": 3,
+   "greedy_match": true,
+   "first_divergence": null,
+   "max_logprob_diff": 2.86102294921875e-06,
+   "prompt_tokens": [
+    11,
+    11
+   ]
+  }
+ ]
+}

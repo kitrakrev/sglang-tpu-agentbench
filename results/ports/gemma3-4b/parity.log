@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/883 [00:00<?, ?it/s]Loading weights:  19%|█▉        | 168/883 [00:00<00:00, 1671.51it/s]Loading weights:  38%|███▊      | 336/883 [00:00<00:00, 1558.42it/s]Loading weights:  64%|██████▍   | 567/883 [00:00<00:00, 1885.36it/s]Loading weights: 100%|██████████| 883/883 [00:00<00:00, 2327.66it/s]
+req 0: matched 32/32 tokens, max|dlogp| on prefix=0.03609049320220947
+  HF : The three primary colors are **red, yellow, and blue**.   They're called "primary" because they can't be created by mixing other
+  SGL: The three primary colors are **red, yellow, and blue**.   They're called "primary" because they can't be created by mixing other
+req 1: matched 32/32 tokens, max|dlogp| on prefix=0.07983982563018799
+  HF : ```python def is_prime(number):   """   Checks if a number is prime.    Args:     number: The number
+  SGL: ```python def is_prime(number):   """   Checks if a number is prime.    Args:     number: The number
+req 2: matched 32/32 tokens, max|dlogp| on prefix=0.10600775480270386
+  HF : The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight, which is made up of all the colors of the rainbow, enters the Earth’s atmosphere
+  SGL: The sky appears blue due to a phenomenon called Rayleigh scattering. Sunlight, which is made up of all the colors of the rainbow, enters the Earth’s atmosphere
+req 3: matched 32/32 tokens, max|dlogp| on prefix=0.1737147569656372
+  HF : Okay, here’s a list of the planets in our solar system, in order from closest to the Sun to furthest:  1.  **Mercury**
+  SGL: Okay, here’s a list of the planets in our solar system, in order from closest to the Sun to furthest:  1.  **Mercury**

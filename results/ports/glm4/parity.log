@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/523 [00:00<?, ?it/s]Loading weights:  13%|█▎        | 70/523 [00:00<00:00, 679.96it/s]Loading weights:  31%|███       | 161/523 [00:00<00:00, 808.76it/s]Loading weights:  48%|████▊     | 252/523 [00:00<00:00, 825.75it/s]Loading weights:  66%|██████▌   | 343/523 [00:00<00:00, 834.89it/s]Loading weights:  83%|████████▎ | 434/523 [00:00<00:00, 846.65it/s]Loading weights: 100%|██████████| 523/523 [00:00<00:00, 858.74it/s]
+req 0: matched 32/32 tokens, max|dlogp| on prefix=0.028823673725128174
+  HF :  The three primary colors depend on whether you are talking about **light** or **pigments/matter**:  1.  **For Light (Additive
+  SGL:  The three primary colors depend on whether you are talking about **light** or **pigments/matter**:  1.  **For Light (Additive
+req 1: matched 16/32 tokens, max|dlogp| on prefix=0.012876361608505249
+  HF :  Certainly! Below is a Python function that checks whether a given number is prime:  ```python def is_prime(n):     """Check if a number is
+  SGL:  Certainly! Below is a Python function that checks whether a given number is prime. A prime number is a natural number greater than 1 that has no positive
+req 2: matched 7/32 tokens, max|dlogp| on prefix=0.01751646399497986
+  HF :  The sky appears blue due to a phenomenon called Rayleigh scattering, where sunlight interacts with Earth's atmosphere. Sunlight is composed of various colors, 
+  SGL:  The sky appears blue due to Rayleigh scattering, a phenomenon where air molecules and tiny particles scatter shorter blue wavelengths of sunlight more effectiv
+req 3: matched 32/32 tokens, max|dlogp| on prefix=0.0647965669631958
+  HF :  Okay, here are the planets of our solar system in order from the Sun:  1.  **Mercury** 2.  **Venus** 3
+  SGL:  Okay, here are the planets of our solar system in order from the Sun:  1.  **Mercury** 2.  **Venus** 3

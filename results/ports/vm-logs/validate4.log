@@ -1,0 +1,14 @@
+=== internvl3 (OpenGVLab/InternVL3-2B-hf) 05:24:23
+[transformers] Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+[transformers] Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+[transformers] Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+req 0: matched 32/32 tokens, max|dlogp| on prefix=0.059329867362976074
+  HF : The image is a grid of squares, each filled with a different color. The colors transition smoothly from one to another, creating a gradient effect. The colors r
+  SGL: The image is a grid of squares, each filled with a different color. The colors transition smoothly from one to another, creating a gradient effect. The colors r
+req 1: matched 1/6 tokens, max|dlogp| on prefix=0.004447432234883308
+  HF : The square is red.
+  SGL: The color of the square is red.
+req 2: matched 32/32 tokens, max|dlogp| on prefix=0.056006789207458496
+  HF : The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with gas molecules and small parti
+  SGL: The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with gas molecules and small parti
+ALL DONE 05:27:20
