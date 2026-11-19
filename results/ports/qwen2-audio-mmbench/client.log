@@ -1,0 +1,4 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{"concurrency": 1, "requests": 4, "errors": 0, "output_tok_per_s": 71.81, "requests_per_s": 0.561, "ttft_p50_ms": 128.8, "ttft_p99_ms": 129.0, "itl_p50_ms": 13.02, "e2e_p50_ms": 1782.8, "first_error": null}
+{"concurrency": 4, "requests": 16, "errors": 0, "output_tok_per_s": 206.04, "requests_per_s": 1.61, "ttft_p50_ms": 445.3, "ttft_p99_ms": 1641.4, "itl_p50_ms": 14.51, "e2e_p50_ms": 2187.8, "first_error": null}
+{"concurrency": 8, "requests": 32, "errors": 0, "output_tok_per_s": 410.05, "requests_per_s": 3.203, "ttft_p50_ms": 641.3, "ttft_p99_ms": 707.9, "itl_p50_ms": 14.43, "e2e_p50_ms": 2517.9, "first_error": null}

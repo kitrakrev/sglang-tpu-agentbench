@@ -1,0 +1,284 @@
+[2026-11-19 06:53:26] server_args=ServerArgs(model_path='Qwen/Qwen2-Audio-7B-Instruct', tokenizer_path='Qwen/Qwen2-Audio-7B-Instruct', tokenizer_mode='auto', tokenizer_backend='huggingface', skip_tokenizer_init=False, load_format='auto', model_loader_extra_config='{}', trust_remote_code=True, context_length=None, is_embedding=False, revision=None, model_impl='auto', model_layer_nums=None, host='0.0.0.0', port=30000, skip_server_warmup=False, warmups=None, dtype='bfloat16', quantization=None, quantization_param_path=None, quantization_config_path=None, kv_cache_dtype='auto', dtype_config=None, mem_fraction_static=0.8, max_running_requests=64, max_total_tokens=None, max_prefill_tokens=16384, chunked_prefill_size=4096, enable_mixed_chunk=False, schedule_policy='fcfs', schedule_conservativeness=1.0, page_size=128, swa_full_tokens_ratio=0.8, recurrent_state_memory_ratio=0.9, max_recurrent_state_size=None, recurrent_track_interval=None, disable_hybrid_swa_memory=False, device='tpu', device_indexes=None, pd_disaggregation='', pd_prefill_mem_fraction=0.85, pd_decode_mem_fraction=0.85, pd_prefill_max_tokens=20480, pd_decode_max_tokens=25600, pd_num_prefill=1, pd_num_decode=1, pd_prefill_tp_size=0, pd_prefill_ep_size=0, tp_size=1, ep_size=1, ep_num_redundant_experts=0, ep_dispatch_algorithm=None, enable_sequence_parallel=False, stream_interval=1, stream_output=False, random_seed=42, constrained_json_whitespace_pattern=None, constrained_json_disable_any_whitespace=False, watchdog_timeout=300, dist_timeout=None, download_dir=None, sleep_on_idle=False, dp_size=1, enable_dp_lm_head=False, moe_dp_size=1, dp_schedule_policy='cache_aware', log_level='info', log_level_http=None, log_requests=False, log_requests_level=0, crash_dump_folder=None, show_time_cost=False, enable_metrics=False, bucket_time_to_first_token=None, bucket_inter_token_latency=None, bucket_e2e_request_latency=None, decode_log_interval=40, enable_request_time_stats_logging=False, kv_events_config=None, api_key=None, served_model_name='Qwen/Qwen2-Audio-7B-Instruct', file_storage_path='sglang_storage', enable_cache_report=True, reasoning_parser=None, tool_call_parser=None, dist_init_addr=None, nnodes=1, node_rank=0, json_model_override_args='{}', preferred_sampling_params=None, disable_radix_cache=False, enable_unified_radix_tree=False, hicache_storage='disable', hicache_ratio=2.0, hicache_write_through_threshold=1, hicache_write_policy='write_through', enable_recurrent_extra_buffer=False, allow_auto_truncate=False, enable_tokenizer_batch_encode=False, disable_overlap_schedule=False, enable_precision_tracer=False, attention_backend='fa', gdn_prefill_impl='fused_chunk_parallel', dsa_use_pallas=True, moe_backend='epmoe', disable_jax_allreduce_metadata=False, enable_topk_kernel=True, grammar_backend='llguidance', max_seq_len=4096, precompile_token_paddings=None, precompile_bs_paddings=None, precompile_vision_patch_paddings=None, vision_encoder_parallel='dp', disable_precompile=False, precompile_num_threads=2, aot_model_dir=None, save_aot=None, aot_topology=None, aot_topology_name=None, aot_host_bounds=None, speculative_algorithm=None, speculative_draft_model_path=None, speculative_draft_model_revision=None, speculative_num_steps=4, speculative_eagle_topk=5, speculative_num_draft_tokens=4, speculative_sample_from_anchor=False, speculative_accept_threshold_single=1.0, speculative_accept_threshold_acc=1.0, enable_deterministic_sampling=False, enable_single_process=False, enable_nan_detection=False, enable_lora=False, max_lora_rank=None, lora_target_modules=None, lora_paths=None, max_loaded_loras=None, max_loras_per_batch=8, lora_eviction_policy='lru', enable_static_lora=False, lora_scaling=None, enable_engine_loop_run_forever_daemon=False, multimodal=False, limit_mm_data_per_request=None, mm_processor_worker_num=0, enable_return_routed_experts=False, enable_expert_balance_debug=False, expert_balance_segment_counter=100, expert_balance_output_file=None, init_expert_location='trivial', enable_expert_distribution_recorder=False, expert_distribution_recorder_buffer_size=100, expert_distribution_recorder_output_file=None, disaggregation_mode='null', disaggregation_bootstrap_url=None, disaggregation_bootstrap_port=8998, disaggregation_transfer_port=30001, disaggregation_enable_d2h=False, disaggregation_use_raiden=False, disaggregation_enable_overlap_schedule=False, disaggregation_enable_chunk_prefill_transfer=False, disaggregation_side_channel_port=9600, disaggregation_d2h_pool_size=64, disaggregation_d2h_max_tokens=None, disaggregation_channel_number=4, disaggregation_host_ip=None, disaggregation_bootstrap_timeout_seconds=5.0, disaggregation_pull_timeout_seconds=30.0, disaggregation_ack_timeout_seconds=60.0, disaggregation_orphan_reaper_interval_seconds=5.0, disaggregation_shared_secret=None, disaggregation_decode_watchdog_seconds=0.0, disaggregation_num_reserved_decode_tokens=512, disaggregation_max_inflight_transfers=8)
+[2026-11-19 06:53:26] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 06:53:26] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 06:53:26] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22fb0e65eb25c07db35f951aaf3f0fc73b024545a2%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:26] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:26] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/generation_config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%222d21cdd6d40003de26591ff0a438801e25a42107%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:26] No quantization config found in HF config or user config
+[2026-11-19 06:53:27] Installed sgl-jax 'mecord' compatibility shim (real mecord not available); Kimi video decoding will use decord.
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22fb0e65eb25c07db35f951aaf3f0fc73b024545a2%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/preprocessor_config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%223cd6c4610c3e6e98af27fcdf9ffdcb83c498549a%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/preprocessor_config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%223cd6c4610c3e6e98af27fcdf9ffdcb83c498549a%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:27] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-Audio-7B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:27] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/chat_template.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/preprocessor_config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%223cd6c4610c3e6e98af27fcdf9ffdcb83c498549a%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/preprocessor_config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%223cd6c4610c3e6e98af27fcdf9ffdcb83c498549a%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22fb0e65eb25c07db35f951aaf3f0fc73b024545a2%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:28] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/tokenizer_config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%228071e4b39d30f19114e082f888d5cf83f2ac7c3d%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:28] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-Audio-7B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:29] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-Audio-7B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-11-19 06:53:29] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:29] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/special_tokens_map.json "HTTP/1.1 404 Not Found"
+[2026-11-19 06:53:29] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-Audio-7B-Instruct "HTTP/1.1 200 OK"
+[2026-11-19 06:53:32] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-Audio-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1845.39it/s]
+[2026-11-19 06:53:32] XLA persistent compilation cache: enabled, dir=/tmp/jit_cache, min_compile_time=0s
+[2026-11-19 06:53:32] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 06:53:32] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 06:53:32] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fconfig.json=&etag=%22fb0e65eb25c07db35f951aaf3f0fc73b024545a2%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:32] HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-Audio-7B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 06:53:32] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-Audio-7B-Instruct/0a095220c30b7b31434169c3086508ef3ea5bf0a/generation_config.json?%2FQwen%2FQwen2-Audio-7B-Instruct%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%222d21cdd6d40003de26591ff0a438801e25a42107%22 "HTTP/1.1 200 OK"
+[2026-11-19 06:53:32] No quantization config found in HF config or user config
+[2026-11-19 06:53:33] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-Audio-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 1833.52it/s]
+[2026-11-19 06:53:34] Initialized GuidanceBackend with whitespace_pattern=None
+[2026-11-19 06:53:36] No quantization config found in HF config or user config
+[2026-11-19 06:53:36] Precision tracer globally disabled
+[2026-11-19 06:53:37] KV heads distribution for MHA model: original_kv_heads=32, tp_size=1, each device gets 32 head(s), no replication needed, padding_strategy=zero
+[2026-11-19 06:53:37] HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-Audio-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 15 files:   0%|          | 0/15 [00:00<?, ?it/s]Fetching 15 files: 100%|██████████| 15/15 [00:00<00:00, 2340.14it/s]
+[2026-11-19 06:53:37] model_path on ext4 mount, skipping GCSFuse warm-up
+Loading weights:   0%|          | 0/876 [00:00<?, ?it/s]Loading weights:   1%|          | 9/876 [00:00<00:39, 21.81it/s]Loading weights:   2%|▏         | 14/876 [00:00<00:34, 24.78it/s]Loading weights:   7%|▋         | 63/876 [00:00<00:06, 135.41it/s]Loading weights:  13%|█▎        | 114/876 [00:00<00:03, 227.79it/s]Loading weights:  18%|█▊        | 161/876 [00:00<00:02, 290.94it/s]Loading weights:  24%|██▍       | 213/876 [00:00<00:01, 352.73it/s]Loading weights:  30%|███       | 264/876 [00:01<00:01, 393.43it/s]Loading weights:  36%|███▌      | 314/876 [00:01<00:01, 421.70it/s]Loading weights:  42%|████▏     | 366/876 [00:01<00:01, 449.55it/s]Loading weights:  47%|████▋     | 415/876 [00:01<00:01, 455.20it/s]Loading weights:  53%|█████▎    | 463/876 [00:01<00:00, 459.87it/s]Loading weights:  58%|█████▊    | 511/876 [00:02<00:02, 123.65it/s]Loading weights:  62%|██████▏   | 546/876 [00:03<00:03, 95.74it/s] Loading weights:  65%|██████▌   | 572/876 [00:03<00:03, 89.51it/s]Loading weights:  68%|██████▊   | 593/876 [00:03<00:03, 77.62it/s]Loading weights:  70%|██████▉   | 609/876 [00:04<00:03, 77.43it/s]Loading weights:  71%|███████   | 623/876 [00:04<00:03, 75.81it/s]Loading weights:  72%|███████▏  | 635/876 [00:04<00:03, 74.29it/s]Loading weights:  74%|███████▎  | 645/876 [00:04<00:03, 73.31it/s]Loading weights:  75%|███████▍  | 655/876 [00:04<00:03, 61.76it/s]Loading weights:  76%|███████▌  | 663/876 [00:05<00:03, 62.78it/s]Loading weights:  77%|███████▋  | 672/876 [00:05<00:03, 65.51it/s]Loading weights:  78%|███████▊  | 680/876 [00:05<00:02, 65.88it/s]Loading weights:  79%|███████▊  | 688/876 [00:05<00:02, 67.30it/s]Loading weights:  79%|███████▉  | 696/876 [00:05<00:02, 69.83it/s]Loading weights:  80%|████████  | 704/876 [00:05<00:02, 69.87it/s]Loading weights:  81%|████████▏ | 712/876 [00:05<00:02, 69.08it/s]Loading weights:  82%|████████▏ | 720/876 [00:05<00:02, 71.14it/s]Loading weights:  83%|████████▎ | 728/876 [00:05<00:02, 68.34it/s]Loading weights:  84%|████████▍ | 735/876 [00:06<00:02, 66.72it/s]Loading weights:  85%|████████▍ | 744/876 [00:06<00:01, 71.44it/s]Loading weights:  86%|████████▌ | 752/876 [00:06<00:01, 68.49it/s]Loading weights:  87%|████████▋ | 759/876 [00:06<00:01, 65.84it/s]Loading weights:  88%|████████▊ | 767/876 [00:06<00:01, 56.18it/s]Loading weights:  88%|████████▊ | 773/876 [00:06<00:01, 55.15it/s]Loading weights:  89%|████████▉ | 781/876 [00:06<00:01, 56.94it/s]Loading weights:  90%|█████████ | 790/876 [00:07<00:01, 62.39it/s]Loading weights:  91%|█████████ | 797/876 [00:07<00:01, 61.82it/s]Loading weights:  92%|█████████▏| 804/876 [00:07<00:01, 63.55it/s]Loading weights:  93%|█████████▎| 811/876 [00:07<00:00, 65.27it/s]Loading weights:  93%|█████████▎| 818/876 [00:07<00:00, 61.76it/s]Loading weights:  95%|█████████▍| 828/876 [00:07<00:00, 69.58it/s]Loading weights:  95%|█████████▌| 836/876 [00:07<00:00, 66.95it/s]Loading weights:  96%|█████████▌| 843/876 [00:07<00:00, 65.16it/s]Loading weights:  97%|█████████▋| 853/876 [00:07<00:00, 69.83it/s]Loading weights:  98%|█████████▊| 862/876 [00:08<00:00, 74.79it/s]Loading weights:  99%|█████████▉| 870/876 [00:08<00:00, 69.77it/s]Loading weights: 100%|██████████| 876/876 [00:08<00:00, 100.79it/s]
+[2026-11-19 06:53:46] Loaded 876 parameters in 8.77s
+[2026-11-19 06:53:46] Qwen2-Audio weights loaded.
+[2026-11-19 06:53:46] Parallel precompile is unavailable for this configuration; using serial warmup
+[2026-11-19 06:53:46] ModelRunner kv_cache_dtype: <class 'jax.numpy.bfloat16'>
+[2026-11-19 06:53:47] TPU Memory profiling: available_kv_cache=9.2GB, max_tokens=18896, cell_size=524288 bytes
+[2026-11-19 06:53:47] ModelRunner per dp max_total_num_tokens after dp_size 1: 18816
+[2026-11-19 06:53:47] ModelRunner final max_total_num_tokens: 18816
+[2026-11-19 06:53:47] Creating fused KV buffers for 32 layers
+[2026-11-19 06:53:47] Total fused KV cache memory per layer: 0.00 GB, dtype: <class 'jax.numpy.bfloat16'>
+[2026-11-19 06:53:47] Total time to create 32 buffers: 0.07 seconds
+[2026-11-19 06:53:47] JAX Fused KV Cache allocated. #tokens: 18816, Fused KV size: 9.25 GB
+[2026-11-19 06:53:47] Max running requests constraints:
+[2026-11-19 06:53:47]   - Server limit: 64 (configured)
+[2026-11-19 06:53:47]   - Token pool size: 64
+[2026-11-19 06:53:47]   - Attention backend: 2048 (context_len=8192, page_size=128)
+[2026-11-19 06:53:47]   → Final max_running_requests: 64
+[2026-11-19 06:53:47] Tree cache initialized: impl=RadixCache hybrid_swa=False hybrid_recurrent=False
+[2026-11-19 06:53:47] [Scheduler] Begins to run worker precompile.
+[2026-11-19 06:54:35] [EXTEND] Begin to precompile bs_paddings=[64] token_paddings=[64, 128, 256, 512, 1024, 2048, 4096]
+[EXTEND] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s][EXTEND] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s, bs=64, tokens=64][2026-11-19 06:54:35] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 64) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:54:35] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=64, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:54:36] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 64) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:54:36] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=64, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  14%|█▍        | 1/7 [00:16<01:40, 16.71s/it, bs=64, tokens=64][EXTEND] PRECOMPILE:  14%|█▍        | 1/7 [00:16<01:40, 16.71s/it, bs=64, tokens=128][2026-11-19 06:54:52] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 128) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:54:52] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=128, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:54:53] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 128) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:54:53] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=128, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  29%|██▊       | 2/7 [00:28<01:08, 13.69s/it, bs=64, tokens=128][EXTEND] PRECOMPILE:  29%|██▊       | 2/7 [00:28<01:08, 13.69s/it, bs=64, tokens=256][2026-11-19 06:55:03] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 256) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:03] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=256, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:55:04] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 256) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:04] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=256, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  43%|████▎     | 3/7 [00:39<00:50, 12.67s/it, bs=64, tokens=256][EXTEND] PRECOMPILE:  43%|████▎     | 3/7 [00:39<00:50, 12.67s/it, bs=64, tokens=512][2026-11-19 06:55:15] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 512) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:15] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=512, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:55:16] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 512) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:16] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=512, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  57%|█████▋    | 4/7 [00:52<00:38, 12.88s/it, bs=64, tokens=512][EXTEND] PRECOMPILE:  57%|█████▋    | 4/7 [00:52<00:38, 12.88s/it, bs=64, tokens=1024][2026-11-19 06:55:28] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 1024) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:28] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=1024, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:55:29] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 1024) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:29] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=1024, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  71%|███████▏  | 5/7 [01:21<00:36, 18.38s/it, bs=64, tokens=1024][EXTEND] PRECOMPILE:  71%|███████▏  | 5/7 [01:21<00:36, 18.38s/it, bs=64, tokens=2048][2026-11-19 06:55:56] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 2048) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:56] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=2048, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:55:57] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 2048) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:55:57] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=2048, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  86%|████████▌ | 6/7 [01:49<00:21, 21.93s/it, bs=64, tokens=2048][EXTEND] PRECOMPILE:  86%|████████▌ | 6/7 [01:49<00:21, 21.93s/it, bs=64, tokens=4096][2026-11-19 06:56:25] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 4096) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:56:25] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=4096, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:56:26] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 4096) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:56:26] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=4096, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE: 100%|██████████| 7/7 [02:18<00:00, 24.05s/it, bs=64, tokens=4096]                                                                                      [2026-11-19 06:56:53] [EXTEND] Precompile finished in 138 secs
+[2026-11-19 06:56:53] [DECODE] Begin to precompile bs_paddings=[1, 2, 4, 8, 16, 32, 64] decode_page_buckets=None
+[DECODE] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s][DECODE] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s, bs=1, pages=None][2026-11-19 06:56:53] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 1) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:56:53] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=1, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:56:54] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 1) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:56:54] get_default_block_sizes: case=m, tpu_v=6, bq=1, bkv=512, max_q=1, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  14%|█▍        | 1/7 [00:14<01:26, 14.45s/it, bs=1, pages=None][DECODE] PRECOMPILE:  14%|█▍        | 1/7 [00:14<01:26, 14.45s/it, bs=2, pages=None][2026-11-19 06:57:08] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 2) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:08] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=2, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:57:09] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 2) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:09] get_default_block_sizes: case=m, tpu_v=6, bq=1, bkv=512, max_q=2, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  29%|██▊       | 2/7 [00:28<01:10, 14.14s/it, bs=2, pages=None][DECODE] PRECOMPILE:  29%|██▊       | 2/7 [00:28<01:10, 14.14s/it, bs=4, pages=None][2026-11-19 06:57:22] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 4) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:22] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=4, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:57:22] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 4) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:22] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=4, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  43%|████▎     | 3/7 [00:41<00:54, 13.73s/it, bs=4, pages=None][DECODE] PRECOMPILE:  43%|████▎     | 3/7 [00:41<00:54, 13.73s/it, bs=8, pages=None][2026-11-19 06:57:35] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 8) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:35] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=8, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:57:36] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 8) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:36] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=8, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  57%|█████▋    | 4/7 [00:55<00:40, 13.63s/it, bs=8, pages=None][DECODE] PRECOMPILE:  57%|█████▋    | 4/7 [00:55<00:40, 13.63s/it, bs=16, pages=None][2026-11-19 06:57:49] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 16) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:49] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=16, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:57:50] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 16) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:57:50] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=16, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  71%|███████▏  | 5/7 [01:11<00:29, 14.55s/it, bs=16, pages=None][DECODE] PRECOMPILE:  71%|███████▏  | 5/7 [01:11<00:29, 14.55s/it, bs=32, pages=None][2026-11-19 06:58:05] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 32) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:58:05] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=512, max_q=32, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 06:58:05] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 32, 32, 128, 128, 32) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 06:58:05] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=512, max_q=32, max_kv=8192, heads=32, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  86%|████████▌ | 6/7 [01:28<00:15, 15.55s/it, bs=32, pages=None][DECODE] PRECOMPILE:  86%|████████▌ | 6/7 [01:28<00:15, 15.55s/it, bs=64, pages=None][DECODE] PRECOMPILE: 100%|██████████| 7/7 [01:39<00:00, 13.84s/it, bs=64, pages=None]                                                                                     [2026-11-19 06:58:32] [DECODE] Precompile finished in 99 secs
+[2026-11-19 06:58:32] [Scheduler] Completes worker precompile.
+[2026-11-19 06:58:32] INFO:     Started server process [8203]
+[2026-11-19 06:58:32] INFO:     Waiting for application startup.
+[2026-11-19 06:58:32] INFO:     Application startup complete.
+[2026-11-19 06:58:32] INFO:     Uvicorn running on http://0.0.0.0:30000 (Press CTRL+C to quit)
+[2026-11-19 06:58:33] INFO:     127.0.0.1:48202 - "GET /get_model_info HTTP/1.1" 200 OK
+[2026-11-19 06:58:33] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 06:58:34] INFO:     127.0.0.1:48206 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:58:34] The server is fired up and ready to roll!
+[2026-11-19 06:58:40] INFO:     127.0.0.1:39008 - "GET /health HTTP/1.1" 200 OK
+[2026-11-19 06:58:47] INFO:     127.0.0.1:41374 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:58:47] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 06:58:47] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 0.13, #queue-req: 0, 
+[2026-11-19 06:58:48] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 76.82, #queue-req: 0, 
+[2026-11-19 06:58:49] Decode batch. #running-req: 1, #token: 512, token usage: 0.03, gen throughput (token/s): 76.64, #queue-req: 0, 
+[2026-11-19 06:58:49] INFO:     127.0.0.1:41386 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:58:49] INFO:     127.0.0.1:41400 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:58:49] INFO:     127.0.0.1:41408 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:58:49] INFO:     127.0.0.1:41424 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:58:49] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 06:58:49] Prefill batch. #new-seq: 3, #new-token: 1152, #cached-token: 0, token usage: 0.02, #running-req: 1, #queue-req: 0, 
+[2026-11-19 06:59:23] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 3.64, #queue-req: 0, 
+[2026-11-19 06:59:24] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 292.76, #queue-req: 0, 
+[2026-11-19 06:59:25] Decode batch. #running-req: 4, #token: 2048, token usage: 0.11, gen throughput (token/s): 292.59, #queue-req: 0, 
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43464 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43470 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43486 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43494 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43496 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43502 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43512 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] INFO:     127.0.0.1:43520 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 06:59:25] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 06:59:25] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.02, #running-req: 1, #queue-req: 0, 
+[2026-11-19 06:59:25] Prefill batch. #new-seq: 6, #new-token: 2304, #cached-token: 0, token usage: 0.04, #running-req: 2, #queue-req: 0, 
+[2026-11-19 06:59:59] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 6.96, #queue-req: 0, 
+[2026-11-19 07:00:00] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 557.78, #queue-req: 0, 
+[2026-11-19 07:00:01] Decode batch. #running-req: 8, #token: 3584, token usage: 0.19, gen throughput (token/s): 554.63, #queue-req: 0, 
+[2026-11-19 07:00:01] INFO:     127.0.0.1:53134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:01] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:01] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 323.28, #queue-req: 0, 
+[2026-11-19 07:00:02] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 76.93, #queue-req: 0, 
+[2026-11-19 07:00:02] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 76.48, #queue-req: 0, 
+[2026-11-19 07:00:03] INFO:     127.0.0.1:53134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:03] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:03] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 62.89, #queue-req: 0, 
+[2026-11-19 07:00:03] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 76.83, #queue-req: 0, 
+[2026-11-19 07:00:04] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 76.40, #queue-req: 0, 
+[2026-11-19 07:00:05] Decode batch. #running-req: 1, #token: 512, token usage: 0.03, gen throughput (token/s): 76.44, #queue-req: 0, 
+[2026-11-19 07:00:05] INFO:     127.0.0.1:53134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:05] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:05] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 63.10, #queue-req: 0, 
+[2026-11-19 07:00:06] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 76.86, #queue-req: 0, 
+[2026-11-19 07:00:06] Decode batch. #running-req: 1, #token: 512, token usage: 0.03, gen throughput (token/s): 76.47, #queue-req: 0, 
+[2026-11-19 07:00:06] INFO:     127.0.0.1:53134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:06] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:07] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 63.33, #queue-req: 0, 
+[2026-11-19 07:00:07] Decode batch. #running-req: 1, #token: 384, token usage: 0.02, gen throughput (token/s): 76.70, #queue-req: 0, 
+[2026-11-19 07:00:08] Decode batch. #running-req: 1, #token: 512, token usage: 0.03, gen throughput (token/s): 76.83, #queue-req: 0, 
+[2026-11-19 07:00:08] INFO:     127.0.0.1:34368 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:08] INFO:     127.0.0.1:34384 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:08] INFO:     127.0.0.1:34398 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:08] INFO:     127.0.0.1:34400 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:08] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:08] Prefill batch. #new-seq: 3, #new-token: 1152, #cached-token: 0, token usage: 0.02, #running-req: 1, #queue-req: 0, 
+[2026-11-19 07:00:09] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 93.34, #queue-req: 0, 
+[2026-11-19 07:00:09] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 294.80, #queue-req: 0, 
+[2026-11-19 07:00:10] Decode batch. #running-req: 4, #token: 1792, token usage: 0.10, gen throughput (token/s): 291.12, #queue-req: 0, 
+[2026-11-19 07:00:10] INFO:     127.0.0.1:34384 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:10] INFO:     127.0.0.1:34400 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:10] INFO:     127.0.0.1:34368 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:10] INFO:     127.0.0.1:34398 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:10] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:11] Prefill batch. #new-seq: 3, #new-token: 1152, #cached-token: 0, token usage: 0.02, #running-req: 1, #queue-req: 0, 
+[2026-11-19 07:00:11] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 160.31, #queue-req: 0, 
+[2026-11-19 07:00:12] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 295.04, #queue-req: 0, 
+[2026-11-19 07:00:12] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 291.85, #queue-req: 0, 
+[2026-11-19 07:00:13] INFO:     127.0.0.1:34384 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:13] INFO:     127.0.0.1:34400 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:13] INFO:     127.0.0.1:34368 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:13] INFO:     127.0.0.1:34398 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:13] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:13] Prefill batch. #new-seq: 3, #new-token: 1152, #cached-token: 0, token usage: 0.02, #running-req: 1, #queue-req: 0, 
+[2026-11-19 07:00:13] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 160.51, #queue-req: 0, 
+[2026-11-19 07:00:14] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 295.06, #queue-req: 0, 
+[2026-11-19 07:00:14] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 293.00, #queue-req: 0, 
+[2026-11-19 07:00:15] Decode batch. #running-req: 4, #token: 2048, token usage: 0.11, gen throughput (token/s): 289.89, #queue-req: 0, 
+[2026-11-19 07:00:15] INFO:     127.0.0.1:34384 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:15] INFO:     127.0.0.1:34400 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:15] INFO:     127.0.0.1:34368 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:15] INFO:     127.0.0.1:34398 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:15] Prefill batch. #new-seq: 1, #new-token: 384, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:15] Prefill batch. #new-seq: 3, #new-token: 1152, #cached-token: 0, token usage: 0.02, #running-req: 1, #queue-req: 0, 
+[2026-11-19 07:00:16] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 161.09, #queue-req: 0, 
+[2026-11-19 07:00:16] Decode batch. #running-req: 4, #token: 1536, token usage: 0.08, gen throughput (token/s): 293.22, #queue-req: 0, 
+[2026-11-19 07:00:17] Decode batch. #running-req: 4, #token: 2048, token usage: 0.11, gen throughput (token/s): 290.98, #queue-req: 0, 
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40666 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40676 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40684 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40698 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40708 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40710 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40726 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] INFO:     127.0.0.1:40742 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:17] Prefill batch. #new-seq: 2, #new-token: 768, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:17] Prefill batch. #new-seq: 2, #new-token: 768, #cached-token: 0, token usage: 0.04, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:00:45] Prefill batch. #new-seq: 4, #new-token: 1536, #cached-token: 0, token usage: 0.08, #running-req: 4, #queue-req: 0, 
+[2026-11-19 07:00:46] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 8.93, #queue-req: 0, 
+[2026-11-19 07:00:46] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 560.23, #queue-req: 0, 
+[2026-11-19 07:00:47] Decode batch. #running-req: 8, #token: 4096, token usage: 0.22, gen throughput (token/s): 554.38, #queue-req: 0, 
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40676 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40698 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40684 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40742 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40726 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40666 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40710 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] INFO:     127.0.0.1:40708 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:47] Prefill batch. #new-seq: 2, #new-token: 768, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:48] Prefill batch. #new-seq: 6, #new-token: 2304, #cached-token: 0, token usage: 0.04, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:00:48] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 248.70, #queue-req: 0, 
+[2026-11-19 07:00:49] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 559.15, #queue-req: 0, 
+[2026-11-19 07:00:49] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 555.87, #queue-req: 0, 
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40684 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40676 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] Prefill batch. #new-seq: 2, #new-token: 768, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40698 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40742 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40726 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40666 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40710 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] INFO:     127.0.0.1:40708 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:50] Prefill batch. #new-seq: 6, #new-token: 2304, #cached-token: 0, token usage: 0.04, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:00:51] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 253.11, #queue-req: 0, 
+[2026-11-19 07:00:51] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 560.47, #queue-req: 0, 
+[2026-11-19 07:00:52] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 555.21, #queue-req: 0, 
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40684 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:52] Decode batch. #running-req: 8, #token: 0, token usage: 0.00, gen throughput (token/s): 549.27, #queue-req: 0, 
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40676 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40698 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:52] Prefill batch. #new-seq: 2, #new-token: 768, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40742 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40726 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40666 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40710 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:52] INFO:     127.0.0.1:40708 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:00:53] Prefill batch. #new-seq: 6, #new-token: 2304, #cached-token: 0, token usage: 0.04, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:00:54] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 254.92, #queue-req: 0, 
+[2026-11-19 07:00:54] Decode batch. #running-req: 8, #token: 3072, token usage: 0.16, gen throughput (token/s): 556.08, #queue-req: 0, 
+[2026-11-19 07:00:55] Decode batch. #running-req: 8, #token: 4096, token usage: 0.22, gen throughput (token/s): 551.58, #queue-req: 0, 
+[2026-11-19 07:00:56] SIGTERM received. signum=None frame=None. Draining requests and shutting down...
+[2026-11-19 07:00:58] Gracefully exiting... remaining number of requests 0
+[2026-11-19 07:00:58] Dumping requests before crash. crash_dump_folder=None

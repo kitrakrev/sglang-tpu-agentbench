@@ -1,0 +1,482 @@
+[2026-11-19 07:01:13] server_args=ServerArgs(model_path='OpenGVLab/InternVL3-2B-hf', tokenizer_path='OpenGVLab/InternVL3-2B-hf', tokenizer_mode='auto', tokenizer_backend='huggingface', skip_tokenizer_init=False, load_format='auto', model_loader_extra_config='{}', trust_remote_code=True, context_length=None, is_embedding=False, revision=None, model_impl='auto', model_layer_nums=None, host='0.0.0.0', port=30000, skip_server_warmup=False, warmups=None, dtype='bfloat16', quantization=None, quantization_param_path=None, quantization_config_path=None, kv_cache_dtype='auto', dtype_config=None, mem_fraction_static=0.8, max_running_requests=64, max_total_tokens=None, max_prefill_tokens=16384, chunked_prefill_size=4096, enable_mixed_chunk=False, schedule_policy='fcfs', schedule_conservativeness=1.0, page_size=128, swa_full_tokens_ratio=0.8, recurrent_state_memory_ratio=0.9, max_recurrent_state_size=None, recurrent_track_interval=None, disable_hybrid_swa_memory=False, device='tpu', device_indexes=None, pd_disaggregation='', pd_prefill_mem_fraction=0.85, pd_decode_mem_fraction=0.85, pd_prefill_max_tokens=20480, pd_decode_max_tokens=25600, pd_num_prefill=1, pd_num_decode=1, pd_prefill_tp_size=0, pd_prefill_ep_size=0, tp_size=1, ep_size=1, ep_num_redundant_experts=0, ep_dispatch_algorithm=None, enable_sequence_parallel=False, stream_interval=1, stream_output=False, random_seed=42, constrained_json_whitespace_pattern=None, constrained_json_disable_any_whitespace=False, watchdog_timeout=300, dist_timeout=None, download_dir=None, sleep_on_idle=False, dp_size=1, enable_dp_lm_head=False, moe_dp_size=1, dp_schedule_policy='cache_aware', log_level='info', log_level_http=None, log_requests=False, log_requests_level=0, crash_dump_folder=None, show_time_cost=False, enable_metrics=False, bucket_time_to_first_token=None, bucket_inter_token_latency=None, bucket_e2e_request_latency=None, decode_log_interval=40, enable_request_time_stats_logging=False, kv_events_config=None, api_key=None, served_model_name='OpenGVLab/InternVL3-2B-hf', file_storage_path='sglang_storage', enable_cache_report=True, reasoning_parser=None, tool_call_parser=None, dist_init_addr=None, nnodes=1, node_rank=0, json_model_override_args='{}', preferred_sampling_params=None, disable_radix_cache=False, enable_unified_radix_tree=False, hicache_storage='disable', hicache_ratio=2.0, hicache_write_through_threshold=1, hicache_write_policy='write_through', enable_recurrent_extra_buffer=False, allow_auto_truncate=False, enable_tokenizer_batch_encode=False, disable_overlap_schedule=False, enable_precision_tracer=False, attention_backend='fa', gdn_prefill_impl='fused_chunk_parallel', dsa_use_pallas=True, moe_backend='epmoe', disable_jax_allreduce_metadata=False, enable_topk_kernel=True, grammar_backend='none', max_seq_len=4096, precompile_token_paddings=None, precompile_bs_paddings=None, precompile_vision_patch_paddings=None, vision_encoder_parallel='dp', disable_precompile=False, precompile_num_threads=2, aot_model_dir=None, save_aot=None, aot_topology=None, aot_topology_name=None, aot_host_bounds=None, speculative_algorithm=None, speculative_draft_model_path=None, speculative_draft_model_revision=None, speculative_num_steps=4, speculative_eagle_topk=5, speculative_num_draft_tokens=4, speculative_sample_from_anchor=False, speculative_accept_threshold_single=1.0, speculative_accept_threshold_acc=1.0, enable_deterministic_sampling=False, enable_single_process=False, enable_nan_detection=False, enable_lora=False, max_lora_rank=None, lora_target_modules=None, lora_paths=None, max_loaded_loras=None, max_loras_per_batch=8, lora_eviction_policy='lru', enable_static_lora=False, lora_scaling=None, enable_engine_loop_run_forever_daemon=False, multimodal=False, limit_mm_data_per_request=None, mm_processor_worker_num=0, enable_return_routed_experts=False, enable_expert_balance_debug=False, expert_balance_segment_counter=100, expert_balance_output_file=None, init_expert_location='trivial', enable_expert_distribution_recorder=False, expert_distribution_recorder_buffer_size=100, expert_distribution_recorder_output_file=None, disaggregation_mode='null', disaggregation_bootstrap_url=None, disaggregation_bootstrap_port=8998, disaggregation_transfer_port=30001, disaggregation_enable_d2h=False, disaggregation_use_raiden=False, disaggregation_enable_overlap_schedule=False, disaggregation_enable_chunk_prefill_transfer=False, disaggregation_side_channel_port=9600, disaggregation_d2h_pool_size=64, disaggregation_d2h_max_tokens=None, disaggregation_channel_number=4, disaggregation_host_ip=None, disaggregation_bootstrap_timeout_seconds=5.0, disaggregation_pull_timeout_seconds=30.0, disaggregation_ack_timeout_seconds=60.0, disaggregation_orphan_reaper_interval_seconds=5.0, disaggregation_shared_secret=None, disaggregation_decode_watchdog_seconds=0.0, disaggregation_num_reserved_decode_tokens=512, disaggregation_max_inflight_transfers=8)
+[2026-11-19 07:01:13] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 07:01:13] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 07:01:13] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fconfig.json=&etag=%2217acad616e8fe67421742592e392b3bb2bad397d%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:13] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:14] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/generation_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%22ca5b455bc4e6053fd7d790c2bc01b7f9dd312154%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:14] No quantization config found in HF config or user config
+[2026-11-19 07:01:14] Installed sgl-jax 'mecord' compatibility shim (real mecord not available); Kimi video decoding will use decord.
+[2026-11-19 07:01:14] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:14] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fconfig.json=&etag=%2217acad616e8fe67421742592e392b3bb2bad397d%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:14] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:14] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:14] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/chat_template.json "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/chat_template.jinja "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/chat_template.jinja?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fchat_template.jinja=&etag=%220b19f45e0cd40b10374f24065639b0c2eee18a22%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:15] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/chat_template.json "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/chat_template.jinja "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/chat_template.jinja?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fchat_template.jinja=&etag=%220b19f45e0cd40b10374f24065639b0c2eee18a22%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:15] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/preprocessor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%22a7b376e0a83f26eaa784db792ef61be7aac5494f%22 "HTTP/1.1 200 OK"
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/preprocessor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%22a7b376e0a83f26eaa784db792ef61be7aac5494f%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fconfig.json=&etag=%2217acad616e8fe67421742592e392b3bb2bad397d%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:16] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/tokenizer_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Ftokenizer_config.json=&etag=%222f1a515133aa18a5f828c497aba8b7e81056b3b0%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:16] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:16] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+[2026-11-19 07:01:17] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf "HTTP/1.1 200 OK"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/preprocessor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%22a7b376e0a83f26eaa784db792ef61be7aac5494f%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fconfig.json=&etag=%2217acad616e8fe67421742592e392b3bb2bad397d%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:17] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/processor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:18] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/processor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fprocessor_config.json=&etag=%22e543bcb3b7550029f450d28cf138706d7f9a5ef5%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:18] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+[2026-11-19 07:01:18] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:18] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/preprocessor_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fpreprocessor_config.json=&etag=%22a7b376e0a83f26eaa784db792ef61be7aac5494f%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:19] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/revision/main "HTTP/1.1 200 OK"
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 2124.24it/s]
+[2026-11-19 07:01:19] XLA persistent compilation cache: enabled, dir=/tmp/jit_cache, min_compile_time=0s
+[2026-11-19 07:01:20] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 07:01:20] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-11-19 07:01:20] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fconfig.json=&etag=%2217acad616e8fe67421742592e392b3bb2bad397d%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:20] HTTP Request: HEAD https://huggingface.co/OpenGVLab/InternVL3-2B-hf/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+[2026-11-19 07:01:20] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/OpenGVLab/InternVL3-2B-hf/cb57a075cb75a2e6d1b668b128d48bb00ae321d2/generation_config.json?%2FOpenGVLab%2FInternVL3-2B-hf%2Fresolve%2Fmain%2Fgeneration_config.json=&etag=%22ca5b455bc4e6053fd7d790c2bc01b7f9dd312154%22 "HTTP/1.1 200 OK"
+[2026-11-19 07:01:20] No quantization config found in HF config or user config
+[2026-11-19 07:01:20] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/revision/main "HTTP/1.1 200 OK"
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 2142.57it/s]
+[2026-11-19 07:01:23] No quantization config found in HF config or user config
+[2026-11-19 07:01:23] Precision tracer globally disabled
+[2026-11-19 07:01:23] KV heads distribution for GQA model: original_kv_heads=2, tp_size=1, each device gets 2 head(s), no replication needed, padding_strategy=replicate
+[2026-11-19 07:01:23] HTTP Request: GET https://huggingface.co/api/models/OpenGVLab/InternVL3-2B-hf/revision/main "HTTP/1.1 200 OK"
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files: 100%|██████████| 14/14 [00:00<00:00, 2466.20it/s]
+[2026-11-19 07:01:24] model_path on ext4 mount, skipping GCSFuse warm-up
+Loading weights:   0%|          | 0/781 [00:00<?, ?it/s]Loading weights:   0%|          | 1/781 [00:00<02:07,  6.13it/s]Loading weights:   0%|          | 2/781 [00:00<02:07,  6.12it/s]Loading weights:   2%|▏         | 17/781 [00:00<00:14, 52.61it/s]Loading weights:   5%|▌         | 40/781 [00:00<00:07, 104.28it/s]Loading weights:   7%|▋         | 54/781 [00:00<00:06, 114.25it/s]Loading weights:  10%|▉         | 77/781 [00:00<00:04, 145.27it/s]Loading weights:  13%|█▎        | 100/781 [00:00<00:04, 165.54it/s]Loading weights:  15%|█▌        | 118/781 [00:00<00:03, 166.34it/s]Loading weights:  18%|█▊        | 137/781 [00:01<00:03, 168.43it/s]Loading weights:  20%|██        | 160/781 [00:01<00:03, 179.18it/s]Loading weights:  23%|██▎       | 179/781 [00:01<00:03, 177.20it/s]Loading weights:  25%|██▌       | 197/781 [00:01<00:03, 174.11it/s]Loading weights:  28%|██▊       | 220/781 [00:01<00:03, 182.85it/s]Loading weights:  31%|███       | 239/781 [00:01<00:03, 179.96it/s]Loading weights:  33%|███▎      | 258/781 [00:01<00:03, 169.97it/s]Loading weights:  36%|███▌      | 281/781 [00:01<00:02, 179.67it/s]Loading weights:  39%|███▉      | 304/781 [00:02<00:02, 185.00it/s]Loading weights:  41%|████▏     | 323/781 [00:02<00:02, 182.09it/s]Loading weights:  45%|████▍     | 348/781 [00:02<00:02, 196.93it/s]Loading weights:  52%|█████▏    | 409/781 [00:02<00:01, 311.26it/s]Loading weights:  61%|██████▏   | 479/781 [00:02<00:00, 419.28it/s]Loading weights:  70%|███████   | 547/781 [00:02<00:00, 493.76it/s]Loading weights:  79%|███████▉  | 619/781 [00:02<00:00, 551.06it/s]Loading weights:  88%|████████▊ | 691/781 [00:02<00:00, 591.15it/s]Loading weights:  98%|█████████▊| 763/781 [00:02<00:00, 621.72it/s]Loading weights: 100%|██████████| 781/781 [00:02<00:00, 261.56it/s]
+[2026-11-19 07:01:27] Loaded 781 parameters in 3.06s
+[2026-11-19 07:01:27] InternVL weights loaded (tied lm_head: False).
+[2026-11-19 07:01:27] Parallel precompile is unavailable for this configuration; using serial warmup
+[2026-11-19 07:01:27] ModelRunner kv_cache_dtype: <class 'jax.numpy.bfloat16'>
+[2026-11-19 07:01:28] TPU Memory profiling: available_kv_cache=21.1GB, max_tokens=788485, cell_size=28672 bytes
+[2026-11-19 07:01:28] ModelRunner per dp max_total_num_tokens after dp_size 1: 788480
+[2026-11-19 07:01:28] ModelRunner final max_total_num_tokens: 788480
+[2026-11-19 07:01:28] Creating fused KV buffers for 28 layers
+[2026-11-19 07:01:28] Total fused KV cache memory per layer: 0.00 GB, dtype: <class 'jax.numpy.bfloat16'>
+[2026-11-19 07:01:28] Total time to create 28 buffers: 0.00 seconds
+[2026-11-19 07:01:28] JAX Fused KV Cache allocated. #tokens: 788480, Fused KV size: 21.06 GB
+[2026-11-19 07:01:28] Max running requests constraints:
+[2026-11-19 07:01:28]   - Server limit: 64 (configured)
+[2026-11-19 07:01:28]   - Token pool size: 64
+[2026-11-19 07:01:28]   - Attention backend: 256 (context_len=65536, page_size=128)
+[2026-11-19 07:01:28]   → Final max_running_requests: 64
+[2026-11-19 07:01:28] Tree cache initialized: impl=RadixCache hybrid_swa=False hybrid_recurrent=False
+[2026-11-19 07:01:28] [Scheduler] Begins to run worker precompile.
+[2026-11-19 07:01:32] [EXTEND] Begin to precompile bs_paddings=[64] token_paddings=[64, 128, 256, 512, 1024, 2048, 4096]
+[EXTEND] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s][EXTEND] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s, bs=64, tokens=64][2026-11-19 07:01:32] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 64) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:32] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=64, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 07:01:32] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 64) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:32] get_default_block_sizes: case=m, tpu_v=6, bq=32, bkv=1024, max_q=64, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  14%|█▍        | 1/7 [00:01<00:10,  1.81s/it, bs=64, tokens=64][EXTEND] PRECOMPILE:  14%|█▍        | 1/7 [00:01<00:10,  1.81s/it, bs=64, tokens=128][EXTEND] PRECOMPILE:  29%|██▊       | 2/7 [00:02<00:06,  1.38s/it, bs=64, tokens=128][EXTEND] PRECOMPILE:  29%|██▊       | 2/7 [00:02<00:06,  1.38s/it, bs=64, tokens=256][2026-11-19 07:01:35] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 256) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:35] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=256, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 07:01:35] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 256) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:35] get_default_block_sizes: case=m, tpu_v=6, bq=32, bkv=1024, max_q=256, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  43%|████▎     | 3/7 [00:04<00:05,  1.28s/it, bs=64, tokens=256][EXTEND] PRECOMPILE:  43%|████▎     | 3/7 [00:04<00:05,  1.28s/it, bs=64, tokens=512][EXTEND] PRECOMPILE:  57%|█████▋    | 4/7 [00:05<00:03,  1.20s/it, bs=64, tokens=512][EXTEND] PRECOMPILE:  57%|█████▋    | 4/7 [00:05<00:03,  1.20s/it, bs=64, tokens=1024][2026-11-19 07:01:37] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 1024) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:37] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=1024, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 07:01:38] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 1024) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:38] get_default_block_sizes: case=m, tpu_v=6, bq=32, bkv=1024, max_q=1024, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  71%|███████▏  | 5/7 [00:06<00:02,  1.38s/it, bs=64, tokens=1024][EXTEND] PRECOMPILE:  71%|███████▏  | 5/7 [00:06<00:02,  1.38s/it, bs=64, tokens=2048][2026-11-19 07:01:39] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 2048) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:39] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=2048, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE:  86%|████████▌ | 6/7 [00:08<00:01,  1.32s/it, bs=64, tokens=2048][EXTEND] PRECOMPILE:  86%|████████▌ | 6/7 [00:08<00:01,  1.32s/it, bs=64, tokens=4096][2026-11-19 07:01:40] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 4096) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:40] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=4096, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 07:01:40] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 4096) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:40] get_default_block_sizes: case=m, tpu_v=6, bq=32, bkv=1024, max_q=4096, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[EXTEND] PRECOMPILE: 100%|██████████| 7/7 [00:09<00:00,  1.28s/it, bs=64, tokens=4096]                                                                                      [2026-11-19 07:01:41] [EXTEND] Precompile finished in 9 secs
+[2026-11-19 07:01:41] [DECODE] Begin to precompile bs_paddings=[1, 2, 4, 8, 16, 32, 64] decode_page_buckets=None
+[DECODE] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s][DECODE] PRECOMPILE:   0%|          | 0/7 [00:00<?, ?it/s, bs=1, pages=None][2026-11-19 07:01:41] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 1) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:41] get_default_block_sizes: case=m, tpu_v=6, bq=1, bkv=1024, max_q=1, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  14%|█▍        | 1/7 [00:01<00:06,  1.02s/it, bs=1, pages=None][DECODE] PRECOMPILE:  14%|█▍        | 1/7 [00:01<00:06,  1.02s/it, bs=2, pages=None][2026-11-19 07:01:42] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 2) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:42] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=2, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 07:01:42] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 2) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:42] get_default_block_sizes: case=m, tpu_v=6, bq=1, bkv=1024, max_q=2, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  29%|██▊       | 2/7 [00:02<00:07,  1.44s/it, bs=2, pages=None][DECODE] PRECOMPILE:  29%|██▊       | 2/7 [00:02<00:07,  1.44s/it, bs=4, pages=None][2026-11-19 07:01:44] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 4) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:44] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=4, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 07:01:44] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 4) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:44] get_default_block_sizes: case=m, tpu_v=6, bq=2, bkv=1024, max_q=4, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  43%|████▎     | 3/7 [00:03<00:05,  1.32s/it, bs=4, pages=None][DECODE] PRECOMPILE:  43%|████▎     | 3/7 [00:03<00:05,  1.32s/it, bs=8, pages=None][2026-11-19 07:01:45] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 8) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:45] get_default_block_sizes: case=m, tpu_v=6, bq=4, bkv=1024, max_q=8, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  57%|█████▋    | 4/7 [00:05<00:03,  1.24s/it, bs=8, pages=None][DECODE] PRECOMPILE:  57%|█████▋    | 4/7 [00:05<00:03,  1.24s/it, bs=16, pages=None][2026-11-19 07:01:46] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('d', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 16) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:46] get_default_block_sizes: case=d, tpu_v=6, bq=1, bkv=4096, max_q=16, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[2026-11-19 07:01:46] RPA v3 tuned-block-size LOOKUP MISS device=TPU v6e key=('m', None, 'bfloat16', 'bfloat16', 16, 2, 128, 128, 16) (falling back to heuristic). Add this key to TUNED_BLOCK_SIZES_V3 to enable tuning for this shape.
+[2026-11-19 07:01:46] get_default_block_sizes: case=m, tpu_v=6, bq=8, bkv=1024, max_q=16, max_kv=65536, heads=2, head_dim=128, page=128, custom_mask=False, vmem_limit=67108864
+[DECODE] PRECOMPILE:  71%|███████▏  | 5/7 [00:06<00:02,  1.23s/it, bs=16, pages=None][DECODE] PRECOMPILE:  71%|███████▏  | 5/7 [00:06<00:02,  1.23s/it, bs=32, pages=None][DECODE] PRECOMPILE:  86%|████████▌ | 6/7 [00:08<00:01,  1.43s/it, bs=32, pages=None][DECODE] PRECOMPILE:  86%|████████▌ | 6/7 [00:08<00:01,  1.43s/it, bs=64, pages=None][DECODE] PRECOMPILE: 100%|██████████| 7/7 [00:09<00:00,  1.29s/it, bs=64, pages=None]                                                                                     [2026-11-19 07:01:50] [DECODE] Precompile finished in 9 secs
+[2026-11-19 07:01:50] [Scheduler] Completes worker precompile.
+[2026-11-19 07:01:50] INFO:     Started server process [11595]
+[2026-11-19 07:01:50] INFO:     Waiting for application startup.
+[2026-11-19 07:01:50] INFO:     Application startup complete.
+[2026-11-19 07:01:50] INFO:     Uvicorn running on http://0.0.0.0:30000 (Press CTRL+C to quit)
+[2026-11-19 07:01:51] INFO:     127.0.0.1:48322 - "GET /get_model_info HTTP/1.1" 200 OK
+[2026-11-19 07:01:51] Prefill batch. #new-seq: 1, #new-token: 128, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:01:51] INFO:     127.0.0.1:48336 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:01:51] The server is fired up and ready to roll!
+[2026-11-19 07:01:57] INFO:     127.0.0.1:53256 - "GET /health HTTP/1.1" 200 OK
+[2026-11-19 07:02:05] INFO:     127.0.0.1:53270 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:05] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:06] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 1.03, #queue-req: 0, 
+[2026-11-19 07:02:07] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 287.22, #queue-req: 0, 
+[2026-11-19 07:02:07] Decode batch. #running-req: 1, #token: 3584, token usage: 0.00, gen throughput (token/s): 286.16, #queue-req: 0, 
+[2026-11-19 07:02:07] INFO:     127.0.0.1:58058 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:07] INFO:     127.0.0.1:58062 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:07] INFO:     127.0.0.1:58066 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:07] INFO:     127.0.0.1:58070 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:07] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:07] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 1, 
+[2026-11-19 07:02:08] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:02:09] Prefill batch. #new-seq: 1, #new-token: 2176, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 0, 
+[2026-11-19 07:02:09] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 54.84, #queue-req: 0, 
+[2026-11-19 07:02:09] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1137.34, #queue-req: 0, 
+[2026-11-19 07:02:09] Decode batch. #running-req: 4, #token: 14080, token usage: 0.02, gen throughput (token/s): 1138.71, #queue-req: 0, 
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58072 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58074 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58086 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58092 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58098 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58110 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58124 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] INFO:     127.0.0.1:58134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:10] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:11] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 5, 
+[2026-11-19 07:02:11] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 4, 
+[2026-11-19 07:02:11] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 3, 
+[2026-11-19 07:02:11] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 2, 
+[2026-11-19 07:02:11] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 1, 
+[2026-11-19 07:02:11] Prefill batch. #new-seq: 2, #new-token: 3712, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 0, 
+[2026-11-19 07:02:12] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 96.90, #queue-req: 0, 
+[2026-11-19 07:02:12] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2117.69, #queue-req: 0, 
+[2026-11-19 07:02:12] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2119.23, #queue-req: 0, 
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58138 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58146 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58154 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58164 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58170 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58178 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58186 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58200 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58212 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58228 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58236 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58242 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58244 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58248 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58250 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] INFO:     127.0.0.1:58256 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:14] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:14] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 6, 
+[2026-11-19 07:02:14] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 6, 
+[2026-11-19 07:02:15] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 11, 
+[2026-11-19 07:02:15] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 10, 
+[2026-11-19 07:02:15] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 9, 
+[2026-11-19 07:02:15] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 7, 
+[2026-11-19 07:02:15] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 8, #queue-req: 6, 
+[2026-11-19 07:02:15] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 9, #queue-req: 5, 
+[2026-11-19 07:02:16] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 10, #queue-req: 4, 
+[2026-11-19 07:02:16] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 11, #queue-req: 3, 
+[2026-11-19 07:02:16] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 12, #queue-req: 1, 
+[2026-11-19 07:02:16] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 14, #queue-req: 0, 
+[2026-11-19 07:02:16] Prefill batch. #new-seq: 1, #new-token: 2688, #cached-token: 0, token usage: 0.07, #running-req: 15, #queue-req: 0, 
+[2026-11-19 07:02:17] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 87.54, #queue-req: 0, 
+[2026-11-19 07:02:17] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3779.73, #queue-req: 0, 
+[2026-11-19 07:02:17] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3788.25, #queue-req: 0, 
+[2026-11-19 07:02:18] INFO:     127.0.0.1:53312 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:18] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:18] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 682.16, #queue-req: 0, 
+[2026-11-19 07:02:18] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 277.43, #queue-req: 0, 
+[2026-11-19 07:02:18] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 276.69, #queue-req: 0, 
+[2026-11-19 07:02:18] Decode batch. #running-req: 1, #token: 3584, token usage: 0.00, gen throughput (token/s): 276.85, #queue-req: 0, 
+[2026-11-19 07:02:18] INFO:     127.0.0.1:53312 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:18] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:19] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 99.86, #queue-req: 0, 
+[2026-11-19 07:02:19] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 272.72, #queue-req: 0, 
+[2026-11-19 07:02:19] Decode batch. #running-req: 1, #token: 3584, token usage: 0.00, gen throughput (token/s): 273.71, #queue-req: 0, 
+[2026-11-19 07:02:19] INFO:     127.0.0.1:53312 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:19] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:19] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 99.90, #queue-req: 0, 
+[2026-11-19 07:02:19] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 273.23, #queue-req: 0, 
+[2026-11-19 07:02:20] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 273.04, #queue-req: 0, 
+[2026-11-19 07:02:20] INFO:     127.0.0.1:53312 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:20] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:20] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 95.49, #queue-req: 0, 
+[2026-11-19 07:02:20] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 272.70, #queue-req: 0, 
+[2026-11-19 07:02:20] Decode batch. #running-req: 1, #token: 3456, token usage: 0.00, gen throughput (token/s): 284.71, #queue-req: 0, 
+[2026-11-19 07:02:22] INFO:     127.0.0.1:53320 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:22] INFO:     127.0.0.1:53334 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:22] INFO:     127.0.0.1:53342 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:22] INFO:     127.0.0.1:53356 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:22] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:22] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 1, 
+[2026-11-19 07:02:22] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:02:23] Prefill batch. #new-seq: 1, #new-token: 2176, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 0, 
+[2026-11-19 07:02:23] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 26.05, #queue-req: 0, 
+[2026-11-19 07:02:23] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1076.32, #queue-req: 0, 
+[2026-11-19 07:02:23] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1079.14, #queue-req: 0, 
+[2026-11-19 07:02:23] INFO:     127.0.0.1:53320 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:23] INFO:     127.0.0.1:53334 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:23] INFO:     127.0.0.1:53356 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:23] INFO:     127.0.0.1:53342 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:24] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:24] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 1, 
+[2026-11-19 07:02:24] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:02:24] Prefill batch. #new-seq: 1, #new-token: 2176, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 0, 
+[2026-11-19 07:02:24] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 173.14, #queue-req: 0, 
+[2026-11-19 07:02:24] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1082.99, #queue-req: 0, 
+[2026-11-19 07:02:24] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1084.74, #queue-req: 0, 
+[2026-11-19 07:02:25] Decode batch. #running-req: 4, #token: 14336, token usage: 0.02, gen throughput (token/s): 1083.44, #queue-req: 0, 
+[2026-11-19 07:02:25] INFO:     127.0.0.1:53320 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:25] INFO:     127.0.0.1:53334 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:25] INFO:     127.0.0.1:53342 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:25] INFO:     127.0.0.1:53356 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:25] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:25] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 1, 
+[2026-11-19 07:02:25] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:02:25] Prefill batch. #new-seq: 1, #new-token: 2176, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 0, 
+[2026-11-19 07:02:26] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 172.88, #queue-req: 0, 
+[2026-11-19 07:02:26] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1085.69, #queue-req: 0, 
+[2026-11-19 07:02:26] Decode batch. #running-req: 4, #token: 14336, token usage: 0.02, gen throughput (token/s): 1069.46, #queue-req: 0, 
+[2026-11-19 07:02:26] INFO:     127.0.0.1:53320 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:26] INFO:     127.0.0.1:53334 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:26] INFO:     127.0.0.1:53356 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:26] INFO:     127.0.0.1:53342 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:26] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:26] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 1, 
+[2026-11-19 07:02:26] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 0, 
+[2026-11-19 07:02:26] Prefill batch. #new-seq: 1, #new-token: 2176, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 0, 
+[2026-11-19 07:02:27] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 172.50, #queue-req: 0, 
+[2026-11-19 07:02:27] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1085.31, #queue-req: 0, 
+[2026-11-19 07:02:27] Decode batch. #running-req: 4, #token: 13824, token usage: 0.02, gen throughput (token/s): 1137.64, #queue-req: 0, 
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45202 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45210 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45220 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45222 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45228 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45242 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45246 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] INFO:     127.0.0.1:45260 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:31] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:31] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 5, 
+[2026-11-19 07:02:31] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 4, 
+[2026-11-19 07:02:31] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 3, 
+[2026-11-19 07:02:31] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 2, 
+[2026-11-19 07:02:32] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 1, 
+[2026-11-19 07:02:32] Prefill batch. #new-seq: 2, #new-token: 3712, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 0, 
+[2026-11-19 07:02:32] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 41.70, #queue-req: 0, 
+[2026-11-19 07:02:32] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2129.13, #queue-req: 0, 
+[2026-11-19 07:02:32] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2120.20, #queue-req: 0, 
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45202 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45228 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45260 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45210 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45220 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45222 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45246 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] INFO:     127.0.0.1:45242 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:33] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:33] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 5, 
+[2026-11-19 07:02:33] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 4, 
+[2026-11-19 07:02:33] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 3, 
+[2026-11-19 07:02:33] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 2, 
+[2026-11-19 07:02:33] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 1, 
+[2026-11-19 07:02:34] Prefill batch. #new-seq: 2, #new-token: 3712, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 0, 
+[2026-11-19 07:02:34] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 206.50, #queue-req: 0, 
+[2026-11-19 07:02:34] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2092.03, #queue-req: 0, 
+[2026-11-19 07:02:34] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2116.42, #queue-req: 0, 
+[2026-11-19 07:02:34] Decode batch. #running-req: 8, #token: 28672, token usage: 0.04, gen throughput (token/s): 2117.64, #queue-req: 0, 
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45202 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45228 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45260 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45242 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45220 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45210 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45246 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] INFO:     127.0.0.1:45222 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:34] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:35] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 5, 
+[2026-11-19 07:02:35] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 4, 
+[2026-11-19 07:02:35] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 3, 
+[2026-11-19 07:02:35] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 2, 
+[2026-11-19 07:02:35] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 1, 
+[2026-11-19 07:02:35] Prefill batch. #new-seq: 2, #new-token: 3712, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 0, 
+[2026-11-19 07:02:36] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 205.44, #queue-req: 0, 
+[2026-11-19 07:02:36] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2075.08, #queue-req: 0, 
+[2026-11-19 07:02:36] Decode batch. #running-req: 8, #token: 28672, token usage: 0.04, gen throughput (token/s): 2115.70, #queue-req: 0, 
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45202 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45228 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45260 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45210 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45220 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45222 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45246 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] INFO:     127.0.0.1:45242 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:36] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:37] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 5, 
+[2026-11-19 07:02:37] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 4, 
+[2026-11-19 07:02:37] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 3, 
+[2026-11-19 07:02:37] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 2, 
+[2026-11-19 07:02:37] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 1, 
+[2026-11-19 07:02:37] Prefill batch. #new-seq: 2, #new-token: 3712, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 0, 
+[2026-11-19 07:02:38] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 206.49, #queue-req: 0, 
+[2026-11-19 07:02:38] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2117.28, #queue-req: 0, 
+[2026-11-19 07:02:38] Decode batch. #running-req: 8, #token: 27648, token usage: 0.04, gen throughput (token/s): 2117.92, #queue-req: 0, 
+[2026-11-19 07:02:45] INFO:     127.0.0.1:45996 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46012 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46014 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46028 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46038 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46050 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46052 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46058 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46064 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46068 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46078 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46092 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46108 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46118 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] INFO:     127.0.0.1:46138 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:45] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:46] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 6, 
+[2026-11-19 07:02:46] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 6, 
+[2026-11-19 07:02:46] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 11, 
+[2026-11-19 07:02:46] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 10, 
+[2026-11-19 07:02:46] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 9, 
+[2026-11-19 07:02:46] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 7, 
+[2026-11-19 07:02:46] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 8, #queue-req: 6, 
+[2026-11-19 07:02:47] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 9, #queue-req: 5, 
+[2026-11-19 07:02:47] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 10, #queue-req: 4, 
+[2026-11-19 07:02:47] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 11, #queue-req: 3, 
+[2026-11-19 07:02:47] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 12, #queue-req: 1, 
+[2026-11-19 07:02:47] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 14, #queue-req: 0, 
+[2026-11-19 07:02:48] Prefill batch. #new-seq: 1, #new-token: 2688, #cached-token: 0, token usage: 0.07, #running-req: 15, #queue-req: 0, 
+[2026-11-19 07:02:48] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 46.25, #queue-req: 0, 
+[2026-11-19 07:02:48] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3772.94, #queue-req: 0, 
+[2026-11-19 07:02:48] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3743.95, #queue-req: 0, 
+[2026-11-19 07:02:48] INFO:     127.0.0.1:45996 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46052 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46058 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46092 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46108 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46050 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46038 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46028 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46064 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46078 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46068 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46118 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46138 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46012 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] INFO:     127.0.0.1:46014 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:48] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:49] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 7, 
+[2026-11-19 07:02:49] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 7, 
+[2026-11-19 07:02:49] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 11, 
+[2026-11-19 07:02:49] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 10, 
+[2026-11-19 07:02:49] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 9, 
+[2026-11-19 07:02:49] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 7, 
+[2026-11-19 07:02:50] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 8, #queue-req: 6, 
+[2026-11-19 07:02:50] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 9, #queue-req: 5, 
+[2026-11-19 07:02:50] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 10, #queue-req: 4, 
+[2026-11-19 07:02:50] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 11, #queue-req: 3, 
+[2026-11-19 07:02:50] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 12, #queue-req: 1, 
+[2026-11-19 07:02:50] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 14, #queue-req: 0, 
+[2026-11-19 07:02:51] Prefill batch. #new-seq: 1, #new-token: 2688, #cached-token: 0, token usage: 0.07, #running-req: 15, #queue-req: 0, 
+[2026-11-19 07:02:51] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 228.57, #queue-req: 0, 
+[2026-11-19 07:02:51] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3777.73, #queue-req: 0, 
+[2026-11-19 07:02:51] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3755.02, #queue-req: 0, 
+[2026-11-19 07:02:51] INFO:     127.0.0.1:45996 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46052 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46092 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46058 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46108 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46050 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46038 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46028 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46064 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46078 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:51] INFO:     127.0.0.1:46134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:52] INFO:     127.0.0.1:46118 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:52] INFO:     127.0.0.1:46138 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:52] INFO:     127.0.0.1:46068 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:52] INFO:     127.0.0.1:46012 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:52] INFO:     127.0.0.1:46014 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:52] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:52] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 7, 
+[2026-11-19 07:02:52] Decode batch. #running-req: 1, #token: 7552, token usage: 0.01, gen throughput (token/s): 1015.36, #queue-req: 7, 
+[2026-11-19 07:02:52] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 7, 
+[2026-11-19 07:02:52] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 11, 
+[2026-11-19 07:02:52] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 10, 
+[2026-11-19 07:02:52] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 9, 
+[2026-11-19 07:02:53] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 7, 
+[2026-11-19 07:02:53] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 8, #queue-req: 6, 
+[2026-11-19 07:02:53] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 9, #queue-req: 5, 
+[2026-11-19 07:02:53] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 10, #queue-req: 4, 
+[2026-11-19 07:02:53] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 11, #queue-req: 3, 
+[2026-11-19 07:02:53] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 12, #queue-req: 1, 
+[2026-11-19 07:02:54] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 14, #queue-req: 0, 
+[2026-11-19 07:02:54] Prefill batch. #new-seq: 1, #new-token: 2688, #cached-token: 0, token usage: 0.07, #running-req: 15, #queue-req: 0, 
+[2026-11-19 07:02:54] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 278.88, #queue-req: 0, 
+[2026-11-19 07:02:54] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3765.71, #queue-req: 0, 
+[2026-11-19 07:02:55] Decode batch. #running-req: 16, #token: 57344, token usage: 0.07, gen throughput (token/s): 3745.93, #queue-req: 0, 
+[2026-11-19 07:02:55] INFO:     127.0.0.1:45996 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46052 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46092 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46058 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46108 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46050 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46038 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46028 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46064 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46078 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46068 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46118 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46138 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46134 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46012 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] INFO:     127.0.0.1:46014 - "POST /generate HTTP/1.1" 200 OK
+[2026-11-19 07:02:55] Prefill batch. #new-seq: 1, #new-token: 3456, #cached-token: 0, token usage: 0.00, #running-req: 0, #queue-req: 0, 
+[2026-11-19 07:02:55] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.00, #running-req: 1, #queue-req: 7, 
+[2026-11-19 07:02:55] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 2, #queue-req: 6, 
+[2026-11-19 07:02:55] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.01, #running-req: 3, #queue-req: 11, 
+[2026-11-19 07:02:55] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.02, #running-req: 4, #queue-req: 10, 
+[2026-11-19 07:02:56] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 5, #queue-req: 9, 
+[2026-11-19 07:02:56] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.03, #running-req: 6, #queue-req: 7, 
+[2026-11-19 07:02:56] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 8, #queue-req: 6, 
+[2026-11-19 07:02:56] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.04, #running-req: 9, #queue-req: 5, 
+[2026-11-19 07:02:56] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 10, #queue-req: 4, 
+[2026-11-19 07:02:56] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.05, #running-req: 11, #queue-req: 3, 
+[2026-11-19 07:02:57] Prefill batch. #new-seq: 3, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 12, #queue-req: 1, 
+[2026-11-19 07:02:57] Prefill batch. #new-seq: 2, #new-token: 4096, #cached-token: 0, token usage: 0.06, #running-req: 14, #queue-req: 0, 
+[2026-11-19 07:02:57] Prefill batch. #new-seq: 1, #new-token: 2688, #cached-token: 0, token usage: 0.07, #running-req: 15, #queue-req: 0, 
+[2026-11-19 07:02:57] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 228.21, #queue-req: 0, 
+[2026-11-19 07:02:57] Decode batch. #running-req: 16, #token: 55296, token usage: 0.07, gen throughput (token/s): 3778.64, #queue-req: 0, 
+[2026-11-19 07:02:58] Decode batch. #running-req: 16, #token: 57344, token usage: 0.07, gen throughput (token/s): 3755.49, #queue-req: 0, 
+[2026-11-19 07:02:59] SIGTERM received. signum=None frame=None. Draining requests and shutting down...
+[2026-11-19 07:03:01] Gracefully exiting... remaining number of requests 0
+[2026-11-19 07:03:01] Dumping requests before crash. crash_dump_folder=None

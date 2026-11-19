@@ -74,8 +74,71 @@ Same harness as the main study (4 sessions/level x 6 turns, 600-word system prom
 | GLM-4-9B-0414 | 1 | 61 | 38.8 / 42.4 | 15.7 | 981 |
 | GLM-4-9B-0414 | 16 | 739 | 49.2 / 89.8 | 20.4 | 1,041 |
 
-Full tables (c=1,4,8,16): `results/ports/<model>/bench/`. The VLM and audio ports were checked for
-correctness only (agentbench is text-only).
+Full tables (c=1,4,8,16): `results/ports/<model>/bench/`.
+
+### 4. Multimodal load: InternVL 3 and Qwen2-Audio, v6e-1 (`results/ports/bench_mm.py`)
+Each request carries a unique image or clip (no encoder-cache hits) and streams 128 output tokens
+(`ignore_eos`). TTFT includes host preprocessing, the encoder and prefill. Every concurrency level is
+warmed before measuring. 0 errors on every row.
+
+InternVL3-2B-hf, 896x672 PNG (13 crops, 3,328 image tokens per request), `--chunked-prefill-size 4096`:
+
+| c | out tok/s | TTFT p50 / p99 ms | ITL p50 ms | E2E p50 ms |
+|---|---|---|---|---|
+| 1 | 177 | 258 / 275 | 3.7 | 723 |
+| 4 | 415 | 717 / 783 | 4.5 | 1,229 |
+| 8 | 550 | 1,053 / 1,412 | 6.7 | 1,845 |
+| 16 | 654 | 1,639 / 2,573 | 12.0 | 3,102 |
+
+Qwen2-Audio-7B-Instruct, 10 s WAV (250 audio tokens per request):
+
+| c | out tok/s | TTFT p50 / p99 ms | ITL p50 ms | E2E p50 ms |
+|---|---|---|---|---|
+| 1 | 72 | 129 / 129 | 13.0 | 1,783 |
+| 4 | 206 | 445 / 1,641 | 14.5 | 2,188 |
+| 8 | 410 | 641 / 708 | 14.4 | 2,518 |
+
+`*-mmbench-cold/` holds the first pass, which warmed only c=2. It shows XLA compile stalls when a
+new batch shape first appears (52 s TTFT p99 at c=4 for InternVL, 28 s at c=8 for audio). Warm
+every shape you plan to serve.
+
+### 5. GPU reference: upstream SGLang v0.5.2 on Modal A100-80GB (`modal/gpu_ports.py`)
+Same workloads and the same client. This compares engines and hardware, not only hardware.
+
+GLM-4-9B-0414, agentbench, radix cache on:
+
+| c | A100 out tok/s | v6e-1 out tok/s | A100 TTFT p50 / p99 | v6e-1 TTFT p50 / p99 | A100 ITL p50 | v6e-1 ITL p50 |
+|---|---|---|---|---|---|---|
+| 1 | 73 | 61 | 48 / 57 | 39 / 42 | 12.8 | 15.7 |
+| 4 | 230 | 202 | 56 / 97 | 48 / 68 | 14.7 | 17.0 |
+| 8 | 430 | 404 | 69 / 127 | 49 / 70 | 16.6 | 18.1 |
+| 16 | 745 | 739 | 74 / 143 | 49 / 90 | 20.1 | 20.4 |
+
+At c=16 throughput is about equal (745 vs 739 tok/s), and v6e-1 has the lower TTFT tail.
+On-demand prices: A100-80GB $2.50/h, v6e $2.70/chip-h.
+
+InternVL3-2B-hf on A100: SGLang v0.5.2 fails CUDA-graph capture for this model
+(`internvl3-a100-cudagraph-fail/`), so it ran with `--disable-cuda-graph`. That inflates ITL
+(31 ms vs 3.7 ms on v6e-1), so it is not a fair throughput comparison. TTFT with the vision
+encode was 84 / 89 ms (c=1) and 153 / 289 ms (c=16) on the A100, vs 258 / 275 and 1,639 / 2,573 ms
+on v6e-1. The sgl_jax InternViT encoder is unoptimized (plain `dot_product_attention` per crop),
+which is the clearest next optimization.
+
+## Upstream status (sgl-project/sglang-jax)
+- **Gemma 3 text**: existing PR #1100 (hashkanna). No competing PR. A factual comment with TPU
+  parity numbers and the single-KV-head reshape sharding bug is drafted in
+  `results/ports/upstream/pr1100_comment.md`. It is **not posted**: the automated permission
+  check blocked posting from this session, so it needs the user to post it or approve.
+  #1100 already has linear RoPE scaling.
+- **GLM-4 dense, InternVL 3, Qwen2-Audio**: no existing PRs or issues found. Branches are on the
+  current upstream main (`b3e3e16`), lint-clean, and PR titles and bodies are ready in
+  `results/ports/upstream/pr_*.md`. **Not opened**, waiting for confirmation.
+- **Llama3RotaryEmbedding** (`_compute_inv_freq` overridden but `_inv_freq_np` used, so Llama 3 RoPE
+  scaling is not applied): already fixed in open PR #1767, so no separate PR.
+- **Gemma 3 vision**: design note only, on branch `add-gemma3-vision`
+  (`docs/design/gemma3_vision.md`). It needs bidirectional image-token attention in the LM: a custom
+  mask in FA for extend batches, combined with sliding window, plus image-aligned chunked prefill.
+  No PR.
 
 ## Bugs found by the TPU run (fixed, kept as evidence)
 - `gemma3-1b-crash-before-fix/`: with a single KV head, the q/k/v reshape under explicit mesh axes
@@ -96,4 +159,5 @@ correctness only (agentbench is text-only).
   `kitrakrev/sglang-jax` plus CPU torch, torchvision, soundfile, then
   `bash results/ports/vm_validate.sh [gemma3-1b gemma3-4b glm4 internvl3 qwen2-audio]`.
   Gemma uses the ungated `unsloth/gemma-3-*-it` mirrors.
-- Cost: one spot v6e-1 in europe-west4-a for about 50 min (about $1 to $2.30 at the on-demand ceiling). The VM was deleted afterwards.
+- Cost: parity run, spot v6e-1 for about 50 min. Multimodal metrics, spot v6e-1 for about 37 min. Modal A100 for about 45 min.
+  Total about $2.5 to $6 (spot to on-demand ceiling). All VMs and Modal apps are deleted or stopped.
