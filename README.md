@@ -53,3 +53,5 @@ Smoke test only: the c=8 run was the first after server start (no warmup, 21 s p
 - [x] Pin v6e launch command + configs (scripts/launch_v6e.sh), sweep report, runbook
 - [ ] v6e-1 8B baseline, prefix cache on vs off
 - [ ] v6e-8 70B results + write-up
+
+**Write-up:** https://kitrakrev.github.io/projects/sglang-tpu-agent-serving/

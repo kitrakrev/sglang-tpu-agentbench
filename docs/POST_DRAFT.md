@@ -26,7 +26,7 @@ All three hit ~73% of HBM roofline at c=1, so the gap is mostly memory bandwidth
 
 Whole study: ~$14 TPU + ~$2 GPU, fully reproducible (REPRODUCE.md).
 
-Open harness (any OpenAI-compatible server): <repo link once public>
-Write-up: <link>
+Open harness (any OpenAI-compatible server): https://github.com/kitrakrev/sglang-tpu-agentbench
+Write-up: https://kitrakrev.github.io/projects/sglang-tpu-agent-serving/
 
 #TorchTPUSprint #SGLang #TPU
