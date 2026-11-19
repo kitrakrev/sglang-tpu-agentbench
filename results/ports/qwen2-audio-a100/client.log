@@ -1,0 +1,5 @@
+{"concurrency": 1, "requests": 4, "errors": 0, "output_tok_per_s": 93.27, "requests_per_s": 0.729, "ttft_p50_ms": 79.1, "ttft_p99_ms": 80.2, "itl_p50_ms": 10.18, "e2e_p50_ms": 1371.9, "first_error": null}
+{"concurrency": 4, "requests": 16, "errors": 0, "output_tok_per_s": 329.01, "requests_per_s": 2.57, "ttft_p50_ms": 202.1, "ttft_p99_ms": 227.4, "itl_p50_ms": 10.63, "e2e_p50_ms": 1552.3, "first_error": null}
+{"concurrency": 8, "requests": 32, "errors": 0, "output_tok_per_s": 563.66, "requests_per_s": 4.404, "ttft_p50_ms": 357.8, "ttft_p99_ms": 502.7, "itl_p50_ms": 11.36, "e2e_p50_ms": 1782.7, "first_error": null}
+/usr/local/lib/python3.12/dist-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]

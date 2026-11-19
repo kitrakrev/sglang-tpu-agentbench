@@ -1,0 +1,57 @@
+{
+ "model": "OpenGVLab/InternVL3-2B-hf",
+ "kind": "vlm",
+ "max_tokens": 128,
+ "image_size": "896x672",
+ "clip_seconds": null,
+ "rows": [
+  {
+   "concurrency": 1,
+   "requests": 4,
+   "errors": 0,
+   "output_tok_per_s": 62.86,
+   "requests_per_s": 0.491,
+   "ttft_p50_ms": 45.7,
+   "ttft_p99_ms": 48.1,
+   "itl_p50_ms": 15.63,
+   "e2e_p50_ms": 2046.3,
+   "first_error": null
+  },
+  {
+   "concurrency": 4,
+   "requests": 16,
+   "errors": 0,
+   "output_tok_per_s": 246.15,
+   "requests_per_s": 1.923,
+   "ttft_p50_ms": 63.4,
+   "ttft_p99_ms": 97.5,
+   "itl_p50_ms": 15.8,
+   "e2e_p50_ms": 2084.9,
+   "first_error": null
+  },
+  {
+   "concurrency": 8,
+   "requests": 32,
+   "errors": 0,
+   "output_tok_per_s": 479.96,
+   "requests_per_s": 3.75,
+   "ttft_p50_ms": 66.0,
+   "ttft_p99_ms": 119.5,
+   "itl_p50_ms": 16.17,
+   "e2e_p50_ms": 2116.0,
+   "first_error": null
+  },
+  {
+   "concurrency": 16,
+   "requests": 64,
+   "errors": 0,
+   "output_tok_per_s": 946.53,
+   "requests_per_s": 7.395,
+   "ttft_p50_ms": 74.1,
+   "ttft_p99_ms": 175.2,
+   "itl_p50_ms": 16.13,
+   "e2e_p50_ms": 2133.5,
+   "first_error": null
+  }
+ ]
+}

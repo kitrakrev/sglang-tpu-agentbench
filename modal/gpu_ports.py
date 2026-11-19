@@ -27,13 +27,25 @@ image = (
 app = modal.App("agentbench-gpu-ports", image=image)
 
 RUNS = {
+    "gemma3-1b": dict(model="unsloth/gemma-3-1b-it", kind="text", conc="1,4,8,16", chunk="2048", extra=[]),
+    "gemma3-4b": dict(model="unsloth/gemma-3-4b-it", kind="text", conc="1,4,8,16", chunk="2048", extra=[]),
     "glm4": dict(model="zai-org/GLM-4-9B-0414", kind="text", conc="1,4,8,16", chunk="2048", extra=[]),
-    "internvl3": dict(model="OpenGVLab/InternVL3-2B-hf", kind="vlm", conc="1,4,8,16", chunk="4096",
-                      extra=["--disable-cuda-graph"]),  # v0.5.2: CUDA graph capture fails for this model
+    "internvl3": dict(model="OpenGVLab/InternVL3-2B-hf", kind="vlm", conc="1,4,8,16", chunk="4096", extra=[]),
+    "qwen2-audio": dict(model="Qwen/Qwen2-Audio-7B-Instruct", kind="audio", conc="1,4,8", chunk="4096", extra=[]),
 }
 
 
 def _serve_and_bench(key: str) -> dict:
+    out = _serve_and_bench_once(key, [])
+    if "error" in out:  # e.g. v0.5.2 CUDA-graph capture failure (InternVL3-hf)
+        retry = _serve_and_bench_once(key, ["--disable-cuda-graph"])
+        retry["first_attempt_server.log"] = out.get(f"logs/server-{key}.log", "")
+        retry["note.txt"] = "server failed with CUDA graphs; this run uses --disable-cuda-graph"
+        return retry
+    return out
+
+
+def _serve_and_bench_once(key: str, more: list) -> dict:
     import subprocess
     import time
     import urllib.request
@@ -48,7 +60,7 @@ def _serve_and_bench(key: str) -> dict:
     cmd = ["python", "-m", "sglang.launch_server", "--model-path", cfg["model"], "--port", "30000",
            "--tp", "1", "--dtype", "bfloat16", "--mem-fraction-static", "0.8", "--trust-remote-code",
            "--chunked-prefill-size", cfg["chunk"], "--max-running-requests", "64", "--enable-cache-report",
-           *cfg["extra"]]
+           *cfg["extra"], *more]
     proc = subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT)
     t0 = time.time()
     while True:
@@ -89,13 +101,26 @@ def bench_a100(key: str) -> dict:
     return _serve_and_bench(key)
 
 
+@app.function(gpu="H100", volumes={"/hf": hf_vol}, timeout=60 * 60)
+def bench_h100(key: str) -> dict:
+    return _serve_and_bench(key)
+
+
 @app.local_entrypoint()
-def main(keys: str = "glm4,internvl3"):
-    for key in keys.split(","):
-        files = bench_a100.remote(key)
-        root = REPO / "results" / "ports" / f"{key}-a100"
+def main(keys: str = "gemma3-1b,gemma3-4b,glm4,internvl3,qwen2-audio", gpus: str = "a100,h100"):
+    jobs = []
+    for gpu in gpus.split(","):
+        fn = {"a100": bench_a100, "h100": bench_h100}[gpu]
+        for key in keys.split(","):
+            jobs.append((key, gpu, fn.spawn(key)))
+    for key, gpu, call in jobs:
+        try:
+            files = call.get()
+        except Exception as e:  # keep the other jobs' results
+            files = {"error": f"{type(e).__name__}: {e}"}
+        root = REPO / "results" / "ports" / f"{key}-{gpu}"
         for k, v in files.items():
             path = root / k
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(v)
-        print(f"{key}: wrote {len(files)} files to {root}")
+        print(f"{key}-{gpu}: wrote {len(files)} files to {root}")

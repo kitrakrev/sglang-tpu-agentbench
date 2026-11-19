@@ -102,27 +102,113 @@ Qwen2-Audio-7B-Instruct, 10 s WAV (250 audio tokens per request):
 new batch shape first appears (52 s TTFT p99 at c=4 for InternVL, 28 s at c=8 for audio). Warm
 every shape you plan to serve.
 
-### 5. GPU reference: upstream SGLang v0.5.2 on Modal A100-80GB (`modal/gpu_ports.py`)
-Same workloads and the same client. This compares engines and hardware, not only hardware.
+### 5. TPU v6e-1 (sgl_jax ports) vs GPU (upstream SGLang v0.5.2), all four ports
+Same client and workloads as above: agentbench for the text models, `bench_mm.py` for image and
+audio, with the same concurrencies. GPUs are Modal on-demand, one GPU each (`modal/gpu_ports.py`).
+GPU device is from `nvidia-smi`. $/1M output tokens use on-demand list prices: v6e $2.70/chip-h,
+A100-80GB $2.50/h, H100 $3.95/h. This compares engines as well as hardware: sgl_jax with these new
+ports vs mature SGLang CUDA kernels.
 
-GLM-4-9B-0414, agentbench, radix cache on:
+#### gemma-3-1b-it (text)
 
-| c | A100 out tok/s | v6e-1 out tok/s | A100 TTFT p50 / p99 | v6e-1 TTFT p50 / p99 | A100 ITL p50 | v6e-1 ITL p50 |
+| c | device | out tok/s | TTFT p50 / p99 ms | ITL p50 ms | $/1M out | errors |
 |---|---|---|---|---|---|---|
-| 1 | 73 | 61 | 48 / 57 | 39 / 42 | 12.8 | 15.7 |
-| 4 | 230 | 202 | 56 / 97 | 48 / 68 | 14.7 | 17.0 |
-| 8 | 430 | 404 | 69 / 127 | 49 / 70 | 16.6 | 18.1 |
-| 16 | 745 | 739 | 74 / 143 | 49 / 90 | 20.1 | 20.4 |
+| 1 | v6e-1 | 280 | 15 / 19 | 3.3 | 2.67 | 0 |
+| 1 | A100 | 115 | 45 / 51 | 6.6 | 6.03 | 0 |
+| 1 | H100 | 123 | 59 / 71 | 5.4 | 8.94 | 0 |
+| 4 | v6e-1 | 989 | 16 / 23 | 3.7 | 0.76 | 0 |
+| 4 | A100 | 310 | 88 / 123 | 7.3 | 2.24 | 0 |
+| 4 | H100 | 308 | 145 / 261 | 5.9 | 3.56 | 0 |
+| 8 | v6e-1 | 1,519 | 17 / 32 | 4.3 | 0.49 | 0 |
+| 8 | A100 | 546 | 90 / 133 | 7.4 | 1.27 | 0 |
+| 8 | H100 | 495 | 168 / 236 | 5.9 | 2.22 | 0 |
+| 16 | v6e-1 | 2,820 | 20 / 55 | 5.0 | 0.27 | 0 |
+| 16 | A100 | 854 | 124 / 319 | 8.0 | 0.81 | 0 |
+| 16 | H100 | 928 | 166 / 622 | 6.2 | 1.18 | 0 |
 
-At c=16 throughput is about equal (745 vs 739 tok/s), and v6e-1 has the lower TTFT tail.
-On-demand prices: A100-80GB $2.50/h, v6e $2.70/chip-h.
+#### gemma-3-4b-it (text)
 
-InternVL3-2B-hf on A100: SGLang v0.5.2 fails CUDA-graph capture for this model
-(`internvl3-a100-cudagraph-fail/`), so it ran with `--disable-cuda-graph`. That inflates ITL
-(31 ms vs 3.7 ms on v6e-1), so it is not a fair throughput comparison. TTFT with the vision
-encode was 84 / 89 ms (c=1) and 153 / 289 ms (c=16) on the A100, vs 258 / 275 and 1,639 / 2,573 ms
-on v6e-1. The sgl_jax InternViT encoder is unoptimized (plain `dot_product_attention` per crop),
-which is the clearest next optimization.
+| c | device | out tok/s | TTFT p50 / p99 ms | ITL p50 ms | $/1M out | errors |
+|---|---|---|---|---|---|---|
+| 1 | v6e-1 | 134 | 21 / 23 | 7.2 | 5.59 | 0 |
+| 1 | A100 | 71 | 84 / 90 | 12.8 | 9.80 | 0 |
+| 1 | H100 | 100 | 63 / 69 | 9.2 | 11.03 | 0 |
+| 4 | v6e-1 | 466 | 24 / 32 | 8.0 | 1.61 | 0 |
+| 4 | A100 | 214 | 95 / 172 | 16.6 | 3.25 | 0 |
+| 4 | H100 | 315 | 62 / 163 | 11.7 | 3.48 | 0 |
+| 8 | v6e-1 | 810 | 25 / 40 | 9.3 | 0.93 | 0 |
+| 8 | A100 | 347 | 107 / 232 | 21.0 | 2.00 | 0 |
+| 8 | H100 | 504 | 63 / 170 | 14.4 | 2.18 | 0 |
+| 16 | v6e-1 | 1,321 | 27 / 59 | 11.5 | 0.57 | 0 |
+| 16 | A100 | 532 | 143 / 222 | 27.5 | 1.30 | 0 |
+| 16 | H100 | 741 | 104 / 192 | 19.9 | 1.48 | 0 |
+
+#### GLM-4-9B-0414 (text)
+
+| c | device | out tok/s | TTFT p50 / p99 ms | ITL p50 ms | $/1M out | errors |
+|---|---|---|---|---|---|---|
+| 1 | v6e-1 | 61 | 39 / 42 | 15.7 | 12.24 | 0 |
+| 1 | A100 | 74 | 41 / 53 | 12.9 | 9.43 | 0 |
+| 1 | H100 | 120 | 42 / 53 | 7.6 | 9.15 | 0 |
+| 4 | v6e-1 | 202 | 48 / 68 | 17.0 | 3.71 | 0 |
+| 4 | A100 | 240 | 51 / 74 | 14.3 | 2.90 | 0 |
+| 4 | H100 | 335 | 52 / 83 | 9.8 | 3.28 | 0 |
+| 8 | v6e-1 | 404 | 49 / 70 | 18.1 | 1.86 | 0 |
+| 8 | A100 | 459 | 51 / 78 | 15.7 | 1.51 | 0 |
+| 8 | H100 | 643 | 54 / 114 | 11.3 | 1.71 | 0 |
+| 16 | v6e-1 | 739 | 49 / 90 | 20.4 | 1.02 | 0 |
+| 16 | A100 | 800 | 57 / 116 | 18.4 | 0.87 | 0 |
+| 16 | H100 | 1,057 | 66 / 106 | 13.7 | 1.04 | 0 |
+
+#### InternVL3-2B-hf (896x672 image, 3,328 image tokens)
+
+| c | device | out tok/s | TTFT p50 / p99 ms | ITL p50 ms | $/1M out | errors |
+|---|---|---|---|---|---|---|
+| 1 | v6e-1 | 177 | 258 / 275 | 3.6 | 4.24 | 0 |
+| 1 | A100 | 36 | 73 / 131 | 26.6 | 19.10 | 0 |
+| 1 | H100 | 63 | 46 / 48 | 15.6 | 17.46 | 0 |
+| 4 | v6e-1 | 415 | 717 / 782 | 4.5 | 1.81 | 0 |
+| 4 | A100 | 150 | 85 / 135 | 26.1 | 4.62 | 0 |
+| 4 | H100 | 246 | 63 / 98 | 15.8 | 4.46 | 0 |
+| 8 | v6e-1 | 550 | 1,053 / 1,412 | 6.7 | 1.36 | 0 |
+| 8 | A100 | 301 | 98 / 178 | 25.8 | 2.31 | 0 |
+| 8 | H100 | 480 | 66 / 120 | 16.2 | 2.29 | 0 |
+| 16 | v6e-1 | 654 | 1,639 / 2,573 | 11.9 | 1.15 | 0 |
+| 16 | A100 | 555 | 113 / 234 | 28.0 | 1.25 | 0 |
+| 16 | H100 | 947 | 74 / 175 | 16.1 | 1.16 | 0 |
+
+Notes: A100: server failed with CUDA graphs; this run uses --disable-cuda-graph; H100: ran on NVIDIA H200 (Modal upgraded the H100 request; priced as H100). server failed with CUDA graphs; this run uses --disable-cuda-graph
+
+#### Qwen2-Audio-7B-Instruct (10 s clip, 250 audio tokens)
+
+| c | device | out tok/s | TTFT p50 / p99 ms | ITL p50 ms | $/1M out | errors |
+|---|---|---|---|---|---|---|
+| 1 | v6e-1 | 72 | 129 / 129 | 13.0 | 10.44 | 0 |
+| 1 | A100 | 93 | 79 / 80 | 10.2 | 7.45 | 0 |
+| 1 | H100 | 148 | 70 / 70 | 6.2 | 7.40 | 0 |
+| 4 | v6e-1 | 206 | 445 / 1,641 | 14.5 | 3.64 | 0 |
+| 4 | A100 | 329 | 202 / 227 | 10.6 | 2.11 | 0 |
+| 4 | H100 | 500 | 170 / 180 | 6.7 | 2.19 | 0 |
+| 8 | v6e-1 | 410 | 641 / 708 | 14.4 | 1.83 | 0 |
+| 8 | A100 | 564 | 358 / 503 | 11.4 | 1.23 | 0 |
+| 8 | H100 | 870 | 270 / 307 | 7.1 | 1.26 | 0 |
+
+What the numbers say:
+- **Gemma 3 (1B, 4B)**: v6e-1 is ahead across the board, with 2.5 to 3x the A100 throughput,
+  3 to 6x lower TTFT, and the lowest $/1M (1B at c=16: $0.27 vs $0.81 A100 and $1.18 H100).
+  Upstream SGLang v0.5.2 Gemma 3 on GPU looks under-optimized. The 4B on GPU runs the full
+  `Gemma3ForConditionalGeneration` class on text-only prompts.
+- **GLM-4-9B**: H100 is fastest (1,057 tok/s at c=16, ITL 13.7 ms). A100 is slightly ahead of
+  v6e-1 on throughput. $/1M is nearly equal (c=16: v6e $1.02, A100 $0.87, H100 $1.04). v6e-1 has
+  the lowest TTFT p99 at c=8.
+- **InternVL3-2B**: on GPU, SGLang v0.5.2 fails CUDA-graph capture for this model, so both GPU
+  runs use `--disable-cuda-graph`. That inflates GPU ITL (16 to 28 ms vs 3.6 to 12 ms on v6e-1)
+  and understates GPU throughput. The "H100" run was placed on an **H200** (priced as H100 here).
+  The GPU is much faster to first token (46 to 113 ms vs 258 to 1,639 ms on v6e-1). The
+  sgl_jax vision encoder is unoptimized (plain `dot_product_attention` per crop), which is the
+  clearest next optimization for the port.
+- **Qwen2-Audio-7B**: GPUs lead (H100 870 tok/s at c=8 vs 410 on v6e-1; TTFT about half). $/1M
+  is $1.83 on v6e-1 vs $1.23 to $1.26 on GPU.
 
 ## Upstream status (sgl-project/sglang-jax)
 - **Gemma 3 text**: existing PR #1100 (hashkanna). No competing PR. A factual comment with TPU
@@ -159,5 +245,7 @@ which is the clearest next optimization.
   `kitrakrev/sglang-jax` plus CPU torch, torchvision, soundfile, then
   `bash results/ports/vm_validate.sh [gemma3-1b gemma3-4b glm4 internvl3 qwen2-audio]`.
   Gemma uses the ungated `unsloth/gemma-3-*-it` mirrors.
-- Cost: parity run, spot v6e-1 for about 50 min. Multimodal metrics, spot v6e-1 for about 37 min. Modal A100 for about 45 min.
-  Total about $2.5 to $6 (spot to on-demand ceiling). All VMs and Modal apps are deleted or stopped.
+- Cost: TPU spot v6e-1 for about 50 min (parity) and about 37 min (multimodal metrics), roughly
+  $1.5 to $4 (spot to on-demand ceiling). Modal: about 2.5 A100-hours and 1.2 H100/H200-hours,
+  roughly $10. Total about $12 to $14. All TPU VMs are deleted, and all `agentbench-gpu-ports`
+  Modal apps are stopped.
