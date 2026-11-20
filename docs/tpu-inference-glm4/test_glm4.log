@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/karthikraja/venv/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: /home/karthikraja/tpu-inference
+configfile: pyproject.toml
+plugins: mock-3.17.0, hypothesis-6.151.9, buildkite-test-collector-1.10.0, jaxtyping-0.3.11, platformdirs-4.14.8, anyio-4.16.0
+collecting ... collected 2 items
+
+tests/models/jax/test_glm4.py::TestGlm4ForCausalLM::test_init_and_load PASSED [ 50%]
+tests/models/jax/test_glm4.py::TestGlm4ForCausalLM::test_logits_match_hf PASSED [100%]buildkite-test-collector - WARNING - No BUILDKITE_ANALYTICS_TOKEN environment variable present
+
+
+============================== 2 passed in 26.79s ==============================

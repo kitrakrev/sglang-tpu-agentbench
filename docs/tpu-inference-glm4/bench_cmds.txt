@@ -1,0 +1,2 @@
+vllm bench serve --model zai-org/GLM-4-9B-0414 --dataset-name random --random-input-len 1024 --random-output-len 128 --num-prompts 16 --max-concurrency 1 --ignore-eos --percentile-metrics ttft,tpot,itl --metric-percentiles 50,99 --save-result --result-filename bench_c1.json
+vllm bench serve --model zai-org/GLM-4-9B-0414 --dataset-name random --random-input-len 1024 --random-output-len 128 --num-prompts 256 --max-concurrency 32 --ignore-eos --percentile-metrics ttft,tpot,itl --metric-percentiles 50,99 --save-result --result-filename bench_c32.json

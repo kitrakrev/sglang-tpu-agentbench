@@ -1,0 +1,30 @@
+[
+ [
+  "The capital of France is",
+  32,
+  0.07619714736938477,
+  " Paris. It is one of the most beautiful cities in the world. It is also a very large city. It has about 12 million inhabitants. Paris is",
+  " Paris. It is one of the most beautiful cities in the world. It is also a very large city. It has about 12 million inhabitants. Paris is"
+ ],
+ [
+  "Explain in one sentence why the sky is blue.",
+  20,
+  0.07089459896087646,
+  " The sky is blue because Earth's atmosphere scatters shorter wavelengths of sunlight, like blue light, more than longer wavelengths, like red light. This scattering effect causes",
+  " The sky is blue because Earth's atmosphere scatters shorter wavelengths of sunlight, like blue light, more effectively than longer wavelengths, like red light. This scattering effect"
+ ],
+ [
+  "def fibonacci(n):",
+  32,
+  0.1075754165649414,
+  " \n    if n < 0: \n        print(\"Incorrect input\") \n    elif n == 1: \n        return 0\n    elif n",
+  " \n    if n < 0: \n        print(\"Incorrect input\") \n    elif n == 1: \n        return 0\n    elif n"
+ ],
+ [
+  "Translate to German: The weather is nice today.",
+  32,
+  0.05752769112586975,
+  " Heute ist das Wetter sch\u00f6n. Is this correct?\n\nJa, das ist korrekt. \"Heute ist das Wetter sch\u00f6n.\" ist eine richtige und g\u00e4ng",
+  " Heute ist das Wetter sch\u00f6n. Is this correct?\n\nJa, das ist korrekt. \"Heute ist das Wetter sch\u00f6n.\" ist eine richtige und g\u00e4ng"
+ ]
+]

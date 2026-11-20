@@ -1,0 +1,1 @@
+vllm serve zai-org/GLM-4-9B-0414 --max-model-len 2048 --max-num-seqs 64 --port 8000
