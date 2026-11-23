@@ -1,0 +1,35 @@
+{
+ "model": "OpenGVLab/InternVL3-2B-hf",
+ "kind": "vlm",
+ "new_tokens": 32,
+ "note": "sgl_jax bf16 on TPU v6e-1 vs HF transformers fp32 on VM CPU",
+ "requests": [
+  {
+   "request": 0,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.059329867362976074,
+   "hf_text": "The image is a grid of squares, each filled with a different color. The colors transition smoothly from one to another, creating a gradient effect. The colors range",
+   "sgl_text": "The image is a grid of squares, each filled with a different color. The colors transition smoothly from one to another, creating a gradient effect. The colors range"
+  },
+  {
+   "request": 1,
+   "matched_prefix": 1,
+   "of": 6,
+   "first_divergence": 1,
+   "max_logprob_diff_on_prefix": 0.004447432234883308,
+   "hf_text": "The square is red.",
+   "sgl_text": "The color of the square is red."
+  },
+  {
+   "request": 2,
+   "matched_prefix": 32,
+   "of": 32,
+   "first_divergence": null,
+   "max_logprob_diff_on_prefix": 0.056006789207458496,
+   "hf_text": "The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with gas molecules and small particles. These",
+   "sgl_text": "The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with gas molecules and small particles. These"
+  }
+ ]
+}
